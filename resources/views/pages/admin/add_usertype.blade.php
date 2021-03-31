@@ -1,5 +1,5 @@
-@extends('layouts.masterAdmin')
-@section('title', 'add dept')
+@extends('layouts.admin')
+@section('title', 'Add usertype')
 @section('content')
 <div class="row">
     {{-- left column --}}

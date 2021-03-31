@@ -3,82 +3,80 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Staff;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    //
+    public function dashboard()
     {
         return view('pages.admin.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function add_user()
     {
-        //
+        return view('pages.admin.add_new_user');
+    }
+    public function view_user()
+    {
+        return view('pages.admin.view_user');
+    }
+    public function add_department()
+    {
+        return view('pages.admin.add_department');
+    }
+    public function view_department()
+    {
+        return view('pages.admin.view_department');
+    }
+    public function add_usertype()
+    {
+        return view('pages.admin.add_usertype');
+    }
+    public function view_usertype()
+    {
+        return view('pages.admin.view_usertype');
+    }
+    public function view_syslogs()
+    {
+        return view('pages.admin.view_syslogs');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    function create(Request $request)
     {
-        //
-    }
+        // checking if you gett all the data from the form
+        // return $request->input();
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+        //now validating a form
+        $request->validate([
+            'firstname' => 'required',
+            'secondname' => 'required',
+            'lastname' => 'required',
+            'username' => 'required | unique:staff',
+            'usertype' => 'required',
+            'department' => 'required',
+            'password' => 'required | min:4 | max:12',
+            'password2' => 'required | min:4 | max:12',
+        ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        //if form validated successfuly then add new user as staff
+        $staff = new Staff; //model to be used to add new staff
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $staff->firstname = $request->firstname;
+        $staff->secondname = $request->secondname;
+        $staff->lastname = $request->lastname;
+        $staff->username = $request->username;
+        $staff->usertype = $request->usertype;
+        $staff->department = $request->department;
+        $staff->password = Hash::make($request->password);
+
+        $query = $staff->save(); //save your data to the model
+
+        if ($query) {
+            return back()->with('success', 'New user added successfull');
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
     }
 }

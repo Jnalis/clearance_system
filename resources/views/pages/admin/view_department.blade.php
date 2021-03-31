@@ -1,5 +1,5 @@
-@extends('layouts.masterAdmin')
-@section('title', 'view dept')
+@extends('layouts.admin')
+@section('title', 'View Department')
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -9,7 +9,7 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>Department name</th>
