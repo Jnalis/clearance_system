@@ -7,20 +7,36 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+        <p>
+            <a href="{{ route('hod.allocatedResource.create') }}" class="btn btn-info">Issue Resource</a>
+            <a href="{{ route('hod.issuedResource.index') }}" class="btn btn-success">Issued Resource</a>
+            <a href="{{ route('hod.lostResource.index') }}" class="btn btn-danger">Lost Resource</a>
+        </p>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
+                    <th>ID</th>
+                    <th>Resource Allocator ID</th>
                     <th>Resource ID</th>
-                    <th>Resource Type</th>
-                    <th>Amount</th>
+                    <th>Staff ID</th>
                 </tr>
             </thead>
             <tbody>
+                @if (count($allocated_r))
+                    @foreach ($allocated_r as $a)
+                        
+                    <tr>
+                        <td>{{ $a->id }}</td>
+                        <td>{{ $a->resource_allocator_id }}</td>
+                        <td>{{ $a->resource_id }}</td>
+                        <td>{{ $a->staff_id }}</td>
+                    </tr>
+                    @endforeach
+                @else
                 <tr>
-                    <td>111</td>
-                    <td>CD</td>
-                    <td>2000</td>
+                    <td colspan="4">No Allocated Resource Found</td>
                 </tr>
+                @endif
             </tbody>
         </table>
     </div>

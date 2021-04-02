@@ -3,16 +3,10 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">List of Resource</h3>
+        <h3 class="card-title">List of Allocated</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <p>
-            <a href="{{ route('ra.resource.create') }}" class="btn btn-info">Add Resource</a>
-            <a href="{{ route('ra.viewDeptRA.create') }}" class="btn btn-warning">Allocate Resource</a>
-            <a href="{{ route('ra.allocatedResource.index') }}" class="btn btn-success">Allocated Resource</a>
-            <a href="{{ route('ra.lostResource.index') }}" class="btn btn-danger">Lost Resource</a>
-        </p>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -23,8 +17,8 @@
                 </tr>
             </thead>
             <tbody>
-                @if (count($resource))
-                @foreach ($resource as $r)
+                @if (count($allocResources))
+                @foreach ($allocResources as $r)
                 <tr>
                     <td>{{ $r->id }}</td>
                     <td>{{ $r->resource_type }}</td>

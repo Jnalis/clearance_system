@@ -44,7 +44,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('ra.dashboard') }}" class="nav-link">Home</a>
+                    <a href="{{ route('ra.home') }}" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -65,9 +65,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <img src="{{ asset('dist/img/nit.png') }}" alt="NIT Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: 1.0">
+                <small class="brand-text font-weight-bold">NSCS</small>
             </a>
 
             <!-- Sidebar -->
@@ -79,7 +79,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
-                            <a href="{{ route('ra.dashboard') }}" class="nav-link active">
+                            <a href="{{ route('ra.home') }}" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -87,15 +87,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ra.add_new_resource') }}" class="nav-link">
-                                <i class="nav-icon fas fa-user-plus"></i>
-                                <p>
-                                    Add Resource
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('ra.view_resource') }}" class="nav-link">
+                            <a href="{{ route('ra.resource.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-user-plus"></i>
                                 <p>
                                     Resource
@@ -103,7 +95,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ra.view_department') }}" class="nav-link">
+                            <a href="{{ route('ra.viewDeptRA.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Departments
@@ -111,26 +103,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ra.allocate_resource') }}" class="nav-link">
-                                <i class="nav-icon fas fa-building"></i>
-                                <p>
-                                    Allocate Resource
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('ra.view_custodians') }}" class="nav-link">
+                            <a href="{{ route('ra.custodian.index') }}" class="nav-link">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Custodians
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('ra.view_lost_resource') }}" class="nav-link">
-                                <i class="nav-icon fas fa-building"></i>
-                                <p>
-                                    Lost Resource
                                 </p>
                             </a>
                         </li>
@@ -152,7 +128,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('ra.dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Dashboard</a></li>
                                 <li class="breadcrumb-item active">Home</li>
                             </ol>
                         </div><!-- /.col -->
@@ -172,13 +148,7 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.0.2
-            </div>
-        </footer>
+        @include('includes.footer')
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

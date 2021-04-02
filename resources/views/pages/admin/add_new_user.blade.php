@@ -1,5 +1,16 @@
 @extends('layouts.admin')
 @section('title', 'Add user')
+
+@section('smallNavigation')
+<div class="col-sm-6">
+  <ol class="breadcrumb float-sm-right">
+      <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+      <li class="breadcrumb-item active"><a href="{{ route('admin.staff.index') }}">User List</a></li>
+      <li class="breadcrumb-item active">Add User</li>
+  </ol>
+</div><!-- /.col -->
+@endsection
+
 @section('content')
 <div class="row">
     {{-- left column --}}
@@ -18,7 +29,7 @@
             <div class="card-body">
 
 
-                <form role="form" action="{{ route('admin.add_user') }}" method="POST">
+                <form role="form" action="{{ route('admin.staff.store') }}" method="POST">
                     @csrf
                     <div class="result">
                         @if (Session::get('success'))

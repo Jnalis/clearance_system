@@ -18,7 +18,7 @@
             <div class="card-body">
 
 
-                <form role="form" action="" method="POST">
+                <form role="form" action="{{ route('ra.resource.store') }}" method="POST">
                     @csrf
                     <div class="result">
                         @if (Session::get('success'))
@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_name">Resource name</label>
                                 <input type="text" name="resource_name" id="resource_name" class="form-control"
-                                    placeholder="Student full name" value="{{ old('resource_name') }}">
+                                    placeholder="Resource name" value="{{ old('resource_name') }}">
                                 <span class="text-danger">@error('resource_name') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_amount">Resource Amount</label>
                                 <input type="text" name="resource_amount" id="resource_amount" class="form-control"
-                                    placeholder="Student Reg No" value="{{ old('resource_amount') }}">
+                                    placeholder="Resource Amount" value="{{ old('resource_amount') }}">
                                 <span class="text-danger">@error('resource_amount') {{ $message }} @enderror</span>
                             </div>
                         </div>

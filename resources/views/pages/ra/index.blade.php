@@ -9,16 +9,16 @@
             <div class="inner">
               <h3>150</h3>
 
-              <p>Student</p>
+              <p>Resource</p>
             </div>
             <div class="icon">
               <i class="fas fa-users"></i>
             </div>
-            <a href="/hod/view_student" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ route('ra.resource.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        {{-- <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
@@ -31,9 +31,9 @@
             </div>
             <a href="/hod/view_allocated_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
+        </div> --}}
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        {{-- <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
@@ -46,9 +46,9 @@
             </div>
             <a href="/hod/view_issued_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
+        </div> --}}
         <!-- ./col -->
-        <div class="col-lg-3 col-6">
+        {{-- <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
@@ -61,7 +61,7 @@
             </div>
             <a href="/hod/view_returned_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-        </div>
+        </div> --}}
         <!-- ./col -->
       </div>
 @endsection

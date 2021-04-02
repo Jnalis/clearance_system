@@ -41,7 +41,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
+                    <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -61,23 +61,29 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="{{ asset('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+            <a href="#" class="brand-link">
+                <img src="{{ asset('dist/img/nit.png') }}" alt="NIT Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: 1.0">
+                <small class="brand-text font-weight-bold">NSCS</small>
             </a>
 
             <!-- Sidebar -->
             <div class="sidebar">
-                
+
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="{{ route('admin.dashboard') }}" class="nav-link active">
+                    <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
+
+                        <?php
+                            $segment = Request::segment(2);
+                           // echo $segment;
+                        ?>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.home') }}" class="nav-link 
+                                @if($segment == 'dashboard') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -85,31 +91,23 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.add_new_user') }}" class="nav-link">
-                                <i class="nav-icon fas fa-user-plus"></i>
-                                <p>
-                                    Add User
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.view_user') }}" class="nav-link">
+                            <a href="{{ route('admin.staff.index') }}" class="nav-link
+                                @if($segment == 'view_user') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
-                                    User Registered
+                                    Staffs
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.add_department') }}" class="nav-link">
-                                <i class="nav-icon fas fa-building"></i>
-                                <p>
-                                    Add Department
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.view_department') }}" class="nav-link">
+                            <a href="{{ route('admin.department.index') }}" class="nav-link
+                                @if($segment == 'view_department') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Departments
@@ -117,15 +115,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.add_usertype') }}" class="nav-link">
-                                <i class="nav-icon fas fa-layer-group"></i>
-                                <p>
-                                    Add Usertype
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.view_usertype') }}" class="nav-link">
+                            <a href="{{ route('admin.usertype.index') }}" class="nav-link
+                                @if($segment == 'view_usertype') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-layer-group"></i>
                                 <p>
                                     Usertypes
@@ -133,7 +127,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.view_syslogs') }}" class="nav-link">
+                            <a href="{{ route('admin.systemlog.index') }}" class="nav-link
+                                @if($segment == 'view_syslogs') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-info"></i>
                                 <p>
                                     System Logs
@@ -156,12 +154,10 @@
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">Admin: <sub>Juvenalis</sub></h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Home</li>
-                            </ol>
-                        </div><!-- /.col -->
+                        
+                        @yield('smallNavigation')
+
+
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -178,13 +174,7 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.0.2
-            </div>
-        </footer>
+        @include('includes.footer')
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">

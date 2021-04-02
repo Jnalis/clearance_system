@@ -18,7 +18,7 @@
             <div class="card-body">
 
 
-                <form role="form" action="" method="POST">
+                <form role="form" action="{{ route('ra.viewDeptRA.store') }}" method="POST">
                     @csrf
                     <div class="result">
                         @if (Session::get('success'))
@@ -36,23 +36,23 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="select_resource">Select Resource</label>
-                                <select name="select_resource" id="select_resource" class="form-control">
+                                <label class="col-form-label" for="resource_type">Select Resource</label>
+                                <select name="resource_type" id="resource_type" class="form-control">
                                     <option></option>
-                                    <option value="Flash1" @if (old('select_resource')=="Flash1" ) {{ 'selected' }}
+                                    <option value="Flash1" @if (old('resource_type')=="Flash1" ) {{ 'selected' }}
                                         @endif>
                                         Flash1
                                     </option>
-                                    <option value="Flash2" @if (old('select_resource')=="Flash2" ) {{ 'selected' }}
+                                    <option value="Flash2" @if (old('resource_type')=="Flash2" ) {{ 'selected' }}
                                         @endif>
                                         Flash2
                                     </option>
-                                    <option value="Flash3" @if (old('select_resource')=="Flash3" ) {{ 'selected' }}
+                                    <option value="Flash3" @if (old('resource_type')=="Flash3" ) {{ 'selected' }}
                                         @endif>
                                         Flash3
                                     </option>
                                 </select>
-                                <span class="text-danger">@error('select_resource') {{ $message }} @enderror</span>
+                                <span class="text-danger">@error('resource_type') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
@@ -64,15 +64,15 @@
                                     <option></option>
                                     <option value="Flash1" @if (old('select_custodian')=="Flash1" ) {{ 'selected' }}
                                         @endif>
-                                        Flash1
+                                        Hayuma
                                     </option>
                                     <option value="Flash2" @if (old('select_custodian')=="Flash2" ) {{ 'selected' }}
                                         @endif>
-                                        Flash2
+                                        Chris
                                     </option>
                                     <option value="Flash3" @if (old('select_custodian')=="Flash3" ) {{ 'selected' }}
                                         @endif>
-                                        Flash3
+                                        Runyoro
                                     </option>
                                 </select>
                                 <span class="text-danger">@error('select_custodian') {{ $message }} @enderror</span>

@@ -12,16 +12,26 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Department name</th>
                             <th>Department code</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @if (count($department))
+                        @foreach ($department as $dept)
                         <tr>
-                            <td>Computing and Communication Technology</td>
-                            <td>CCT</td>
+                          <td>{{ $dept->id }}</td>
+                          <td>{{ $dept->dept_name }}</td>
+                          <td>{{ $dept->dept_code }}</td>
                         </tr>
-                    </tbody>
+                        @endforeach
+                        @else
+                        <tr>
+                          <td colspan="3">No Department Found</td>
+                        </tr>
+                        @endif
+                      </tbody>
                 </table>
             </div>
             <!-- /.card-body -->

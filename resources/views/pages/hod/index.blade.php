@@ -14,7 +14,7 @@
             <div class="icon">
               <i class="fas fa-users"></i>
             </div>
-            <a href="/hod/view_student" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ route('hod.student.index')}} " class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -29,7 +29,7 @@
             <div class="icon">
                 <i class="fas fa-building"></i>
             </div>
-            <a href="/hod/view_allocated_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ route('hod.allocatedResource.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -44,7 +44,7 @@
             <div class="icon">
                 <i class="fas fa-layer-group"></i>
             </div>
-            <a href="/hod/view_issued_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ route('hod.issuedResource.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -54,12 +54,12 @@
             <div class="inner">
               <h3>65</h3>
 
-              <p>Returned Resource</p>
+              <p>Lost Resource</p>
             </div>
             <div class="icon">
                 <i class="nav-icon fas fa-info"></i>
             </div>
-            <a href="/hod/view_returned_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{ route('hod.lostResource.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

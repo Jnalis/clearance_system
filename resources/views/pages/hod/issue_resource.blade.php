@@ -18,7 +18,7 @@
             <div class="card-body">
 
 
-                <form role="form" action="" method="POST">
+                <form role="form" action="{{ route('hod.allocatedResource.store') }}" method="POST">
                     @csrf
                     <div class="result">
                         @if (Session::get('success'))
@@ -77,20 +77,12 @@
                     </div>
                     {{-- usertype and depertment --}}
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="issued_date">Issued Date</label>
-                                <input type="date" name="issued_date" id="issued_date" class="form-control"
-                                    value="{{ old('issued_date') }}">
-                                <span class="text-danger">@error('issued_date') {{ $message }} @enderror</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="col-form-label" for="returned_date">Returned Date</label>
-                                <input type="date" name="returned_date" id="returned_date" class="form-control"
-                                    value="{{ old('returned_date') }}">
-                                <span class="text-danger">@error('returned_date') {{ $message }} @enderror</span>
+                                <label class="col-form-label" for="date_to_return">Returned Date</label>
+                                <input type="date" name="date_to_return" id="date_to_return" class="form-control"
+                                    value="{{ old('date_to_return') }}">
+                                <span class="text-danger">@error('date_to_return') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>

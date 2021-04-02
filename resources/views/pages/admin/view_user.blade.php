@@ -1,5 +1,15 @@
 @extends('layouts.admin')
 @section('title', 'view user')
+
+@section('smallNavigation')
+<div class="col-sm-6">
+  <ol class="breadcrumb float-sm-right">
+      <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+      <li class="breadcrumb-item active">User List</li>
+  </ol>
+</div><!-- /.col -->
+@endsection
+
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -9,33 +19,42 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
+        <p>
+          <a href="{{ route('admin.staff.create') }}" class="btn btn-info">Add Staff</a>
+        </p>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>Firstname</th>
-              <th>Secondname</th>
-              <th>Lastname</th>
+              <th>ID</th>
+              <th>Name</th>
               <th>Username</th>
               <th>User Type</th>
               <th>Department</th>
-              <th>Password</th>
               <th>Action</th>
 
             </tr>
           </thead>
           <tbody>
+            @if (count($staffs))
+            @foreach ($staffs as $s)
             <tr>
-              <td>Trident</td>
-              <td>Internet
-                Explorer 4.0
+              <td>{{ $s->id }}</td>
+              <td>{{ $s->firstname.' '.$s->secondname.' '.$s->lastname }}</td>
+              <td>{{ $s->username }}</td>
+              <td>{{ $s->usertype }}</td>
+              <td>{{ $s->department }}</td>
+              
+              <td>
+                <a href="#" class="btn btn-warning">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
               </td>
-              <td>Win 95+</td>
-              <td> 4</td>
-              <td>X</td>
-              <td></td>
-              <td></td>
-              <td></td>
             </tr>
+            @endforeach
+            @else
+              <tr>
+                <td colspan="6">No User Found</td>
+              </tr>
+              @endif
           </tbody>
         </table>
       </div>

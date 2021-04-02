@@ -10,19 +10,27 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Resource ID</th>
-                    <th>Resource Type</th>
+                    <th>ID</th>
+                    <th>Student ID</th>
+                    <th>Lost Resource ID</th>
                     <th>Refunded Status</th>
-                    <th>Amount Refunded</th>
                 </tr>
             </thead>
             <tbody>
+                @if (count($lost_r))
+                @foreach ($lost_r as $l)
                 <tr>
-                    <td>111</td>
-                    <td>CD</td>
-                    <td>YES</td>
-                    <td>2000</td>
+                    <td>{{ $l->id }}</td>
+                    <td>{{ $l->student_id }}</td>
+                    <td>{{ $l->resource_id }}</td>
+                    <td>{{ $l->refunded_status }}</td>
                 </tr>
+                @endforeach
+                @else
+                <tr>
+                    <td colspan="4">No Lost Resource Found</td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>
