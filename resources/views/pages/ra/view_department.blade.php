@@ -1,5 +1,16 @@
 @extends('layouts.ra')
 @section('title', 'View Department')
+
+@section('smallNavigation')
+<div class="col-sm-6">
+  <ol class="breadcrumb float-sm-right">
+    <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
+    <li class="breadcrumb-item active">Department list</li>
+    
+  </ol>
+</div><!-- /.col -->
+@endsection
+
 @section('content')
 <div class="row">
     <div class="col-12">

@@ -1,13 +1,12 @@
-@extends('layouts.ra')
-@section('title', 'Add Resource')
+@extends('layouts.admin')
+@section('title', 'Edit department')
 
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
-    <li class="breadcrumb-item active">Add resource</li>
-    
+      <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+      <li class="breadcrumb-item active"><a href="{{ route('admin.department.index') }}">Department List</a></li>
+      <li class="breadcrumb-item active">Edit Department</li>
   </ol>
 </div><!-- /.col -->
 @endsection
@@ -21,16 +20,15 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-info">
+        <div class="card card-warning">
             <div class="card-header">
-                <h3 class="card-title">Add a new resource</h3>
+                <h3 class="card-title">Edit Department</h3>
             </div>
             <!-- /.card-header -->
 
             <div class="card-body">
 
-
-                <form role="form" action="{{ route('ra.resource.store') }}" method="POST">
+                <form role="form" action="{{ route('admin.department.update',$department->id) }}" method="post">
                     @csrf
                     <div class="result">
                         @if (Session::get('success'))
@@ -48,33 +46,30 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="resource_name">Resource name</label>
-                                <input type="text" name="resource_name" id="resource_name" class="form-control"
-                                    placeholder="Resource name" value="{{ old('resource_name') }}">
-                                <span class="text-danger">@error('resource_name') {{ $message }} @enderror</span>
+                                <label class="col-form-label" for="dept_name">Department name</label>
+                                <input type="text" name="dept_name" id="dept_name" class="form-control"
+                                    placeholder="Department name" 
+                                    value="{{ old('dept_name', $department->dept_name) }}">
+                                <span class="text-danger">@error('dept_name') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
-                    {{-- resource --}}
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="resource_amount">Resource Amount</label>
-                                <input type="text" name="resource_amount" id="resource_amount" class="form-control"
-                                    placeholder="Resource Amount" value="{{ old('resource_amount') }}">
-                                <span class="text-danger">@error('resource_amount') {{ $message }} @enderror</span>
+                                <label class="col-form-label" for="dept_code">Department code</label>
+                                <input type="text" name="dept_code" id="dept_code" class="form-control"
+                                    placeholder="Department code" 
+                                    value="{{ old('dept_code', $department->dept_code) }}">
+                                <span class="text-danger">@error('dept_code') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
-
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info btn-lg btn-block">Add Resource</button>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block">Edit Department</button>
                     </div>
-
-
                 </form>
             </div>
-            <!-- /.card-body -->
         </div>
         <!-- /.card -->
     </div>

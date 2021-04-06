@@ -75,9 +75,19 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
 
                         {{-- segment --}}
+                        <?php 
+                        
+                            $segment = Request::segment(2);
+                            //echo $segment;
+                        
+                        ?>
 
-                        <li class="nav-item menu-open">
-                            <a href="{{ route('hod.home') }}" class="nav-link active">
+                        <li class="nav-item">
+                            <a href="{{ route('hod.home') }}" class="nav-link 
+                                @if(!$segment) 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -85,7 +95,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('hod.student.index') }}" class="nav-link">
+                            <a href="{{ route('hod.student.index') }}" class="nav-link 
+                                @if($segment=='student') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-user-plus"></i>
                                 <p>
                                     Students
@@ -93,10 +107,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('hod.allocatedResource.index') }}" class="nav-link">
+                            <a href="{{ route('hod.allocatedResource.index') }}" class="nav-link 
+                                @if($segment=='allocatedResource') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
-                                     Allocated Resource
+                                    Allocated Resource
                                 </p>
                             </a>
                         </li>
@@ -116,12 +134,9 @@
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">HOD: <sub>Juvenalis</sub></h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Home</li>
-                            </ol>
-                        </div><!-- /.col -->
+
+                        @yield('smallNavigation')
+
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>

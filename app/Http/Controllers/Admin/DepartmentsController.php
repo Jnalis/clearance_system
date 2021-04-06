@@ -80,9 +80,11 @@ class DepartmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Departments $department)
+
     {
-        //
+        $arr['department'] = $department;
+        return view('pages.admin.edit_department')->with($arr);
     }
 
     /**
@@ -92,9 +94,28 @@ class DepartmentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Departments $department)
     {
-        //
+        // checking if you gett all the data from the form
+        //return $request->input();
+
+        // //now validating a form
+        // $request->validate([
+        //     'dept_name' => 'required | unique:departments',
+        //     'dept_code' => 'required | unique:departments',
+        // ]);
+
+        // //if form validated successfuly then add new user as staff
+        
+        // $department->dept_name = $request->dept_name;
+        // $department->dept_code = $request->dept_code;
+        // $query = $department->save(); //save your data to the model
+
+        // if ($query) {
+        //     return redirect(route('admin.department.index'));
+        // } else {
+        //     return back()->with('fail', 'Something went wrong');
+        // }
     }
 
     /**

@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HodController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\ResourceAllocatorController;
-use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 

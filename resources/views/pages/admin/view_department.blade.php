@@ -39,7 +39,7 @@
               <td>{{ $dept->dept_name }}</td>
               <td>{{ $dept->dept_code }}</td>
               <td>
-                <a href="#{{-- route('admin.edit_department',$dept->id) --}}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('admin.department.edit',$dept->id) }}" class="btn btn-warning">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>
               </td>
             </tr>

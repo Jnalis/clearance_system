@@ -76,10 +76,21 @@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
-                        <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
-                            <a href="{{ route('ra.home') }}" class="nav-link active">
+                        
+
+                        {{-- segment --}}
+                        <?php 
+                        
+                            $segment = Request::segment(2);
+                            //echo $segment;
+                        
+                        ?>
+                        <li class="nav-item">
+                            <a href="{{ route('ra.home') }}" class="nav-link 
+                                @if(!$segment) 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -87,7 +98,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ra.resource.index') }}" class="nav-link">
+                            <a href="{{ route('ra.resource.index') }}" class="nav-link 
+                                @if($segment=='resource') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-user-plus"></i>
                                 <p>
                                     Resource
@@ -95,7 +110,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ra.viewDeptRA.index') }}" class="nav-link">
+                            <a href="{{ route('ra.viewDeptRA.index') }}" class="nav-link 
+                                @if($segment=='viewDeptRA') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Departments
@@ -103,7 +122,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('ra.custodian.index') }}" class="nav-link">
+                            <a href="{{ route('ra.custodian.index') }}" class="nav-link 
+                                @if($segment=='custodian') 
+                                    active
+                                @endif
+                            ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Custodians
@@ -126,12 +149,9 @@
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">Resource Allocator: <sub>Juvenalis</sub></h1>
                         </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Dashboard</a></li>
-                                <li class="breadcrumb-item active">Home</li>
-                            </ol>
-                        </div><!-- /.col -->
+                        
+                        @yield('smallNavigation')
+
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>

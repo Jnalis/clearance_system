@@ -76,11 +76,11 @@
 
                         <?php
                             $segment = Request::segment(2);
-                           // echo $segment;
+                            //echo $segment;
                         ?>
                         <li class="nav-item">
                             <a href="{{ route('admin.home') }}" class="nav-link 
-                                @if($segment == 'dashboard') 
+                                @if(!$segment) 
                                     active
                                 @endif
                             ">
@@ -92,7 +92,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.staff.index') }}" class="nav-link
-                                @if($segment == 'view_user') 
+                                @if($segment == 'staff') 
                                     active
                                 @endif
                             ">
@@ -104,7 +104,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.department.index') }}" class="nav-link
-                                @if($segment == 'view_department') 
+                                @if($segment == 'department') 
                                     active
                                 @endif
                             ">
@@ -116,7 +116,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.usertype.index') }}" class="nav-link
-                                @if($segment == 'view_usertype') 
+                                @if($segment == 'usertype') 
                                     active
                                 @endif
                             ">
@@ -128,7 +128,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.systemlog.index') }}" class="nav-link
-                                @if($segment == 'view_syslogs') 
+                                @if($segment == 'systemlog') 
                                     active
                                 @endif
                             ">

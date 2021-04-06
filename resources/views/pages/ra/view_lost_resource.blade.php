@@ -1,5 +1,17 @@
 @extends('layouts.ra')
 @section('title','Lost Resource')
+
+@section('smallNavigation')
+<div class="col-sm-6">
+  <ol class="breadcrumb float-sm-right">
+    <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
+    <li class="breadcrumb-item active">Lost resource list</li>
+    
+  </ol>
+</div><!-- /.col -->
+@endsection
+
 @section('content')
 <div class="card">
     <div class="card-header">

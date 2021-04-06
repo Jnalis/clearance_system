@@ -1,5 +1,16 @@
 @extends('layouts.hod')
 @section('title','Allocated Resource')
+
+@section('smallNavigation')
+<div class="col-sm-6">
+  <ol class="breadcrumb float-sm-right">
+    <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Home</a></li>
+    <li class="breadcrumb-item active">Resource List</li>
+  </ol>
+</div><!-- /.col -->
+
+@endsection
+
 @section('content')
 <div class="card">
     <div class="card-header">
