@@ -41,7 +41,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
+                    <a href="{{ route('dean.home') }}" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -74,12 +74,16 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
 
-                        <?php
+                        {{-- segment --}}
+                        <?php 
+                        
                             $segment = Request::segment(2);
                             //echo $segment;
+                        
                         ?>
+
                         <li class="nav-item">
-                            <a href="{{ route('admin.home') }}" class="nav-link 
+                            <a href="{{ route('dean.home') }}" class="nav-link 
                                 @if(!$segment) 
                                     active
                                 @endif
@@ -91,50 +95,38 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.staff.index') }}" class="nav-link
-                                @if($segment == 'staff') 
+                            <a href="{{ route('dean.student.index') }}" class="nav-link 
+                                @if($segment=='student') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-users"></i>
+                                <i class="nav-icon fas fa-user-plus"></i>
                                 <p>
-                                    Staffs
+                                    Students
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.department.index') }}" class="nav-link
-                                @if($segment == 'department') 
+                            <a href="{{ route('dean.resourceList.index') }}" class="nav-link 
+                                @if($segment=='resourceList' || $segment=='resourceIssued' || $segment=='resourceLost') 
                                     active
                                 @endif
                             ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
-                                    Departments
+                                    Resource
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.usertype.index') }}" class="nav-link
-                                @if($segment == 'usertype') 
+                            <a href="{{ route('dean.deanComment.index') }}" class="nav-link 
+                                @if($segment=='deanComment') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-layer-group"></i>
+                                <i class="nav-icon fas fa-building"></i>
                                 <p>
-                                    Usertypes
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.systemlog.index') }}" class="nav-link
-                                @if($segment == 'systemlog') 
-                                    active
-                                @endif
-                            ">
-                                <i class="nav-icon fas fa-info"></i>
-                                <p>
-                                    System Logs
+                                    Comments
                                 </p>
                             </a>
                         </li>
@@ -152,11 +144,10 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Admin: <sub>Juvenalis</sub></h1>
+                            <h1 class="m-0 text-dark">Dean: <sub>Juvenalis</sub></h1>
                         </div><!-- /.col -->
-                        
-                        @yield('smallNavigation')
 
+                        @yield('smallNavigation')
 
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->

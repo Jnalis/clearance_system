@@ -99,23 +99,23 @@ class DepartmentsController extends Controller
         // checking if you gett all the data from the form
         //return $request->input();
 
-        // //now validating a form
-        // $request->validate([
-        //     'dept_name' => 'required | unique:departments',
-        //     'dept_code' => 'required | unique:departments',
-        // ]);
+        // now validating a form
+        $request->validate([
+            'dept_name' => 'required | unique:departments',
+            'dept_code' => 'required | unique:departments',
+        ]);
 
-        // //if form validated successfuly then add new user as staff
+        // if form validated successfuly then add new user as staff
         
-        // $department->dept_name = $request->dept_name;
-        // $department->dept_code = $request->dept_code;
-        // $query = $department->save(); //save your data to the model
+        $department->dept_name = $request->dept_name;
+        $department->dept_code = $request->dept_code;
+        $query = $department->save(); //save your data to the model
 
-        // if ($query) {
-        //     return redirect(route('admin.department.index'));
-        // } else {
-        //     return back()->with('fail', 'Something went wrong');
-        // }
+        if ($query) {
+            return redirect(route('admin.department.index'));
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**

@@ -1,12 +1,12 @@
-@extends('layouts.admin')
-@section('title', 'Edit department')
+@extends('layouts.hod')
+@section('title', 'Comment')
 
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
-      <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-      <li class="breadcrumb-item active"><a href="{{ route('admin.department.index') }}">Department List</a></li>
-      <li class="breadcrumb-item active">Edit Department</li>
+      <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Home</a></li>
+      <li class="breadcrumb-item active"><a href="{{ route('hod.hodComment.index') }}">Comment List</a></li>
+      <li class="breadcrumb-item active">Add Comment</li>
   </ol>
 </div><!-- /.col -->
 @endsection
@@ -20,16 +20,15 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-warning">
+        <div class="card card-success">
             <div class="card-header">
-                <h3 class="card-title">Edit Department</h3>
+                <h3 class="card-title">Add new comment</h3>
             </div>
             <!-- /.card-header -->
 
             <div class="card-body">
 
-                <form role="form" action="{{ route('admin.department.update',$department->id) }}" method="post">
-                    @method('put')
+                <form role="form" action="{{ route('hod.hodComment.store') }}" method="POST">
                     @csrf
                     <div class="result">
                         {{-- @if (Session::get('success'))
@@ -47,27 +46,24 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="dept_name">Department name</label>
-                                <input type="text" name="dept_name" id="dept_name" class="form-control"
-                                    placeholder="Department name" 
-                                    value="{{ old('dept_name', $department->dept_name) }}">
-                                <span class="text-danger">@error('dept_name') {{ $message }} @enderror</span>
+                                <label class="col-form-label" for="student_id">Student ID</label>
+                                <input type="text" name="student_id" id="student_id" class="form-control"
+                                    placeholder="Student ID" value="{{ old('student_id') }}">
+                                <span class="text-danger">@error('student_id') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="dept_code">Department code</label>
-                                <input type="text" name="dept_code" id="dept_code" class="form-control"
-                                    placeholder="Department code" 
-                                    value="{{ old('dept_code', $department->dept_code) }}">
-                                <span class="text-danger">@error('dept_code') {{ $message }} @enderror</span>
+                                <label class="col-form-label" for="comment_text">Comment Text</label>
+                                <textarea class="form-control" name="comment_text" id="comment_text" cols="30" rows="5" value="{{ old('comment_text') }}"></textarea>
+                                <span class="text-danger">@error('comment_text') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-warning btn-lg btn-block">Edit Department</button>
+                        <button type="submit" class="btn btn-info btn-lg btn-block">Add Comment</button>
                     </div>
                 </form>
             </div>

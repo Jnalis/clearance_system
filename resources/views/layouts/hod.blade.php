@@ -61,7 +61,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a href="" class="brand-link">
                 <img src="{{ asset('dist/img/nit.png') }}" alt="NIT Logo" class="brand-image img-circle elevation-3"
                     style="opacity: 1.0">
                 <small class="brand-text font-weight-bold">NSCS</small>
@@ -108,13 +108,25 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('hod.allocatedResource.index') }}" class="nav-link 
-                                @if($segment=='allocatedResource') 
+                                @if($segment=='allocatedResource' || $segment=='issuedResource' || $segment=='lostResource') 
                                     active
                                 @endif
                             ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Allocated Resource
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('hod.hodComment.index') }}" class="nav-link 
+                                @if($segment=='hodComment') 
+                                    active
+                                @endif
+                            ">
+                                <i class="nav-icon fas fa-building"></i>
+                                <p>
+                                    Comments
                                 </p>
                             </a>
                         </li>
