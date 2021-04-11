@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comments extends Model
+class Student extends Model
 {
     use HasFactory;
-
-    public function staff(){
-        $this->belongsTo(Staff::class);
-    }
 }

@@ -38,7 +38,7 @@
                     <tr>
                         <td>{{ $comment->id }}</td>
                         <td>{{ $comment->student_id }}</td>
-                        <td>{{ $comment->staff_id }}</td>
+                        <td>{{ $comment->added_by }}</td>
                         <td>{{ $comment->comment_text }}</td>
                         <td>
                             <a href="{{ route('hod.hodComment.edit',$comment->id) }}" class="btn btn-warning">Edit</a>

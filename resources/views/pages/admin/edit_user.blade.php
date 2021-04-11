@@ -1,12 +1,12 @@
 @extends('layouts.admin')
-@section('title', 'Add user')
+@section('title', 'Edit user')
 
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
       <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
       <li class="breadcrumb-item active"><a href="{{ route('admin.staff.index') }}">User List</a></li>
-      <li class="breadcrumb-item active">Add User</li>
+      <li class="breadcrumb-item active">Edit User</li>
   </ol>
 </div><!-- /.col -->
 @endsection
@@ -22,14 +22,15 @@
     <div class="col-md-10">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Add new user</h3>
+                <h3 class="card-title">Edit user</h3>
             </div>
             <!-- /.card-header -->
 
             <div class="card-body">
 
 
-                <form role="form" action="{{ route('admin.staff.store') }}" method="POST">
+                <form role="form" action="{{ route('admin.staff.update', $staff->id) }}" method="POST">
+                    @method('put')
                     @csrf
                     <div class="result">
                         {{-- @if (Session::get('success'))
@@ -49,7 +50,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="firstname">Firstname</label>
                                 <input type="text" name="firstname" id="firstname" class="form-control"
-                                    placeholder="Enter firstname" value="{{ old('firstname') }}">
+                                    placeholder="Enter firstname" value="{{ old('firstname',$staff->firstname) }}">
                                 <span class="text-danger">@error('firstname') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -57,7 +58,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="secondname">Secondname</label>
                                 <input type="text" name="secondname" id="secondname" class="form-control"
-                                    placeholder="Enter secondname" value="{{ old('secondname') }}">
+                                    placeholder="Enter secondname" value="{{ old('secondname',$staff->secondname) }}">
                                 <span class="text-danger">@error('secondname') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -65,7 +66,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="lastname">Lastname</label>
                                 <input type="text" name="lastname" id="lastname" class="form-control"
-                                    placeholder="Enter lastname" value="{{ old('lastname') }}">
+                                    placeholder="Enter lastname" value="{{ old('lastname',$staff->lastname) }}">
                                 <span class="text-danger">@error('lastname') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -76,7 +77,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="username">Username</label>
                                 <input type="text" name="username" id="username" class="form-control"
-                                    placeholder="Enter username" value="{{ old('username') }}">
+                                    placeholder="Enter username" value="{{ old('username',$staff->username) }}">
                                 <span class="text-danger">@error('username') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -88,18 +89,40 @@
                                 <label class="col-form-label" for="usertype">User Type</label>
                                 <select name="usertype" id="usertype" class="form-control">
                                     <option></option>
-                                    <option value="Admin" @if (old('usertype')=="Admin" ) {{ 'selected' }} @endif>Admin
+
+
+                                    <option value="Admin" @if (old('usertype',$staff->usertype)=="Admin" ) {{ 'selected' }} @endif>Admin
                                     </option>
-                                    <option value="Registrar" @if (old('usertype')=="Registrar" ) {{ 'selected' }}
+
+
+                                    <option value="Registrar" @if (old('usertype',$staff->usertype)=="Registrar" ) {{ 'selected' }}
                                         @endif>Registrar</option>
-                                    <option value="Bursar" @if (old('usertype')=="Bursar" ) {{ 'selected' }} @endif>
+
+
+
+                                    <option value="Bursar" @if (old('usertype',$staff->usertype)=="Bursar" ) {{ 'selected' }} @endif>
                                         Bursar</option>
-                                    <option value="HOD" @if (old('usertype')=="HOD" ) {{ 'selected' }} @endif>HOD
+
+
+
+                                    <option value="HOD" @if (old('usertype',$staff->usertype)=="HOD" ) {{ 'selected' }} @endif>HOD
                                     </option>
-                                    <option value="Dean" @if (old('usertype')=="Dean" ) {{ 'selected' }} @endif>Dean of
+
+
+
+
+                                    <option value="Dean" @if (old('usertype',$staff->usertype)=="Dean" ) {{ 'selected' }} @endif>Dean of
                                         Student</option>
-                                    <option value="RA" @if (old('usertype')=="RA" ) {{ 'selected' }} @endif>Resource
+
+
+
+
+                                    <option value="RA" @if (old('usertype',$staff->usertype)=="RA" ) {{ 'selected' }} @endif>Resource
                                         Allocator</option>
+
+
+
+
                                 </select>
                                 <span class="text-danger">@error('usertype') {{ $message }} @enderror</span>
                             </div>
@@ -109,34 +132,26 @@
                                 <label class="col-form-label" for="department">Department</label>
                                 <select name="department" id="department" class="form-control">
                                     <option></option>
-                                    <option value="CCT" @if (old('department')=="CCT" ) {{ 'selected' }} @endif>CCT
+
+
+
+                                    <option value="CCT" @if (old('department',$staff->department)=="CCT" ) {{ 'selected' }} @endif>CCT
                                     </option>
-                                    <option value="LTS" @if (old('department')=="LTS" ) {{ 'selected' }} @endif>LTS
+
+
+
+                                    <option value="LTS" @if (old('department',$staff->department)=="LTS" ) {{ 'selected' }} @endif>LTS
                                     </option>
+
+
+
                                 </select>
                                 <span class="text-danger">@error('department') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
-                    {{-- password --}}
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="col-form-label" for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control"
-                                    placeholder="Enter password">
-                                <span class="text-danger">@error('password') {{ $message }} @enderror</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="col-form-label" for="password">Repeat Password</label>
-                                <input type="password" name="password2" id="password" class="form-control"
-                                    placeholder="Repeat password">
-                                <span class="text-danger">@error('password2') {{ $message }} @enderror</span>
-                            </div>
-                        </div>
-                    </div>
+
+
 
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>

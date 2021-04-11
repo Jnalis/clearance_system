@@ -47,6 +47,11 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="student_id">Student ID</label>
+
+
+                                <input type="hidden" name="added_by" value="{{ Auth::staff()->id }}">
+
+
                                 <input type="text" name="student_id" id="student_id" class="form-control"
                                     placeholder="Student ID" value="{{ old('student_id') }}">
                                 <span class="text-danger">@error('student_id') {{ $message }} @enderror</span>

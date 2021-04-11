@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use App\Models\Staff;
+use App\Models\User;
 
 class StaffsController extends Controller
 {
@@ -56,16 +58,27 @@ class StaffsController extends Controller
         ]);
 
         //if form validated successfuly then add new user as staff
-
+        
         $staff->firstname = $request->firstname;
         $staff->secondname = $request->secondname;
         $staff->lastname = $request->lastname;
-        $staff->username = $request->username;
+        $staff->username = 'NIT/STAFF/'.$request->username;
+        $user_number = 'NIT/STAFF/'.$request->username;
+        Session::put('user_name', $user_number);//hii ni kwa ajili ya kuweka session ya username for editing purpose
         $staff->usertype = $request->usertype;
         $staff->department = $request->department;
         $staff->password = Hash::make($request->password);
 
         $query = $staff->save(); //save your data to the model
+        
+        //fill user table
+        $data = new User();
+        $data->user_id = 'NIT/STAFF/'.$request->username;
+        $data->user_type = $request->usertype;
+        $data->password = Hash::make($request->password);
+        $data->save();
+
+        //dd($data);
 
         if ($query) {
             return redirect(route('admin.staff.index'));
@@ -91,9 +104,10 @@ class StaffsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Staff $staff)
     {
-        //
+        $arr['staff'] = $staff;
+        return view('pages.admin.edit_user')->with($arr);
     }
 
     /**
@@ -103,9 +117,43 @@ class StaffsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Staff $staff)
     {
-        //
+        // checking if you gett all the data from the form
+        //return $request->input();
+
+        //now validating a form
+        $request->validate([
+            'firstname' => 'required',
+            'secondname' => 'required',
+            'lastname' => 'required',
+            'username' => 'required',
+            'usertype' => 'required',
+            'department' => 'required',
+        ]);
+
+        //if form validated successfuly then add new user as staff
+
+        $staff->firstname = $request->firstname;
+        $staff->secondname = $request->secondname;
+        $staff->lastname = $request->lastname;
+        $staff->username = $request->username;
+        $staff->usertype = $request->usertype;
+        $staff->department = $request->department;
+
+        $query = $staff->save(); //save your data to the model
+        
+        //fill user table
+        $data = Session::get('user_name');
+         User::where('user_id', '=', $data)->update(['user_id' => $request->username, 'user_type' =>  $request->usertype]);
+        
+        // dd($data);
+
+        if ($query) {
+            return redirect(route('admin.staff.index'));
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**

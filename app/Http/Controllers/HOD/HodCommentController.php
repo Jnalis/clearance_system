@@ -50,7 +50,7 @@ class HodCommentController extends Controller
 
 
         $comment->student_id = $request->student_id;
-        $comment->staff_id = 3;
+        $comment->added_by = $request->added_by;
         $comment->comment_text = $request->comment_text;
 
         $query = $comment->save();
