@@ -17,7 +17,7 @@ class DepartmentsController extends Controller
     public function index()
     {
         //getting all the departments
-        $arr['depts'] = Departments::all();
+        $arr['depts'] = Departments::paginate(4);
         return view('pages.admin.view_department')->with($arr);
     }
 

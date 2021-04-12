@@ -16,9 +16,16 @@
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
-              <h3>150</h3>
-
-              <p>User</p>
+              @php
+                  $num = count($staff);
+                  
+                  if ($num > 0) {
+                    echo "<h3 class=\"text-center\">$num Staff</h3>";
+                  }
+                  else {
+                    echo "<h3 class=\"text-center\">$num Staff</h3>";
+                  }
+              @endphp
             </div>
             <div class="icon">
               <i class="fas fa-users"></i>
@@ -27,13 +34,20 @@
           </div>
         </div>
         <!-- ./col -->
+
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>53</h3>
-
-              <p>Departments</p>
+              @php
+                  $num = count($dept);
+                  
+                  if ($num > 0) {
+                    echo "<h3 class=\"text-center\">$num Departments</h3>";
+                  }
+                  else {
+                    echo "<h3 class=\"text-center\">$num Departments</h3>";
+                  }
+              @endphp
             </div>
             <div class="icon">
                 <i class="fas fa-building"></i>
@@ -42,13 +56,20 @@
           </div>
         </div>
         <!-- ./col -->
+
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
-              <h3>44</h3>
-
-              <p>Usertype</p>
+              @php
+                  $num = count($user_type);
+                  
+                  if ($num > 0) {
+                    echo "<h3 class=\"text-center\">$num Usertype</h3>";
+                  }
+                  else {
+                    echo "<h3 class=\"text-center\">$num Usertype</h3>";
+                  }
+              @endphp
             </div>
             <div class="icon">
                 <i class="fas fa-layer-group"></i>
@@ -57,13 +78,20 @@
           </div>
         </div>
         <!-- ./col -->
+
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-danger">
             <div class="inner">
-              <h3>65</h3>
-
-              <p>System Logs</p>
+              @php
+                  $num = 0;
+                  
+                  if ($num > 0) {
+                    echo "<h3 class=\"text-center\">$num System Logs</h3>";
+                  }
+                  else {
+                    echo "<h3 class=\"text-center\">$num System Logs</h3>";
+                  }
+              @endphp
             </div>
             <div class="icon">
                 <i class="nav-icon fas fa-info"></i>

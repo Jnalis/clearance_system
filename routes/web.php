@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Dean\HomeController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+Auth::routes();
+
+Route::get('/', [MainController::class, 'index'])->middleware('auth')->name('home');
 
 
 Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('admin', 'auth')->group(function () {
@@ -22,7 +25,7 @@ Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('admin', 'a
 });
 
 
-Route::namespace('HOD')->prefix('hod')->as('hod.')->middleware('hod', 'auth')->group(function () {
+Route::namespace('HOD')->prefix('hod')->as('hod.')->middleware('hod','auth')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('/student', 'StudentController');
     Route::resource('/allocatedResource', 'AllocatedResourceController');
@@ -32,7 +35,7 @@ Route::namespace('HOD')->prefix('hod')->as('hod.')->middleware('hod', 'auth')->g
 });
 
 
-Route::namespace('RA')->prefix('ra')->as('ra.')->middleware('ra', 'auth')->group(function () {
+Route::namespace('RA')->prefix('ra')->as('ra.')->middleware('ra','auth')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('/resource', 'ResourceController');
     Route::resource('/viewDeptRA', 'ViewDeptRAController');
@@ -51,6 +54,3 @@ Route::namespace('Dean')->prefix('dean')->as('dean.')->middleware('dean', 'auth'
     Route::resource('/deanComment', 'DcommentController');
 });
 
-Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

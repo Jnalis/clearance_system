@@ -25,7 +25,7 @@
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Department name</th>
               <th>Department code</th>
               <th>Action</th>
@@ -51,6 +51,9 @@
             @endif
           </tbody>
         </table>
+        <div class="mt-3">
+          {{ $depts->links() }}
+        </div>
       </div>
       <!-- /.card-body -->
     </div>

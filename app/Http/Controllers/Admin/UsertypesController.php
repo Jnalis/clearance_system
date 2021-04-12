@@ -79,9 +79,11 @@ class UsertypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Usertypes $usertype)
     {
         //
+        $arr['user_type'] = $usertype;
+        return view('pages.admin.edit_usertype')->with($arr);
     }
 
     /**
@@ -91,9 +93,29 @@ class UsertypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Usertypes $usertype)
     {
-        //
+        // return $request->input();
+
+
+        //now validating a form
+        $request->validate([
+            'usertype_name' => 'required | unique:usertypes',
+            'usertype_code' => 'required | unique:usertypes',
+        ]);
+
+        //if form validated successfuly then add new usertype
+        
+        $usertype->usertype_name = $request->usertype_name;
+        $usertype->usertype_code = $request->usertype_code;
+
+        $query = $usertype->save(); //save your data to the model
+
+        if ($query) {
+            return redirect(route('admin.usertype.index'));
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**

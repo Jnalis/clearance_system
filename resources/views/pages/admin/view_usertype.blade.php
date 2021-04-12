@@ -39,7 +39,7 @@
                 <td>{{ $ut->usertype_name }}</td>
                 <td>{{ $ut->usertype_code }}</td>
                 <td>
-                  <a href="#" class="btn btn-warning">Edit</a>
+                  <a href="{{ route('admin.usertype.edit', $ut->id) }}" class="btn btn-warning">Edit</a>
                   <a href="#" class="btn btn-danger">Delete</a>
                 </td>
               </tr>
