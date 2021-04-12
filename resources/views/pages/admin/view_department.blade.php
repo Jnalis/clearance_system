@@ -4,8 +4,8 @@
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
-      <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-      <li class="breadcrumb-item active">Department List</li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+    <li class="breadcrumb-item active">Department List</li>
   </ol>
 </div><!-- /.col -->
 @endsection
@@ -32,10 +32,13 @@
             </tr>
           </thead>
           <tbody>
+            @php
+            $no = 1;
+            @endphp
             @if (count($depts))
             @foreach ($depts as $dept)
             <tr>
-              <td>{{ $dept->id }}</td>
+              <td>{{ $no }}</td>
               <td>{{ $dept->dept_name }}</td>
               <td>{{ $dept->dept_code }}</td>
               <td>
@@ -43,6 +46,9 @@
                 <a href="#" class="btn btn-danger">Delete</a>
               </td>
             </tr>
+            @php
+            $no++;
+            @endphp
             @endforeach
             @else
             <tr>

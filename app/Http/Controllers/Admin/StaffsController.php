@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Departments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Models\Staff;
 use App\Models\User;
+use App\Models\Usertypes;
 
 class StaffsController extends Controller
 {
@@ -31,7 +33,9 @@ class StaffsController extends Controller
     //function to dispaly the add form
     public function create()
     {
-        return view('pages.admin.add_new_user');
+        $arr['depts'] = Departments::all();
+        $arrU['user_type'] = Usertypes::all();
+        return view('pages.admin.add_new_user')->with($arr)->with($arrU);
     }
 
     /**
@@ -165,5 +169,8 @@ class StaffsController extends Controller
     public function destroy($id)
     {
         //
+        Staff::destroy($id);
+        User::destroy($id);
+        return redirect(route('admin.staff.index'));
     }
 }

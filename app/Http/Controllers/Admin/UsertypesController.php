@@ -127,5 +127,7 @@ class UsertypesController extends Controller
     public function destroy($id)
     {
         //
+        Usertypes::destroy($id);
+        return redirect(route('admin.usertype.index'));
     }
 }

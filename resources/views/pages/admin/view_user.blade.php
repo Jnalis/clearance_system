@@ -4,8 +4,8 @@
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
-      <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
-      <li class="breadcrumb-item active">User List</li>
+    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Home</a></li>
+    <li class="breadcrumb-item active">User List</li>
   </ol>
 </div><!-- /.col -->
 @endsection
@@ -25,7 +25,7 @@
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Name</th>
               <th>Username</th>
               <th>User Type</th>
@@ -35,26 +35,38 @@
             </tr>
           </thead>
           <tbody>
+            @php
+            $no = 1;
+            @endphp
             @if (count($staffs))
             @foreach ($staffs as $s)
             <tr>
-              <td>{{ $s->id }}</td>
+              <td>{{ $no }}</td>
               <td>{{ $s->firstname.' '.$s->secondname.' '.$s->lastname }}</td>
               <td>{{ $s->username }}</td>
               <td>{{ $s->usertype }}</td>
               <td>{{ $s->department }}</td>
-              
+
               <td>
                 <a href="{{ route('admin.staff.edit', $s->id) }}" class="btn btn-warning">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+                  class="btn btn-danger">Delete</a>
+                <form action="{{ route('admin.staff.destroy', $s->id) }}" method="post">
+                  @method('delete')
+                  @csrf
+                </form>
               </td>
             </tr>
+            @php
+            $no++;
+            @endphp
+
             @endforeach
             @else
-              <tr>
-                <td colspan="6">No User Found</td>
-              </tr>
-              @endif
+            <tr>
+              <td colspan="6">No User Found</td>
+            </tr>
+            @endif
           </tbody>
         </table>
       </div>
