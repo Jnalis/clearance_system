@@ -14,7 +14,7 @@ class CreateAllocatedResourcesTable extends Migration
     public function up()
     {
         Schema::create('allocated_resources', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('resource_allocator_id');
             $table->integer('resource_id');
             $table->integer('staff_id');

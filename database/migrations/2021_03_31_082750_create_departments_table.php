@@ -14,9 +14,11 @@ class CreateDepartmentsTable extends Migration
     public function up()
     {
         Schema::create('departments', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('dept_name');
             $table->string('dept_code');
+            $table->unsignedBigInteger('added_by');
+            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

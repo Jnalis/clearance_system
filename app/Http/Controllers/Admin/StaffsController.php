@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Staff;
 use App\Models\User;
 use App\Models\Usertypes;
+use Illuminate\Support\Facades\Auth;
 
 class StaffsController extends Controller
 {
@@ -62,23 +63,22 @@ class StaffsController extends Controller
         ]);
 
         //if form validated successfuly then add new user as staff
-        
+
         $staff->firstname = $request->firstname;
         $staff->secondname = $request->secondname;
         $staff->lastname = $request->lastname;
-        $staff->username = 'NIT/STAFF/'.$request->username;
-        $user_number = 'NIT/STAFF/'.$request->username;
-        Session::put('user_name', $user_number);//hii ni kwa ajili ya kuweka session ya username for editing purpose
+        $staff->username = 'NIT/STAFF/' . $request->username;
         $staff->usertype = $request->usertype;
         $staff->department = $request->department;
         $staff->password = Hash::make($request->password);
 
         $query = $staff->save(); //save your data to the model
-        
+
         //fill user table
         $data = new User();
-        $data->user_id = 'NIT/STAFF/'.$request->username;
+        $data->user_id = 'NIT/STAFF/' . $request->username;
         $data->user_type = $request->usertype;
+        $data->added_by = auth()->id();
         $data->password = Hash::make($request->password);
         $data->save();
 
@@ -111,7 +111,9 @@ class StaffsController extends Controller
     public function edit(Staff $staff)
     {
         $arr['staff'] = $staff;
-        return view('pages.admin.edit_user')->with($arr);
+        $arrD['depts'] = Departments::all();
+        $arrU['user_type'] = Usertypes::all();
+        return view('pages.admin.edit_user')->with($arr)->with($arrD)->with($arrU);
     }
 
     /**
@@ -142,15 +144,17 @@ class StaffsController extends Controller
         $staff->secondname = $request->secondname;
         $staff->lastname = $request->lastname;
         $staff->username = $request->username;
+        $data2 = $staff->username = $request->username;
         $staff->usertype = $request->usertype;
         $staff->department = $request->department;
 
         $query = $staff->save(); //save your data to the model
-        
-        //fill user table
-        $data = Session::get('user_name');
-         User::where('user_id', '=', $data)->update(['user_id' => $request->username, 'user_type' =>  $request->usertype]);
-        
+
+        return $data2;
+        //edit user table
+        $data = auth()->id();
+        User::where('added_by', '=', $data)->where('user_id', '=', $data2)->update(['user_id' => $request->username, 'user_type' =>  $request->usertype]);
+
         // dd($data);
 
         if ($query) {
@@ -170,7 +174,7 @@ class StaffsController extends Controller
     {
         //
         Staff::destroy($id);
-        User::destroy($id);
+        // User::destroy($id);
         return redirect(route('admin.staff.index'));
     }
 }

@@ -14,7 +14,7 @@ class CreateResourcesTable extends Migration
     public function up()
     {
         Schema::create('resources', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('resource_type');
             $table->string('resource_amount');
             $table->timestamps();

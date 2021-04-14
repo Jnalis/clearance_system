@@ -14,7 +14,7 @@ class CreateIssuedResourcesTable extends Migration
     public function up()
     {
         Schema::create('issued_resources', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('student_name');
             $table->string('student_reg_no');
             //$table->integer('resource_id');

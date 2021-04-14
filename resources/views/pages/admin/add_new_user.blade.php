@@ -118,6 +118,7 @@
                                 {{ $dept->dept_name }}</option>
 
                             @endforeach
+                            
                         </select>
                         <span class="text-danger">@error('department') {{ $message }} @enderror</span>
                     </div>

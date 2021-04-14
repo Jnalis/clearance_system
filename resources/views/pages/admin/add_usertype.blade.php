@@ -31,11 +31,11 @@
                 <form role="form" action="{{ route('admin.usertype.store') }}" method="POST">
                     @csrf
                     <div class="result">
-                        @if (Session::get('success'))
+                        {{-- @if (Session::get('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
                         </div>
-                        @endif
+                        @endif --}}
                         @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Add new Department</button>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Add Usertype</button>
                     </div>
                 </form>
             </div>

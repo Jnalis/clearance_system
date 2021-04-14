@@ -39,8 +39,9 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-block btn-success ">Login</button>
-
+                        <button type="submit" class="btn btn-success ">Login</button>
+                        
+                        
                     </form>
                 </div>
             </div>

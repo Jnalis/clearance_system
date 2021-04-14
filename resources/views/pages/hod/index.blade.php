@@ -13,13 +13,20 @@
 @section('content')
 <!-- Small boxes (Stat box) -->
 <div class="row">
+
   <div class="col-lg-3 col-6">
-    <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
-        <h3>150</h3>
+        @php
+        $num = count($student);
 
-        <p>Student</p>
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Student</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Student</h3>";
+        }
+        @endphp
       </div>
       <div class="icon">
         <i class="fas fa-users"></i>
@@ -29,13 +36,20 @@
     </div>
   </div>
   <!-- ./col -->
+
   <div class="col-lg-3 col-6">
-    <!-- small box -->
     <div class="small-box bg-success">
       <div class="inner">
-        <h3>53</h3>
+        @php
+        $num = count($resource);
 
-        <p>Allocated Resource</p>
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        }
+        @endphp
       </div>
       <div class="icon">
         <i class="fas fa-building"></i>
@@ -45,13 +59,23 @@
     </div>
   </div>
   <!-- ./col -->
+
+
   <div class="col-lg-3 col-6">
-    <!-- small box -->
     <div class="small-box bg-warning">
       <div class="inner">
-        <h3>44</h3>
 
-        <p>Issued Resource</p>
+        @php
+        $num = count($issue);
+
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Issued Res</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Issued Res</h3>";
+        }
+        @endphp
+
       </div>
       <div class="icon">
         <i class="fas fa-layer-group"></i>
@@ -65,9 +89,16 @@
     <!-- small box -->
     <div class="small-box bg-danger">
       <div class="inner">
-        <h3>65</h3>
+        @php
+        $num = count($lost);
 
-        <p>Lost Resource</p>
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Lost Res</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Lost Res</h3>";
+        }
+        @endphp
       </div>
       <div class="icon">
         <i class="nav-icon fas fa-info"></i>

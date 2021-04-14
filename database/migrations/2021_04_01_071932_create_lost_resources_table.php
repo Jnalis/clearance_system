@@ -14,7 +14,7 @@ class CreateLostResourcesTable extends Migration
     public function up()
     {
         Schema::create('lost_resources', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->integer('student_id');
             $table->integer('resource_id');
             $table->string('refunded_status');

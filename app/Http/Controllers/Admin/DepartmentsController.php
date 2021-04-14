@@ -54,6 +54,7 @@ class DepartmentsController extends Controller
         
         $department->dept_name = $request->dept_name;
         $department->dept_code = $request->dept_code;
+        $department->added_by = auth()->id();
         $query = $department->save(); //save your data to the model
 
         if ($query) {
@@ -109,6 +110,7 @@ class DepartmentsController extends Controller
         
         $department->dept_name = $request->dept_name;
         $department->dept_code = $request->dept_code;
+        $department->added_by = auth()->id();
         $query = $department->save(); //save your data to the model
 
         if ($query) {
