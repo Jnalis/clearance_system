@@ -24,27 +24,6 @@ class DepartmentSeeder extends Seeder
         );
         Departments::create(
             [
-                'dept_name' => 'Mathematics, Humanities and Social Studies',
-                'dept_code' => 'MHSS',
-                'added_by' => 1,
-            ]
-        );
-        Departments::create(
-            [
-                'dept_name' => 'Logistics and Transport Studies',
-                'dept_code' => 'LTS',
-                'added_by' => 1,
-            ]
-        );
-        Departments::create(
-            [
-                'dept_name' => 'Management Information System',
-                'dept_code' => 'MIS',
-                'added_by' => 1,
-            ]
-        );
-        Departments::create(
-            [
                 'dept_name' => 'Business and Entrepreneurship Studies',
                 'dept_code' => 'BES',
                 'added_by' => 1,
@@ -59,6 +38,55 @@ class DepartmentSeeder extends Seeder
         );
         Departments::create(
             [
+                'dept_name' => 'Center for Professional Development',
+                'dept_code' => 'CPD',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
+                'dept_name' => 'Aviation Technology',
+                'dept_code' => 'AVI',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
+                'dept_name' => 'Transport Safety and Environment Studies',
+                'dept_code' => 'TSES',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
+                'dept_name' => 'Logistics and Transport Studies',
+                'dept_code' => 'LTS',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
+                'dept_name' => 'Postgraduate Studies',
+                'dept_code' => 'PGD',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
+                'dept_name' => 'Mathematics Humanities and Social Studies',
+                'dept_code' => 'MHSS',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
+                'dept_name' => 'Management Information System',
+                'dept_code' => 'MIS',
+                'added_by' => 1,
+            ]
+        );
+        Departments::create(
+            [
                 'dept_name' => 'Workshop Department',
                 'dept_code' => 'WD',
                 'added_by' => 1,
@@ -68,13 +96,6 @@ class DepartmentSeeder extends Seeder
             [
                 'dept_name' => 'Library Department',
                 'dept_code' => 'LD',
-                'added_by' => 1,
-            ]
-        );
-        Departments::create(
-            [
-                'dept_name' => 'Transport Safety and Environment Studies',
-                'dept_code' => 'TSES',
                 'added_by' => 1,
             ]
         );
@@ -96,13 +117,6 @@ class DepartmentSeeder extends Seeder
             [
                 'dept_name' => 'Hall Supervisor',
                 'dept_code' => 'HS',
-                'added_by' => 1,
-            ]
-        );
-        Departments::create(
-            [
-                'dept_name' => 'Research Publications and Post Graduate',
-                'dept_code' => 'RPPG',
                 'added_by' => 1,
             ]
         );

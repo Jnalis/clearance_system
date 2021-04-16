@@ -13,8 +13,7 @@
 @section('content')
 <!-- Small boxes (Stat box) -->
 <div class="row">
-
-  <div class="col-lg-3 col-6">
+  <div class="col-md-4">
     <div class="small-box bg-info">
       <div class="inner">
         @php
@@ -37,7 +36,31 @@
   </div>
   <!-- ./col -->
 
-  <div class="col-lg-3 col-6">
+
+  <div class="col-md-4">
+    <div class="small-box bg-primary">
+      <div class="inner">
+        @php
+        $num = count($program);
+
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Program</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Program</h3>";
+        }
+        @endphp
+      </div>
+      <div class="icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <a href="{{ route('hod.program.index')}} " class="small-box-footer">More info <i
+          class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+
+  <div class="col-md-4">
     <div class="small-box bg-success">
       <div class="inner">
         @php
@@ -59,9 +82,10 @@
     </div>
   </div>
   <!-- ./col -->
-
-
-  <div class="col-lg-3 col-6">
+</div>
+<div class="row">
+  
+  <div class="col-md-4">
     <div class="small-box bg-warning">
       <div class="inner">
 
@@ -85,7 +109,7 @@
     </div>
   </div>
   <!-- ./col -->
-  <div class="col-lg-3 col-6">
+  <div class="col-md-4">
     <!-- small box -->
     <div class="small-box bg-danger">
       <div class="inner">
