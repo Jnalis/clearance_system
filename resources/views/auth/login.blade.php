@@ -18,7 +18,7 @@
                             <label for="user_id">Username</label>
                             <input type="text" name="user_id" id="user_id"
                                 class="form-control @error('user_id') is-invalid @enderror" placeholder="Username"
-                                value="{{ old('user_id') }}">
+                                value="{{ old('user_id') }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
 
                             @error('user_id')
                             <span class="invalid-feedback" role="alert">
@@ -39,9 +39,9 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-success ">Login</button>
+                        <button type="submit" class="btn btn-success btn-block">Login</button>
                         
-                        
+                        <p class="pt-3 text-center">Student! click <a href="{{ route('student') }}">here</a> if it's the first time</p>
                     </form>
                 </div>
             </div>

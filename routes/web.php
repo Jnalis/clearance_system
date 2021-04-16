@@ -15,6 +15,8 @@ Auth::routes();
 
 Route::get('/', [MainController::class, 'index'])->middleware('auth')->name('home');
 
+Route::get('/student', [MainController::class, 'student'])->name('student');
+
 
 Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('admin', 'auth')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
@@ -32,6 +34,7 @@ Route::namespace('HOD')->prefix('hod')->as('hod.')->middleware('hod','auth')->gr
     Route::resource('/issuedResource', 'IssuedResourceController');
     Route::resource('/lostResource', 'LostResourceController');
     Route::resource('/hodComment', 'HodCommentController');
+    Route::resource('/program', 'ProgramController');
 });
 
 

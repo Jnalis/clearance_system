@@ -17,7 +17,7 @@ class DepartmentsController extends Controller
     public function index()
     {
         //getting all the departments
-        $arr['depts'] = Departments::paginate(4);
+        $arr['depts'] = Departments::all();
         return view('pages.admin.view_department')->with($arr);
     }
 
@@ -128,6 +128,8 @@ class DepartmentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        Departments::destroy($id);
+        return redirect(route('admin.department.index'));
     }
 }

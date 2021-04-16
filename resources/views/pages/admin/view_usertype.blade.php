@@ -22,6 +22,23 @@
         <p>
           <a href="{{ route('admin.usertype.create') }}" class="btn btn-info">Add Usertype</a>
         </p>
+        <div class="result">
+          @if (session('success'))
+          <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+          </div>
+          @endif
+          @if (session('info'))
+          <div class="alert alert-info" role="alert">
+            {{ session('info') }}
+          </div>
+          @endif
+          @if (session('danger'))
+          <div class="alert alert-danger" role="alert">
+            {{ session('danger') }}
+          </div>
+          @endif
+        </div>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>

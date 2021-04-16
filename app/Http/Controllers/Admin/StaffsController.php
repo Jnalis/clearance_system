@@ -85,7 +85,7 @@ class StaffsController extends Controller
         //dd($data);
 
         if ($query) {
-            return redirect(route('admin.staff.index'));
+            return redirect(route('admin.staff.index'))->with('success','Staff Added Succe');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -139,21 +139,25 @@ class StaffsController extends Controller
         ]);
 
         //if form validated successfuly then add new user as staff
+        $data2 = $staff->username;
 
         $staff->firstname = $request->firstname;
         $staff->secondname = $request->secondname;
         $staff->lastname = $request->lastname;
         $staff->username = $request->username;
-        $data2 = $staff->username = $request->username;
         $staff->usertype = $request->usertype;
         $staff->department = $request->department;
 
-        $query = $staff->save(); //save your data to the model
 
-        return $data2;
+        $query = $staff->save(); //save your data to the model
+        
+        // return $data2;
         //edit user table
         $data = auth()->id();
         User::where('added_by', '=', $data)->where('user_id', '=', $data2)->update(['user_id' => $request->username, 'user_type' =>  $request->usertype]);
+
+
+
 
         // dd($data);
 
@@ -173,8 +177,9 @@ class StaffsController extends Controller
     public function destroy($id)
     {
         //
+        //dd($id);
         Staff::destroy($id);
-        // User::destroy($id);
+        User::destroy($id);
         return redirect(route('admin.staff.index'));
     }
 }

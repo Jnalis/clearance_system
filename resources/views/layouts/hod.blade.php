@@ -111,6 +111,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('hod.program.index') }}" class="nav-link 
+                                @if($segment=='program') 
+                                    active
+                                @endif
+                            ">
+                                <i class="nav-icon fas fa-plus"></i>
+                                <p>
+                                    Program
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('hod.allocatedResource.index') }}" class="nav-link 
                                 @if($segment=='allocatedResource' || $segment=='issuedResource' || $segment=='lostResource') 
                                     active

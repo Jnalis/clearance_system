@@ -52,11 +52,12 @@ class UsertypesController extends Controller
         
         $usertype->usertype_name = $request->usertype_name;
         $usertype->usertype_code = $request->usertype_code;
+        $usertype->added_by = auth()->id();
 
         $query = $usertype->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.usertype.index'));
+            return redirect(route('admin.usertype.index'))->with('success','Usertype Added');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -108,11 +109,12 @@ class UsertypesController extends Controller
         
         $usertype->usertype_name = $request->usertype_name;
         $usertype->usertype_code = $request->usertype_code;
+        $usertype->added_by = auth()->id();
 
         $query = $usertype->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.usertype.index'));
+            return redirect(route('admin.usertype.index'))->with('info','Usertype Edited');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -128,6 +130,6 @@ class UsertypesController extends Controller
     {
         //
         Usertypes::destroy($id);
-        return redirect(route('admin.usertype.index'));
+        return redirect(route('admin.usertype.index'))->with('danger','Usertype Deleted');
     }
 }

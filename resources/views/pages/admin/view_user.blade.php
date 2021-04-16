@@ -22,6 +22,13 @@
         <p>
           <a href="{{ route('admin.staff.create') }}" class="btn btn-info">Add Staff</a>
         </p>
+        <div class="result">
+          @if (session('success'))
+          <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+          </div>
+          @endif
+        </div>
         <table class="table table-bordered table-striped">
           <thead>
             <tr>
