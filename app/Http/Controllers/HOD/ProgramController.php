@@ -80,9 +80,12 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Program $program)
     {
         //
+        $arr['program'] = $program;
+        $arrD['department'] = Departments::all();
+        return view('pages.hod.edit_program')->with($arr)->with($arrD);
     }
 
     /**
@@ -92,9 +95,28 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Program $program)
     {
-        //
+        //return request()->input();
+
+        $request->validate([
+            'prog_name' => 'required | unique:programs',
+            'prog_code' => 'required | unique:programs',
+            'department' => 'required',
+        ]);
+
+        $program->prog_name = $request->prog_name;
+        $program->prog_code = $request->prog_code;
+        $program->added_by = auth()->id();
+        $program->dept_code = $request->department;
+        
+        $query = $program->save();
+
+        if ($query) {
+            return redirect(route('hod.program.index'))->with('success','Program added successfull');
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**
@@ -106,5 +128,7 @@ class ProgramController extends Controller
     public function destroy($id)
     {
         //
+        Program::destroy($id);
+        return redirect(route('hod.program.index'))->with('success','Program deleted successfull');
     }
 }

@@ -69,7 +69,7 @@ class StaffsController extends Controller
         $staff->lastname = $request->lastname;
         $staff->username = 'NIT/STAFF/' . $request->username;
         $staff->usertype = $request->usertype;
-        $staff->department = $request->department;
+        $staff->dept_code = $request->department;
         $staff->password = Hash::make($request->password);
 
         $query = $staff->save(); //save your data to the model
@@ -146,7 +146,7 @@ class StaffsController extends Controller
         $staff->lastname = $request->lastname;
         $staff->username = $request->username;
         $staff->usertype = $request->usertype;
-        $staff->department = $request->department;
+        $staff->dept_code = $request->department;
 
 
         $query = $staff->save(); //save your data to the model

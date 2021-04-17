@@ -110,8 +110,8 @@
 
                             @foreach ($depts as $dept)
 
-                            <option value="{{ $dept->dept_name }}" @if (old('department', $staff->department) ==
-                                "$dept->dept_name" )
+                            <option value="{{ $dept->dept_code   }}" @if (old('department', $staff->dept_code) ==
+                                "$dept->dept_code" )
                                 {{ 'selected' }}
                                 @endif>
                                 {{ $dept->dept_name }}

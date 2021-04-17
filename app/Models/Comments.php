@@ -9,7 +9,5 @@ class Comments extends Model
 {
     use HasFactory;
 
-    public function staff(){
-        $this->belongsTo(Staff::class);
-    }
+    
 }

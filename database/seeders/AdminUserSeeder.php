@@ -24,7 +24,7 @@ class AdminUserSeeder extends Seeder
             'lastname' => 'Swai',
             'username' => 'NIT/STAFF/100',
             'usertype' => 'Admin',
-            'department' => 'Computing and Communication Technology',
+            'dept_code' => 'CCT',
             'password' => Hash::make('123456'),
 
         ]);

@@ -20,7 +20,8 @@ class CreateStaffTable extends Migration
             $table->string('lastname');
             $table->string('username');
             $table->string('usertype');
-            $table->string('department');
+            $table->string('dept_code');
+            $table->foreign('dept_code')->references('dept_code')->on('departments')->onUpdate('cascade');
             $table->string('password');
             $table->timestamps();
         });
