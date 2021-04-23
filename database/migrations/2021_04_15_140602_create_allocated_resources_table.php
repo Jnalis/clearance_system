@@ -14,10 +14,15 @@ class CreateAllocatedResourcesTable extends Migration
     public function up()
     {
         Schema::create('allocated_resources', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('resource_allocator_id');
-            $table->integer('resource_id');
-            $table->integer('staff_id');
+            $table->id();
+            
+            $table->unsignedBigInteger('allocated_by')->nullable();
+            $table->foreign('allocated_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->string('allocated_to');
+
+            $table->unsignedBigInteger('resource_id');
+            $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

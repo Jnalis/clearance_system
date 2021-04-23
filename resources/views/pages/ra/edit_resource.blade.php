@@ -1,12 +1,12 @@
 @extends('layouts.ra')
-@section('title', 'Add Resource')
+@section('title', 'Edit Resource')
 
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
     <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
-    <li class="breadcrumb-item active">Add resource</li>
+    <li class="breadcrumb-item active">Edit Resource</li>
     
   </ol>
 </div><!-- /.col -->
@@ -21,7 +21,7 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-info">
+        <div class="card card-success">
             <div class="card-header">
                 <h3 class="card-title">Add a new resource</h3>
             </div>
@@ -30,7 +30,8 @@
             <div class="card-body">
 
 
-                <form role="form" action="{{ route('ra.resource.store') }}" method="POST">
+                <form role="form" action="{{ route('ra.resource.update', $resource->id) }}" method="POST">
+                    @method('put')
                     @csrf
                     
                     {{-- names --}}
@@ -39,7 +40,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_name">Resource name</label>
                                 <input type="text" name="resource_name" id="resource_name" class="form-control"
-                                    placeholder="Resource name" value="{{ old('resource_name') }}">
+                                    placeholder="Resource name" value="{{ old('resource_name', $resource->resource_type) }}">
                                 <span class="text-danger">@error('resource_name') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -50,14 +51,14 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_amount">Resource Amount</label>
                                 <input type="text" name="resource_amount" id="resource_amount" class="form-control"
-                                    placeholder="Resource Amount" value="{{ old('resource_amount') }}">
+                                    placeholder="Resource Amount" value="{{ old('resource_amount', $resource->resource_amount) }}">
                                 <span class="text-danger">@error('resource_amount') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-info btn-lg btn-block">Add Resource</button>
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Edit Resource</button>
                     </div>
 
 

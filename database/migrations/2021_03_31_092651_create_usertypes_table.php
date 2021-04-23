@@ -14,10 +14,10 @@ class CreateUsertypesTable extends Migration
     public function up()
     {
         Schema::create('usertypes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('usertype_name');
             $table->string('usertype_code');
-            $table->unsignedBigInteger('added_by');
+            $table->unsignedBigInteger('added_by')->nullable();
             $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

@@ -14,14 +14,12 @@ class CreateStaffTable extends Migration
     public function up()
     {
         Schema::create('staff', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('firstname');
             $table->string('secondname');
             $table->string('lastname');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('usertype');
-            $table->string('dept_code');
-            $table->foreign('dept_code')->references('dept_code')->on('departments')->onUpdate('cascade');
             $table->string('password');
             $table->timestamps();
         });

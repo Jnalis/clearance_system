@@ -29,7 +29,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-
+    @yield('tableCss')
 
 </head>
 
@@ -86,7 +86,7 @@
                         <?php 
                         
                             $segment = Request::segment(2);
-                            //echo $segment;
+                            echo $segment;
                         
                         ?>
                         <li class="nav-item">
@@ -103,7 +103,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('ra.resource.index') }}" class="nav-link 
-                                @if($segment=='resource') 
+                                @if($segment=='resource' || $segment=='allocatedResource') 
                                     active
                                 @endif
                             ">
@@ -218,6 +218,7 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
 
+    @yield('tableScript')
 
 </body>
 

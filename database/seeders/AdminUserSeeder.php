@@ -24,7 +24,7 @@ class AdminUserSeeder extends Seeder
             'lastname' => 'Swai',
             'username' => 'NIT/STAFF/100',
             'usertype' => 'Admin',
-            'dept_code' => 'CCT',
+            //'dept_code' => 'CCT',
             'password' => Hash::make('123456'),
 
         ]);
@@ -32,7 +32,7 @@ class AdminUserSeeder extends Seeder
 
             'user_id' => 'NIT/STAFF/100',
             'user_type' => 'Admin',
-            'added_by' => 1,
+            //'added_by' => 1,
             'password' => Hash::make('123456'),
 
         ]);

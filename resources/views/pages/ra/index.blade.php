@@ -14,12 +14,21 @@
 <!-- Small boxes (Stat box) -->
 <div class="row">
   <div class="col-lg-3 col-6">
+
+
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
-        <h3>150</h3>
+        @php
+        $num = count($resource);
 
-        <p>Resource</p>
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        }
+        @endphp
       </div>
       <div class="icon">
         <i class="fas fa-users"></i>
@@ -29,13 +38,41 @@
     </div>
   </div>
   <!-- ./col -->
+
+
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        @php
+        $num = count($allocated_resource);
+
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Allocated Resource</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">$num Allocated Resource</h3>";
+        }
+        @endphp
+      </div>
+      <div class="icon">
+        <i class="fas fa-users"></i>
+      </div>
+      <a href="{{ route('ra.allocatedResource.index') }}" class="small-box-footer">More info <i
+          class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+
+
+
+
   {{-- <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
               <h3>53</h3>
 
-              <p>Allocated Resource</p>
+              <p></p>
             </div>
             <div class="icon">
                 <i class="fas fa-building"></i>
@@ -44,6 +81,10 @@
           </div>
         </div> --}}
   <!-- ./col -->
+
+
+
+
   {{-- <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-warning">
@@ -59,6 +100,9 @@
           </div>
         </div> --}}
   <!-- ./col -->
+
+
+
   {{-- <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-danger">
@@ -74,5 +118,7 @@
           </div>
         </div> --}}
   <!-- ./col -->
+
+
 </div>
 @endsection

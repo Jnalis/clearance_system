@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+
+    // public function department()
+    // {
+    //     return $this->hasOne(Departments::class);
+    // }
+
+    // public function program()
+    // {
+    //     return $this->hasOne(Program::class);
+    // }
 }

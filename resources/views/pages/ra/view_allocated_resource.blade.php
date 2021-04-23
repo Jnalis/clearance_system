@@ -3,12 +3,12 @@
 
 @section('smallNavigation')
 <div class="col-sm-6">
-  <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
-    <li class="breadcrumb-item active">Allocated resource list</li>
-    
-  </ol>
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
+        <li class="breadcrumb-item active">Allocated resource list</li>
+
+    </ol>
 </div><!-- /.col -->
 @endsection
 
@@ -19,28 +19,55 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+        <div class="result">
+            @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
+            @if (session('danger'))
+            <div class="alert alert-danger" role="alert">
+                {{ session('danger') }}
+            </div>
+            @endif
+        </div>
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Resource ID</th>
+                    <th>#</th>
                     <th>Resource Type</th>
                     <th>Resource Amount</th>
-                    <th>Registered at</th>
+                    <th>Custodian</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @if (count($allocResources))
-                @foreach ($allocResources as $r)
+                @php
+                $no = 1;
+                @endphp
+                @if (count($data))
+                @foreach ($data as $r)
                 <tr>
-                    <td>{{ $r->id }}</td>
+                    <td>{{ $no }}</td>
                     <td>{{ $r->resource_type }}</td>
                     <td>{{ $r->resource_amount }}</td>
-                    <td>{{ $r->created_at }}</td>
+                    <td>{{ $r->allocated_to }}</td>
+                    <td>
+                        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+                            class="btn btn-danger">Delete</a>
+                        <form action="{{ route('ra.allocatedResource.destroy', $r->id) }}" method="post">
+                            @method('delete')
+                            @csrf
+                        </form>
+                    </td>
                 </tr>
+                @php
+                $no++;
+                @endphp
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="4">No Resource Found</td>
+                    <td colspan="6">No Resource Found</td>
                 </tr>
                 @endif
             </tbody>

@@ -14,9 +14,11 @@ class CreateResourcesTable extends Migration
     public function up()
     {
         Schema::create('resources', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('resource_type');
             $table->string('resource_amount');
+            $table->unsignedBigInteger('added_by')->nullable();
+            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

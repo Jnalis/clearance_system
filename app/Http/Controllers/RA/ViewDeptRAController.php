@@ -33,7 +33,7 @@ class ViewDeptRAController extends Controller
     */
     public function create()
     {
-        return view('pages.ra.allocate_resource');
+        //
     }
 
     /**
@@ -42,28 +42,9 @@ class ViewDeptRAController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, AllocatedResource $allocatedResource)
+    public function store(Request $request)
     {
-        // checking if you gett all the data from the form
-         //return $request->input();
-
-        $request->validate([
-            'resource_type' => 'required',
-            'select_custodian' => 'required',
-        ]);
-
-        //if form validated successfuly then alocate the resource
-        
-        $allocatedResource->resource_type = $request->resource_type;
-        $allocatedResource->resource_amount = $request->resource_amount;
-
-        $query = $allocatedResource->save(); //save your data to the model
-
-        if ($query) {
-            return redirect(route('ra.resource.index'));
-        } else {
-            return back()->with('fail', 'Something went wrong');
-        }
+        //
     }
 
     /**

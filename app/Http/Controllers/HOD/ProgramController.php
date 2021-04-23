@@ -5,6 +5,7 @@ namespace App\Http\Controllers\HOD;
 use App\Http\Controllers\Controller;
 use App\Models\Departments;
 use App\Models\Program;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 
 class ProgramController extends Controller
@@ -16,7 +17,13 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $arr['program'] = Program::all();
+       // $arr['program'] = Program::all();
+
+        $d = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+        //  echo $d;
+        //  die();
+        $arr['program'] = Program::where('dept_code', '=', $d)->get();
+
         return view('pages.hod.view_program')->with($arr);
     }
 

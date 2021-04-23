@@ -10,9 +10,17 @@
             <div class="card">
                 <div class="card-header text-center">NIT Student Clearance System</div>
 
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+                        <div class="result">
+                            @if (Session::get('fail'))
+                            <div class="alert alert-danger">
+                                {{ Session::get('fail') }}
+                            </div>
+                            @endif
+                        </div>
 
                         <div class="form-group">
                             <label for="user_id">Username</label>

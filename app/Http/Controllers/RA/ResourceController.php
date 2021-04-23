@@ -5,6 +5,7 @@ namespace App\Http\Controllers\RA;
 use App\Http\Controllers\Controller;
 use App\Models\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ResourceController extends Controller
 {
@@ -49,11 +50,12 @@ class ResourceController extends Controller
         
         $resource->resource_type = $request->resource_name;
         $resource->resource_amount = $request->resource_amount;
+        $resource->added_by = auth()->id();
 
         $query = $resource->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('ra.resource.index'));
+            return redirect(route('ra.resource.index'))->with('success', 'Resource added successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -76,9 +78,11 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Resource $resource)
     {
         //
+        $arr['resource'] = $resource;
+        return view('pages.ra.edit_resource')->with($arr);
     }
 
     /**
@@ -88,9 +92,29 @@ class ResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Resource $resource)
     {
-        //
+        // checking if you gett all the data from the form
+        // return $request->input();
+
+        $request->validate([
+            'resource_name' => 'required',
+            'resource_amount' => 'required',
+        ]);
+
+        //if form validated successfuly then add new usertype
+        
+        $resource->resource_type = $request->resource_name;
+        $resource->resource_amount = $request->resource_amount;
+        $resource->added_by = auth()->id();
+
+        $query = $resource->save(); //save your data to the model
+
+        if ($query) {
+            return redirect(route('ra.resource.index'))->with('success', 'Resource updated successfully');
+        } else {
+            return back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**
@@ -102,5 +126,8 @@ class ResourceController extends Controller
     public function destroy($id)
     {
         //
+        Resource::destroy($id);
+        return redirect(route('ra.resource.index'))->with('danger', 'Resource deleted successfully');
+
     }
 }

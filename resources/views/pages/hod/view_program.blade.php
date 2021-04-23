@@ -42,12 +42,13 @@
                     <th>Program Name</th>
                     <th>Program code</th>
                     <th>Department code</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 @php
-                    $no = 1;
+                $no = 1;
                 @endphp
                 @if (count($program))
                 @foreach ($program as $prog)
@@ -59,6 +60,8 @@
                     <td>{{ $prog->dept_code }}</td>
                     <td>
                         <a href="{{ route('hod.program.edit',$prog->id) }}" class="btn btn-warning">Edit</a>
+                    </td>
+                    <td>
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
                             class="btn btn-danger">Delete</a>
                         <form action="{{ route('hod.program.destroy', $prog->id) }}" method="post">
@@ -68,12 +71,12 @@
                     </td>
                 </tr>
                 @php
-                    $no++;
+                $no++;
                 @endphp
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="4">No Program Found</td>
+                    <td colspan="5">No Program Found</td>
                 </tr>
                 @endif
             </tbody>
@@ -92,7 +95,7 @@
 <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
 
 <script>
-  $(function () {
+    $(function () {
     $("#example1").DataTable({
       responsive: true,
       autoWidth: false,

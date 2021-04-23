@@ -14,12 +14,12 @@ class CreateProgramsTable extends Migration
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('prog_name');
             $table->string('prog_code')->unique();
-            $table->unsignedBigInteger('added_by');
-            $table->string('dept_code');
-            $table->foreign('added_by')->references('id')->on('staff');
+            $table->unsignedBigInteger('added_by')->nullable();
+            $table->string('dept_code')->nullable();
+            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('dept_code')->references('dept_code')->on('departments')->onUpdate('cascade');
             $table->timestamps();
         });

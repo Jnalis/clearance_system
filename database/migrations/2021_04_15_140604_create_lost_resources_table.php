@@ -14,10 +14,11 @@ class CreateLostResourcesTable extends Migration
     public function up()
     {
         Schema::create('lost_resources', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('student_id');
-            $table->integer('resource_id');
-            $table->string('refunded_status');
+            $table->id();
+            $table->string('student_id');
+            $table->unsignedBigInteger('resource_id');
+            $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('refunded_status',['YES','NO'])->default('NO');
             $table->timestamps();
         });
     }

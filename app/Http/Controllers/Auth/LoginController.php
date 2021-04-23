@@ -58,7 +58,7 @@ class LoginController extends Controller
                 return redirect(route('dean.home'));
             }
         } else {
-            return redirect(route('home'));
+            return back()->with('fail','Check your credentials');
         }
     }
 
