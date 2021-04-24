@@ -157,8 +157,11 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
+
+                        
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Admin: <sub>{{ Auth::user()->user_id }}</sub></h1>
+                            <h1 class="m-0 text-dark">{{ Auth::user()->user_type }}</h1>
+                            <p>{{ Auth::user()->user_id }}</p>
                         </div><!-- /.col -->
 
                         @yield('smallNavigation')

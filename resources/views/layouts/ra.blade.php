@@ -86,7 +86,7 @@
                         <?php 
                         
                             $segment = Request::segment(2);
-                            echo $segment;
+                            //echo $segment;
                         
                         ?>
                         <li class="nav-item">
@@ -103,7 +103,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('ra.resource.index') }}" class="nav-link 
-                                @if($segment=='resource' || $segment=='allocatedResource') 
+                                @if($segment=='resource' || $segment=='allocatedResource' || $segment=='lostResource') 
                                     active
                                 @endif
                             ">
@@ -150,11 +150,15 @@
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
+
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Resource Allocator: <sub>{{ Auth::user()->user_id }}</sub></h1>
+                            <h1 class="m-0 text-dark">{{ Auth::user()->user_type }}</h1>
+                            <p>{{ Auth::user()->user_id }}</p>
                         </div><!-- /.col -->
 
+
                         @yield('smallNavigation')
+                        
 
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->

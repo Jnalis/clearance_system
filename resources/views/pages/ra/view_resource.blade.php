@@ -43,6 +43,7 @@
                     <th>Resource Type</th>
                     <th>Resource Amount</th>
                     <th>Registered at</th>
+                    <th>Allocated</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -58,6 +59,7 @@
                     <td>{{ $r->resource_type }}</td>
                     <td>{{ $r->resource_amount }}</td>
                     <td>{{ date('d/M/Y', strtotime($r->created_at)) }}</td>
+                    <td>{{$r->allocated }}</td>
                     <td>
                         <a href="{{ route('ra.resource.edit',$r->id) }}" class="btn btn-warning">Edit</a>
                     </td>

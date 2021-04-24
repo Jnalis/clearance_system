@@ -65,6 +65,9 @@ class AllocateResourceController extends Controller
 
         $query = $allocatedResource->save(); //save your data to the model
 
+        
+        Resource::where('id', '=', $id)->update(['allocated' => 'YES']);
+
         if ($query) {
             return redirect(route('ra.resource.index'))->with('success', 'Resource allocated successfull');
         } else {
@@ -115,7 +118,13 @@ class AllocateResourceController extends Controller
     public function destroy($id)
     {
         //
+        //getting resource id from allocated resource table
+        $id_to_update = AllocatedResource::select('resource_id')->firstWhere('id', '=', $id)->resource_id;
+
         AllocatedResource::destroy($id);
+
+        Resource::where('id', '=', $id_to_update)->update(['allocated' => 'NO']);
+        
         return redirect(route('ra.allocatedResource.index'))->with('danger', 'Resource removed from custodian successfull');
     }
 }

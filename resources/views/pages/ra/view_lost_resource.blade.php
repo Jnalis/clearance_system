@@ -3,12 +3,12 @@
 
 @section('smallNavigation')
 <div class="col-sm-6">
-  <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
-    <li class="breadcrumb-item active">Lost resource list</li>
-    
-  </ol>
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
+        <li class="breadcrumb-item active">Lost resource list</li>
+
+    </ol>
 </div><!-- /.col -->
 @endsection
 
@@ -22,19 +22,33 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Resource ID</th>
+                    <th>#</th>
                     <th>Resource Type</th>
                     <th>Refunded Status</th>
                     <th>Amount Refunded</th>
                 </tr>
             </thead>
             <tbody>
+                @php
+                $no = 1;
+                @endphp
+                @if (count($data))
+                @foreach ($data as $item)
                 <tr>
-                    <td>111</td>
-                    <td>CD</td>
-                    <td>YES</td>
-                    <td>2000</td>
+                    <td>{{ $no }}</td>
+                    <td>{{ $item->student_id }}</td>
+                    <td>{{ $item ->resource_id}}</td>
+                    <td>{{ $item ->refunded_status}}</td>
                 </tr>
+                @php
+                $no++;
+                @endphp
+                @endforeach
+                @else
+                <tr>
+                    <td colspan="4">No Lost Resource Found</td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>
