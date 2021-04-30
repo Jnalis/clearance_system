@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\HOD;
 
 use App\Http\Controllers\Controller;
+use App\Models\Staff;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $arr['student'] = Student::all();
+        $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+
+        $arr['student'] = Student::where('department', '=', $deptCode)->get();
+
         return view('pages.hod.view_student')->with($arr);
     }
 

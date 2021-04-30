@@ -15,12 +15,10 @@ class CreateIssuedResourcesTable extends Migration
     {
         Schema::create('issued_resources', function (Blueprint $table) {
             $table->id();
-            $table->string('student_name');
-            $table->string('student_reg_no');
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('resource_id');
             $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('resource_type');
-            $table->string('amount');
             $table->date('date_to_return');
             $table->timestamps();
         });

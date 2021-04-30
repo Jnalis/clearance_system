@@ -125,7 +125,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('ra.custodian.index') }}" class="nav-link 
                                 @if($segment=='custodian') 
                                     active
@@ -136,7 +136,7 @@
                                     Custodians
                                 </p>
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

@@ -3,10 +3,10 @@
 
 @section('smallNavigation')
 <div class="col-sm-6">
-  <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('dean.home') }}">Home</a></li>
-    <li class="breadcrumb-item active">Resource List</li>
-  </ol>
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('dean.home') }}">Home</a></li>
+        <li class="breadcrumb-item active">Resource List</li>
+    </ol>
 </div><!-- /.col -->
 
 @endsection
@@ -27,25 +27,29 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Resource Allocator ID</th>
-                    <th>Resource ID</th>
-                    <th>Staff ID</th>
+                    <th>Resource Type</th>
+                    <th>Resource Amount</th>
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $no = 1;
+                @endphp
                 @if (count($allocated_r))
-                    @foreach ($allocated_r as $a)
-                        
-                    <tr>
-                        <td>{{ $a->id }}</td>
-                        <td>{{ $a->resource_allocator_id }}</td>
-                        <td>{{ $a->resource_id }}</td>
-                        <td>{{ $a->staff_id }}</td>
-                    </tr>
-                    @endforeach
+                @foreach ($allocated_r as $a)
+
+                <tr>
+                    <td>{{ $no }}</td>
+                    <td>{{ $a->resource_type }}</td>
+                    <td>{{ $a->resource_amount }}</td>
+                </tr>
+                @php
+                    $no++;
+                @endphp
+                @endforeach
                 @else
                 <tr>
-                    <td colspan="4">No Allocated Resource Found</td>
+                    <td colspan="3">No Allocated Resource Found</td>
                 </tr>
                 @endif
             </tbody>

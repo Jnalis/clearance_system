@@ -24,7 +24,7 @@
         echo "<h3 class=\"text-center\">$num Student</h3>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Student</h3>";
+        echo "<h3 class=\"text-center\">No Student</h3>";
         }
         @endphp
       </div>
@@ -48,7 +48,7 @@
         echo "<h3 class=\"text-center\">$num Program</h3>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Program</h3>";
+        echo "<h3 class=\"text-center\">No Program</h3>";
         }
         @endphp
       </div>
@@ -71,7 +71,7 @@
         echo "<h3 class=\"text-center\">$num Resource</h3>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        echo "<h3 class=\"text-center\">No Resource</h3>";
         }
         @endphp
       </div>
@@ -97,7 +97,7 @@
         echo "<h3 class=\"text-center\">$num Issued Res</h3>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Issued Res</h3>";
+        echo "<h3 class=\"text-center\">No Issued Res</h3>";
         }
         @endphp
 
@@ -121,7 +121,7 @@
         echo "<h3 class=\"text-center\">$num Lost Res</h3>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Lost Res</h3>";
+        echo "<h3 class=\"text-center\">No Lost Res</h3>";
         }
         @endphp
       </div>

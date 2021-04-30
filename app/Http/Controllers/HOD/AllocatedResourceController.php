@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\AllocatedResource;
 use Illuminate\Http\Request;
 use App\Models\IssuedResource;
+use App\Models\Resource;
+use App\Models\Staff;
+use App\Models\Student;
 
 class AllocatedResourceController extends Controller
 {
@@ -16,7 +19,8 @@ class AllocatedResourceController extends Controller
      */
     public function index()
     {
-        $arr['allocated_r'] = AllocatedResource::all();
+        $arr['allocated_r'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->get();
+
         return view('pages.hod.view_allocated_resource')->with($arr);
     }
 
@@ -27,7 +31,13 @@ class AllocatedResourceController extends Controller
      */
     public function create()
     {
-        return view('pages.hod.issue_resource');
+        $arr['data'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->get();
+
+        $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+
+        $arrS['student'] = Student::where('department', '=', $deptCode)->get();
+
+        return view('pages.hod.issue_resource')->with($arr)->with($arrS);
     }
 
     /**
@@ -39,26 +49,34 @@ class AllocatedResourceController extends Controller
     public function store(Request $request, IssuedResource $issuedResource)
     {
         // checking if you gett all the data from the form
-        //return $request->input();
+        // return $request->input();
+
+
 
         $request->validate([
-            'student_name' => 'required',
             'student_reg_no' => 'required',
             'resource_type' => 'required',
             'date_to_return' => 'required',
         ]);
 
         //if form validated successfuly then add new usertype
-        
-        $issuedResource->student_name = $request->student_name;
-        $issuedResource->student_reg_no = $request->student_reg_no;
-        $issuedResource->resource_type = $request->resource_type;
-        $issuedResource->date_to_return = $request->date_to_return;
+        // $name = Student::select(['fullname'])->firstWhere('student_id', '=', $request->student_reg_no)->fullname;
 
+        $studentID = Student::select(['id'])->firstWhere('student_id', '=', $request->student_reg_no)->id;
+
+        $id = Resource::select(['id'])->firstWhere('resource_type', '=', $request->resource_type)->id;
+
+        //$issuedResource->student_name = $name;
+        $issuedResource->student_id = $studentID;
+        $issuedResource->resource_id = $id;
+        $issuedResource->date_to_return = $request->date_to_return;
+        
         $query = $issuedResource->save(); //save your data to the model
 
+        AllocatedResource::destroy($id); //delete the resource after it has been issued
+
         if ($query) {
-            return redirect(route('hod.issuedResource.index'));
+            return redirect(route('hod.issuedResource.index'))->with('success', 'Resource issued successfull');
         } else {
             return back()->with('fail', 'Something went wrong');
         }

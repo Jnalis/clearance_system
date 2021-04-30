@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HOD\Return_LostResourceController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::namespace('HOD')->prefix('hod')->as('hod.')->middleware('hod','auth')->gr
     Route::resource('/lostResource', 'LostResourceController');
     Route::resource('/hodComment', 'HodCommentController');
     Route::resource('/program', 'ProgramController');
+    Route::resource('/return', 'ReturnController');
 });
 
 
@@ -44,7 +46,7 @@ Route::namespace('RA')->prefix('ra')->as('ra.')->middleware('ra','auth')->group(
     Route::resource('/viewDeptRA', 'ViewDeptRAController');
     Route::resource('/allocatedResource', 'AllocateResourceController');
     Route::resource('/lostResource', 'LostResourceController');
-    Route::resource('/custodian', 'CustodianController');
+    //Route::resource('/custodian', 'CustodianController');
 });
 
 

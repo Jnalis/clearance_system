@@ -17,7 +17,9 @@ class ResourceController extends Controller
     public function index()
     {
         //
-        $arr['allocated_r'] = AllocatedResource::all();
+        $arr['allocated_r'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->get();
+
+
         return view('pages.dean.view_allocated_resource')->with($arr);
     }
 

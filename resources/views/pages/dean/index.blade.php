@@ -17,9 +17,16 @@
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
-        <h3>150</h3>
+        @php
+        $num = count($student);
 
-        <p>Student</p>
+        if ($num > 0) {
+        echo "<h3 class=\"text-center\">$num Student</h3>";
+        }
+        else {
+        echo "<h3 class=\"text-center\">No Student</h3>";
+        }
+        @endphp
       </div>
       <div class="icon">
         <i class="fas fa-users"></i>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dean;
 
 use App\Http\Controllers\Controller;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -15,7 +16,8 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return view('pages.dean.view_student');
+        $arr['student'] = Student::all();
+        return view('pages.dean.view_student')->with($arr);
     }
 
     /**

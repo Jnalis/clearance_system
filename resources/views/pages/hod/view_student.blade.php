@@ -27,8 +27,8 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Reg No</th>
-                    <th>Fullname</th>
+                    <th>Name</th>
+                    <th>Registration No</th>
                     <th>Program</th>
                     <th>Department</th>
                     <th>Entry Year</th>
@@ -44,8 +44,8 @@
 
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $stud->student_id }}</td>
                     <td>{{ $stud->fullname }}</td>
+                    <td>{{ $stud->student_id }}</td>
                     <td>{{ $stud->program }}</td>
                     <td>{{ $stud->department }}</td>
                     <td>{{ $stud->entry_year }}</td>

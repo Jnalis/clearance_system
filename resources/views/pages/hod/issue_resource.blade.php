@@ -3,11 +3,11 @@
 
 @section('smallNavigation')
 <div class="col-sm-6">
-  <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Home</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('hod.allocatedResource.index') }}">Resource List</a></li>
-    <li class="breadcrumb-item active">Issue resource</li>
-  </ol>
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Home</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('hod.allocatedResource.index') }}">Resource List</a></li>
+        <li class="breadcrumb-item active">Issue resource</li>
+    </ol>
 </div><!-- /.col -->
 
 @endsection
@@ -15,12 +15,12 @@
 @section('content')
 <div class="row">
     {{-- left column --}}
-    <div class="col-md-1"></div>
+    <div class="col-md-3"></div>
     {{-- /.col (left) --}}
 
 
     {{-- center column --}}
-    <div class="col-md-10">
+    <div class="col-md-6">
         <div class="card card-info">
             <div class="card-header">
                 <h3 class="card-title">Issue a Resource</h3>
@@ -33,11 +33,6 @@
                 <form role="form" action="{{ route('hod.allocatedResource.store') }}" method="POST">
                     @csrf
                     <div class="result">
-                        @if (Session::get('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success') }}
-                        </div>
-                        @endif
                         @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
@@ -46,20 +41,25 @@
                     </div>
                     {{-- names --}}
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="col-form-label" for="student_name">Student Full Name</label>
-                                <input type="text" name="student_name" id="student_name" class="form-control"
-                                    placeholder="Student full name" value="{{ old('student_name') }}">
-                                <span class="text-danger">@error('student_name') {{ $message }} @enderror</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
+                        
+                        <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="student_reg_no">Student Reg No</label>
-                                <input type="text" name="student_reg_no" id="student_reg_no" class="form-control"
-                                    placeholder="Student Reg No" value="{{ old('student_reg_no') }}">
+
+                                <select name="student_reg_no" id="student_reg_no" class="form-control">
+
+                                <option></option>
+
+                                @foreach ($student as $item)
+                                <option value="{{ $item->student_id }}" @if (old('student_reg_no')=="$item->student_id"
+                                    ) {{ 'selected' }} @endif>
+                                    {{ $item->student_id }}
+                                </option>
+                                @endforeach
+
+                                </select>
                                 <span class="text-danger">@error('student_reg_no') {{ $message }} @enderror</span>
+                                
                             </div>
                         </div>
                     </div>
@@ -69,19 +69,15 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_type">Resource Type</label>
                                 <select name="resource_type" id="resource_type" class="form-control">
+
                                     <option></option>
-                                    <option value="Flash1" @if (old('resource_type')=="Flash1" ) {{ 'selected' }}
-                                        @endif>
-                                        Flash1
+
+                                    @foreach ($data as $item)
+                                    <option value="{{ $item->resource_type }}" @if (old('resource_type')=="$item->resource_type" ) {{ 'selected' }} @endif>
+                                        {{ $item->resource_type }}
                                     </option>
-                                    <option value="Flash2" @if (old('resource_type')=="Flash2" ) {{ 'selected' }}
-                                        @endif>
-                                        Flash2
-                                    </option>
-                                    <option value="Flash3" @if (old('resource_type')=="Flash3" ) {{ 'selected' }}
-                                        @endif>
-                                        Flash3
-                                    </option>
+                                    @endforeach
+
                                 </select>
                                 <span class="text-danger">@error('resource_type') {{ $message }} @enderror</span>
                             </div>
@@ -113,7 +109,7 @@
     {{-- /.col (center) --}}
 
     {{-- right column --}}
-    <div class="col-md-1"></div>
+    <div class="col-md-3"></div>
     {{-- /.col (right) --}}
 </div>
 @endsection

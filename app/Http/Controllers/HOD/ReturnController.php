@@ -4,10 +4,10 @@ namespace App\Http\Controllers\HOD;
 
 use App\Http\Controllers\Controller;
 use App\Models\IssuedResource;
-use App\Models\Student;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 
-class IssuedResourceController extends Controller
+class ReturnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,7 @@ class IssuedResourceController extends Controller
      */
     public function index()
     {
-
-        
-        $arr['issued_r'] = IssuedResource::join('students', 'students.id', '=', 'issued_resources.student_id')->join('resources', 'resources.id', '=', 'issued_resources.resource_id')->get();
-
-        return view('pages.hod.view_issued_resource')->with($arr);
+        //
     }
 
     /**
@@ -61,9 +57,11 @@ class IssuedResourceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(IssuedResource $issuedResource)
     {
         //
+    //     $id = $issuedResource;
+    //    return $d = Resource::select(['id'])->where('id', '=', $id)->get();
     }
 
     /**
