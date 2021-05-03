@@ -56,12 +56,12 @@
                                     <select name="program" id="program" class="form-control">
                                         <option>--select program--</option>
             
-                                        {{-- @foreach ($user_type as $item)
+                                        @foreach ($program as $item)
             
-                                        <option value="{{ $item->usertype_code }}" @if (old('usertype')=="$item->usertype_code" )
+                                        <option value="{{ $item->prog_code }}" @if (old('usertype')=="$item->prog_code" )
                                             {{ 'selected' }} @endif>{{ $item->usertype_name }}</option>
             
-                                        @endforeach --}}
+                                        @endforeach
                                     </select>
                                     <span class="text-danger">@error('usertype') {{ $message }} @enderror</span>
                                 </div>

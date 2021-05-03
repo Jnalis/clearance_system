@@ -18,11 +18,10 @@ class CreateAllocatedResourcesTable extends Migration
             
             $table->unsignedBigInteger('allocated_by')->nullable();
             $table->foreign('allocated_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
-
             $table->string('allocated_to');
-
             $table->unsignedBigInteger('resource_id');
             $table->foreign('resource_id')->references('id')->on('resources')->onDelete('cascade')->onUpdate('cascade');
+            $table->enum('status',['ISSUED','NOT ISSUED'])->default('NOT ISSUED');
             $table->timestamps();
         });
     }

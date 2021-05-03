@@ -17,12 +17,13 @@ class ProgramController extends Controller
      */
     public function index()
     {
-       // $arr['program'] = Program::all();
+       /** This return single dept depending on hod dept */
+        // $d = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+        // //  echo $d;
+        // //  die();
+        // $arr['program'] = Program::where('dept_code', '=', $d)->get();
 
-        $d = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
-        //  echo $d;
-        //  die();
-        $arr['program'] = Program::where('dept_code', '=', $d)->get();
+        $arr['program'] = Program::all();
 
         return view('pages.hod.view_program')->with($arr);
     }

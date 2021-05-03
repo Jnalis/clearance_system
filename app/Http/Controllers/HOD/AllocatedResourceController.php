@@ -33,9 +33,10 @@ class AllocatedResourceController extends Controller
     {
         $arr['data'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->get();
 
-        $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+        // $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+        // $arrS['student'] = Student::where('department', '=', $deptCode)->get();
 
-        $arrS['student'] = Student::where('department', '=', $deptCode)->get();
+        $arrS['student'] = Student::all();
 
         return view('pages.hod.issue_resource')->with($arr)->with($arrS);
     }
@@ -50,7 +51,6 @@ class AllocatedResourceController extends Controller
     {
         // checking if you gett all the data from the form
         // return $request->input();
-
 
 
         $request->validate([
@@ -70,10 +70,9 @@ class AllocatedResourceController extends Controller
         $issuedResource->student_id = $studentID;
         $issuedResource->resource_id = $id;
         $issuedResource->date_to_return = $request->date_to_return;
-        
+
         $query = $issuedResource->save(); //save your data to the model
 
-        AllocatedResource::destroy($id); //delete the resource after it has been issued
 
         if ($query) {
             return redirect(route('hod.issuedResource.index'))->with('success', 'Resource issued successfull');

@@ -71,7 +71,7 @@
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="8">No Issued Resource</td>
+                    <td colspan="9">No Issued Resource</td>
                 </tr>
                 @endif
             </tbody>

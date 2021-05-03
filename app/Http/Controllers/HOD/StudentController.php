@@ -16,9 +16,11 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
+        // $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
 
-        $arr['student'] = Student::where('department', '=', $deptCode)->get();
+        // $arr['student'] = Student::where('department', '=', $deptCode)->get();
+
+        $arr['student'] = Student::all();
 
         return view('pages.hod.view_student')->with($arr);
     }
