@@ -32,6 +32,13 @@
             <a href="{{ route('hod.issuedResource.index') }}" class="btn btn-success">Issued Resource</a>
             <a href="{{ route('hod.lostResource.index') }}" class="btn btn-danger">Lost Resource</a>
         </p>
+        <div class="result">
+            @if (session('success'))
+            <div class="alert alert-success" role="alert">
+              {{ session('success') }}
+            </div>
+            @endif
+          </div>
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>

@@ -32,8 +32,9 @@ class AllocateResourceController extends Controller
      */
     public function create()
     {
-        $arr['resource'] = Resource::all();
-        $arrC['custodian'] = Staff::all()->where('usertype', '=', 'HOD');
+        $arr['resource'] = Resource::where('allocated', '=', 'NO')->get();
+
+        $arrC['custodian'] = Staff::where('usertype', '=', 'HOD')->get();
         //return $arrC;
         return view('pages.ra.allocate_resource')->with($arr)->with($arrC);
     }
@@ -56,7 +57,8 @@ class AllocateResourceController extends Controller
 
         $name = $request->resource_type;
         $id = Resource::select('id')->firstWhere('resource_type', '=', $name)->id;
-
+        
+        $staffId = Staff::select('id')->firstWhere('')
 
         //if form validated successfuly then alocate the resource
         $allocatedResource->allocated_by = auth()->id();

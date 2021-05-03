@@ -39,7 +39,7 @@
                     <div class="form-group">
                         <label class="col-form-label" for="resource_type">Select Resource</label>
                         <select name="resource_type" id="resource_type" class="form-control">
-                            <option>--select resource--</option>
+                            <option></option>
 
                             @foreach ($resource as $item)
 
@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <label class="col-form-label" for="select_custodian">Select Custodian</label>
                         <select name="select_custodian" id="select_custodian" class="form-control">
-                            <option>--select custodian--</option>
+                            <option></option>
 
                             @foreach ($custodian as $item)
 

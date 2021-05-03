@@ -31,7 +31,7 @@ class AllocatedResourceController extends Controller
      */
     public function create()
     {
-        $arr['data'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->get();
+        $arr['data'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->where('allocated_resources.status', '=', 'NOT ISSUED')->get();
 
         // $deptCode = Staff::select(['dept_code'])->firstWhere('id', '=', auth()->user()->id)->dept_code;
         // $arrS['student'] = Student::where('department', '=', $deptCode)->get();
@@ -47,7 +47,7 @@ class AllocatedResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, IssuedResource $issuedResource)
+    public function store(Request $request, IssuedResource $issuedResource, AllocatedResource $allocatedResource)
     {
         // checking if you gett all the data from the form
         // return $request->input();
@@ -64,14 +64,17 @@ class AllocatedResourceController extends Controller
 
         $studentID = Student::select(['id'])->firstWhere('student_id', '=', $request->student_reg_no)->id;
 
-        $id = Resource::select(['id'])->firstWhere('resource_type', '=', $request->resource_type)->id;
+         $id = Resource::select(['id'])->firstWhere('resource_type', '=', $request->resource_type)->id;
 
         //$issuedResource->student_name = $name;
         $issuedResource->student_id = $studentID;
         $issuedResource->resource_id = $id;
         $issuedResource->date_to_return = $request->date_to_return;
-
         $query = $issuedResource->save(); //save your data to the model
+
+        //changes the column in allocated resource to issued when admin issues a resource
+        AllocatedResource::where('resource_id', '=', $id)->update(['status' => 'ISSUED']);
+        
 
 
         if ($query) {
