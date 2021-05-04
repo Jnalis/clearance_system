@@ -58,8 +58,7 @@ class AllocateResourceController extends Controller
         $name = $request->resource_type;
         $id = Resource::select('id')->firstWhere('resource_type', '=', $name)->id;
         
-        $staffId = Staff::select('id')->firstWhere('')
-
+    
         //if form validated successfuly then alocate the resource
         $allocatedResource->allocated_by = auth()->id();
         $allocatedResource->allocated_to = $request->select_custodian;
