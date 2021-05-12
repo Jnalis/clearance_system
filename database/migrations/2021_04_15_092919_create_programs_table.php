@@ -17,10 +17,18 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('prog_name');
             $table->string('prog_code')->unique();
+
             $table->unsignedBigInteger('added_by')->nullable();
             $table->string('dept_code')->nullable();
-            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('dept_code')->references('dept_code')->on('departments')->onUpdate('cascade');
+
+            $table->foreign('added_by')
+                ->references('id')
+                ->on('staff')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('dept_code')
+                ->references('dept_code')
+                ->on('departments')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

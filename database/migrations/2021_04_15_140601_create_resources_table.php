@@ -18,7 +18,25 @@ class CreateResourcesTable extends Migration
             $table->string('resource_type');
             $table->string('resource_amount');
             $table->unsignedBigInteger('added_by')->nullable();
-            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('allocated_by')->nullable();
+            $table->unsignedBigInteger('issued_by')->nullable();
+
+            $table->enum('allocated',['YES','NO'])->default('NO'); //for allocated resource
+            $table->enum('issued',['YES','NO'])->default('NO'); //for issued resource
+            $table->enum('available',['YES','NO'])->default('YES'); //for lost resource
+
+            $table->foreign('added_by')
+                ->references('id')
+                ->on('staff')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('allocated_by')
+                ->references('id')
+                ->on('staff')
+                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('issued_by')
+                ->references('id')
+                ->on('staff')
+                ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -56,7 +56,7 @@
             @foreach ($staffs as $s)
             <tr>
               <td>{{ $no }}</td>
-              <td>{{ $s->firstname.' '.$s->secondname.' '.$s->lastname }}</td>
+              <td>{{ $s->fullname }}</td>
               <td>{{ $s->username }}</td>
               <td>{{ $s->usertype }}</td>
               <td>{{ $s->dept_code }}</td>

@@ -17,8 +17,12 @@ class CreateUsertypesTable extends Migration
             $table->id();
             $table->string('usertype_name');
             $table->string('usertype_code');
+
             $table->unsignedBigInteger('added_by')->nullable();
-            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('added_by')
+                ->references('id')
+                ->on('staff')
+                ->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

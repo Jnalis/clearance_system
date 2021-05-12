@@ -46,28 +46,12 @@
             </div>
             {{-- names --}}
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-12">
                     <div class="form-group">
-                        <label class="col-form-label" for="firstname">Firstname</label>
-                        <input type="text" name="firstname" id="firstname" class="form-control"
-                            placeholder="Enter firstname" value="{{ old('firstname',$staff->firstname) }}">
-                        <span class="text-danger">@error('firstname') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="col-form-label" for="secondname">Secondname</label>
-                        <input type="text" name="secondname" id="secondname" class="form-control"
-                            placeholder="Enter secondname" value="{{ old('secondname',$staff->secondname) }}">
-                        <span class="text-danger">@error('secondname') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="col-form-label" for="lastname">Lastname</label>
-                        <input type="text" name="lastname" id="lastname" class="form-control"
-                            placeholder="Enter lastname" value="{{ old('lastname',$staff->lastname) }}">
-                        <span class="text-danger">@error('lastname') {{ $message }} @enderror</span>
+                        <label class="col-form-label" for="fullname">Fullname</label>
+                        <input type="text" name="fullname" id="fullname" class="form-control"
+                            placeholder="Enter fullname" value="{{ old('fullname',$staff->fullname) }}">
+                        <span class="text-danger">@error('fullname') {{ $message }} @enderror</span>
                     </div>
                 </div>
             </div>
@@ -129,7 +113,7 @@
 
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                <button type="submit" class="btn btn-warning btn-lg btn-block">Edit</button>
             </div>
 
 

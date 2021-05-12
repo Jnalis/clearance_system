@@ -150,8 +150,8 @@
 
                         
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">{{ Auth::user()->user_type }}</h1>
-                            <p>{{ Auth::user()->user_id }}</p>
+                            <h1 class="m-0 text-dark">Your: {{ Auth::user()->user_id }}</h1>
+                            <p>{{ Auth::user()->user_type }}</p>
                         </div><!-- /.col -->
 
                         @yield('smallNavigation')

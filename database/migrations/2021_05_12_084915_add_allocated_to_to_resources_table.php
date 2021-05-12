@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusToResourcesTable extends Migration
+class AddAllocatedToToResourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,11 @@ class AddStatusToResourcesTable extends Migration
     {
         Schema::table('resources', function (Blueprint $table) {
             //
-            $table->enum('allocated',['YES','NO'])->default('NO')->after('added_by');
+            $table->unsignedBigInteger('allocated_to')->after('allocated_by')->nullable();
+            $table->foreign('allocated_to')
+                ->references('id')
+                ->on('staff')
+                ->onUpdate('cascade');
         });
     }
 
@@ -28,7 +32,8 @@ class AddStatusToResourcesTable extends Migration
     {
         Schema::table('resources', function (Blueprint $table) {
             //
-            $table->dropColumn('allocated');
+            $table->dropForeign('resources_allocated_to_foreign');
+            $table->dropColumn('allocated_to');
         });
     }
 }

@@ -19,9 +19,7 @@ class AdminUserSeeder extends Seeder
         //
         Staff::create([
 
-            'firstname' => 'Juvenalis',
-            'secondname' => 'Amandi',
-            'lastname' => 'Swai',
+            'fullname' => 'Juvenalis Amandi Swai',
             'username' => 'NIT/STAFF/100',
             'usertype' => 'Admin',
             //'dept_code' => 'CCT',

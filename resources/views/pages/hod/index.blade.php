@@ -84,7 +84,7 @@
   </div>
   <!-- ./col -->
 </div>
-<div class="row">
+{{-- <div class="row">
 
   <div class="col-md-4">
     <div class="small-box bg-warning">
@@ -133,5 +133,5 @@
     </div>
   </div>
   <!-- ./col -->
-</div>
+</div> --}}
 @endsection

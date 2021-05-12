@@ -39,7 +39,7 @@
   <!-- ./col -->
 
 
-  <div class="col-lg-4 col-6">
+  {{-- <div class="col-lg-4 col-6">
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
@@ -60,10 +60,10 @@
       <a href="{{ route('ra.allocatedResource.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
     </div>
-  </div>
+  </div> --}}
 
 
-  <div class="col-lg-3 col-6">
+  {{-- <div class="col-lg-3 col-6">
     <!-- small box -->
     <div class="small-box bg-danger">
       <div class="inner">
@@ -84,7 +84,7 @@
       <a href="{{ route('ra.lostResource.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
     </div>
-  </div>
+  </div> --}}
 </div>
 <!-- ./col -->
 

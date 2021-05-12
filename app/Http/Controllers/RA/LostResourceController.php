@@ -4,6 +4,7 @@ namespace App\Http\Controllers\RA;
 
 use App\Http\Controllers\Controller;
 use App\Models\LostResource;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 
 class LostResourceController extends Controller
@@ -15,7 +16,7 @@ class LostResourceController extends Controller
      */
     public function index()
     {
-        $arr['data'] = LostResource::all();
+        $arr['data'] = Resource::where('available', '=', 'NO');
         return view('pages.ra.view_lost_resource')->with($arr);
     }
 

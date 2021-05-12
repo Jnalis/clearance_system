@@ -63,21 +63,12 @@
 
                             @foreach ($custodian as $item)
 
-                            <option value="{{ $item->firstname.' '.$item->secondname.' '.$item->lastname }}" @if (old('select_custodian')=="$item->username"
+                            <option value="{{ $item->fullname }}" @if (old('select_custodian')=="$item->username"
                                 ) {{ 'selected' }} @endif>
-                                {{ $item->firstname.' '.$item->secondname.' '.$item->lastname  }}</option>
+                                {{ $item->fullname  }}</option>
 
                             @endforeach
 
-                            {{-- <option value="Flash1" @if (old('select_custodian')=="Flash1" ) {{ 'selected' }} @endif>
-                                Hayuma
-                            </option>
-                            <option value="Flash2" @if (old('select_custodian')=="Flash2" ) {{ 'selected' }} @endif>
-                                Chris
-                            </option>
-                            <option value="Flash3" @if (old('select_custodian')=="Flash3" ) {{ 'selected' }} @endif>
-                                Runyoro
-                            </option> --}}
                         </select>
                         <span class="text-danger">@error('select_custodian') {{ $message }} @enderror</span>
                     </div>

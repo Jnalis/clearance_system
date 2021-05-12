@@ -45,21 +45,23 @@
                     <th>#</th>
                     <th>Resource Type</th>
                     <th>Resource Amount</th>
-                    <th>Status</th>
+                    <th>Issued</th>
+                    <th>Available</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $no = 1;
                 @endphp
-                @if (count($allocated_r))
-                @foreach ($allocated_r as $a)
+                @if (count($resource))
+                @foreach ($resource as $item)
 
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $a->resource_type }}</td>
-                    <td>{{ $a->resource_amount }}</td>
-                    <td>{{ $a->status }}</td>
+                    <td>{{ $item->resource_type }}</td>
+                    <td>{{ $item->resource_amount }}</td>
+                    <td>{{ $item->issued }}</td>
+                    <td>{{ $item->available }}</td>
                 </tr>
                 @php
                     $no++;
@@ -67,7 +69,7 @@
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="4">No Allocated Resource Found</td>
+                    <td colspan="5">No Allocated Resource for you</td>
                 </tr>
                 @endif
             </tbody>

@@ -113,7 +113,7 @@
                             <option></option>
                             @foreach ($depts as $dept)
 
-                            <option value="{{ $dept->dept_code }}" @if (old('department')=="$dept->dept_name" )
+                            <option value="{{ $dept->dept_code }}" @if (old('department')=="$dept->dept_code" )
                                 {{ 'selected' }} @endif>
                                 {{ $dept->dept_name }}</option>
 
@@ -149,7 +149,7 @@
             </div>
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
             </div>
 
 

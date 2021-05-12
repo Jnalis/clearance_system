@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\HOD;
 
 use App\Http\Controllers\Controller;
-use App\Models\IssuedResource;
+use App\Models\Resource;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class IssuedResourceController extends Controller
     {
 
         
-        $arr['issued_r'] = IssuedResource::join('students', 'students.id', '=', 'issued_resources.student_id')->join('resources', 'resources.id', '=', 'issued_resources.resource_id')->get();
+        $arr['issued_r'] = Resource::join('students', 'students.id', '=', 'resources.issued_to')->get();
 
         return view('pages.hod.view_issued_resource')->with($arr);
     }

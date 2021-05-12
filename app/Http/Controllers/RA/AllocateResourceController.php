@@ -20,7 +20,7 @@ class AllocateResourceController extends Controller
         //$arr['allocResources'] = AllocatedResource::all();
 
 
-        $arr['data'] = Resource::join('allocated_resources', 'allocated_resources.resource_id', '=', 'resources.id')->get();
+        $arr['data'] = Resource::join('staff','staff.id', '=', 'resources.allocated_to')->where('allocated', '=', 'YES')->get();
 
         return view('pages.ra.view_allocated_resource')->with($arr);
     }
@@ -45,7 +45,7 @@ class AllocateResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, AllocatedResource $allocatedResource)
+    public function store(Request $request, Resource $resource)
     {
         // checking if you gett all the data from the form
         // return $request->input();
@@ -55,19 +55,25 @@ class AllocateResourceController extends Controller
             'select_custodian' => 'required',
         ]);
 
+        $staffId = Staff::select('id')->firstWhere('fullname', '=', $request->select_custodian)->id;
         $name = $request->resource_type;
         $id = Resource::select('id')->firstWhere('resource_type', '=', $name)->id;
-        
-    
-        //if form validated successfuly then alocate the resource
-        $allocatedResource->allocated_by = auth()->id();
-        $allocatedResource->allocated_to = $request->select_custodian;
-        $allocatedResource->resource_id = $id;
 
-        $query = $allocatedResource->save(); //save your data to the model
+        $query = Resource::where('id', '=', $id)
+            ->update([
+                'allocated_by' => auth()->user()->id,
+                'allocated_to' => $staffId,
+                'allocated' => 'YES',
+            ]);
 
-        
-        Resource::where('id', '=', $id)->update(['allocated' => 'YES']);
+
+        // //if form validated successfuly then alocate the resource
+        // $resource->allocated_by = auth()->id();
+        // $resource->allocated_to = $request->select_custodian;
+
+        // $query = $resource->save(); //save your data to the model
+
+
 
         if ($query) {
             return redirect(route('ra.resource.index'))->with('success', 'Resource allocated successfull');
@@ -95,7 +101,7 @@ class AllocateResourceController extends Controller
      */
     public function edit($id)
     {
-
+        //   
     }
 
     /**
@@ -120,12 +126,10 @@ class AllocateResourceController extends Controller
     {
         //
         //getting resource id from allocated resource table
-        $id_to_update = AllocatedResource::select('resource_id')->firstWhere('id', '=', $id)->resource_id;
+        //$id_to_update = Resource::select('id')->firstWhere('id', '=', $id)->id;
 
-        AllocatedResource::destroy($id);
+        Resource::where('id', '=', $id)->update(['allocated' => 'NO']);
 
-        Resource::where('id', '=', $id_to_update)->update(['allocated' => 'NO']);
-        
         return redirect(route('ra.allocatedResource.index'))->with('danger', 'Resource removed from custodian successfull');
     }
 }

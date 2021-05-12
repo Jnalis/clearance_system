@@ -15,10 +15,17 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
             $table->string('user_id');
             $table->string('user_type');
+
             $table->unsignedBigInteger('added_by')->nullable();
-            $table->foreign('added_by')->references('id')->on('staff')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('added_by')
+                ->references('id')
+                ->on('staff')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+                
             $table->string('password')->nullable();
             $table->timestamps();
 

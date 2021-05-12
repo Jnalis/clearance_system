@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                @php
+                {{-- @php
                 $no = 1;
                 @endphp
                 @if (count($data))
@@ -48,7 +48,7 @@
                 <tr>
                     <td colspan="4">No Lost Resource Found</td>
                 </tr>
-                @endif
+                @endif --}}
             </tbody>
         </table>
     </div>

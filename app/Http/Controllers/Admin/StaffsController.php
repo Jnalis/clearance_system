@@ -45,10 +45,10 @@ class StaffsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Staff $staff)
+    public function store(Request $request, Staff $staff, User $user)
     {
         // checking if you gett all the data from the form
-        // return $request->input();
+        //return $request->input();
 
         //now validating a form
         $request->validate([
@@ -63,10 +63,8 @@ class StaffsController extends Controller
         ]);
 
         //if form validated successfuly then add new user as staff
-
-        $staff->firstname = $request->firstname;
-        $staff->secondname = $request->secondname;
-        $staff->lastname = $request->lastname;
+        $fullname = $request->firstname.' '.$request->secondname.' '.$request->lastname;
+        $staff->fullname = $fullname;
         $staff->username = 'NIT/STAFF/' . $request->username;
         $staff->usertype = $request->usertype;
         $staff->dept_code = $request->department;
@@ -75,12 +73,11 @@ class StaffsController extends Controller
         $query = $staff->save(); //save your data to the model
 
         //fill user table
-        $data = new User();
-        $data->user_id = 'NIT/STAFF/' . $request->username;
-        $data->user_type = $request->usertype;
-        $data->added_by = auth()->id();
-        $data->password = Hash::make($request->password);
-        $data->save();
+        $user->user_id = 'NIT/STAFF/' . $request->username;
+        $user->user_type = $request->usertype;
+        $user->added_by = auth()->id();
+        $user->password = Hash::make($request->password);
+        $user->save();
 
         //dd($data);
 
@@ -130,9 +127,7 @@ class StaffsController extends Controller
 
         //now validating a form
         $request->validate([
-            'firstname' => 'required',
-            'secondname' => 'required',
-            'lastname' => 'required',
+            'fullname' => 'required',
             'username' => 'required',
             'usertype' => 'required',
             'department' => 'required',
@@ -141,9 +136,7 @@ class StaffsController extends Controller
         //if form validated successfuly then add new user as staff
         $data2 = $staff->username;
 
-        $staff->firstname = $request->firstname;
-        $staff->secondname = $request->secondname;
-        $staff->lastname = $request->lastname;
+        $staff->fullname = $request->fullname;
         $staff->username = $request->username;
         $staff->usertype = $request->usertype;
         $staff->dept_code = $request->department;

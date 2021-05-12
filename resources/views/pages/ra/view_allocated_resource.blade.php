@@ -38,7 +38,7 @@
                     <th>Resource Type</th>
                     <th>Resource Amount</th>
                     <th>Custodian</th>
-                    <th>Delete</th>
+                    <th>Remove from Custodian</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,10 +51,10 @@
                     <td>{{ $no }}</td>
                     <td>{{ $r->resource_type }}</td>
                     <td>{{ $r->resource_amount }}</td>
-                    <td>{{ $r->allocated_to }}</td>
+                    <td>{{ $r->fullname }}</td>
                     <td>
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
-                            class="btn btn-danger">Delete</a>
+                            class="btn btn-danger">Remove</a>
                         <form action="{{ route('ra.allocatedResource.destroy', $r->id) }}" method="post">
                             @method('delete')
                             @csrf

@@ -1,6 +1,16 @@
 @extends('layouts.ra')
 @section('title','Resource')
 
+
+@section('tableCss')
+
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}" />
+@endsection
+
+
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -36,7 +46,7 @@
             </div>
             @endif
         </div>
-        <table class="table table-bordered table-striped">
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -44,6 +54,7 @@
                     <th>Resource Amount</th>
                     <th>Registered at</th>
                     <th>Allocated</th>
+                    <th>Available</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -60,6 +71,7 @@
                     <td>{{ $r->resource_amount }}</td>
                     <td>{{ date('d/M/Y', strtotime($r->created_at)) }}</td>
                     <td>{{$r->allocated }}</td>
+                    <td>{{$r->available }}</td>
                     <td>
                         <a href="{{ route('ra.resource.edit',$r->id) }}" class="btn btn-warning">Edit</a>
                     </td>
@@ -78,7 +90,7 @@
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="6">No Resource Found</td>
+                    <td colspan="8">You didn't upload a resource yet</td>
                 </tr>
                 @endif
             </tbody>
@@ -86,4 +98,23 @@
     </div>
     <!-- /.card-body -->
 </div>
+@endsection
+
+@section('tableScript')
+
+<!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      responsive: true,
+      autoWidth: false,
+    });
+  });
+</script>
+
 @endsection

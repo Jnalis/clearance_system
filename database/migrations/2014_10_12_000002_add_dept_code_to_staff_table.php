@@ -16,7 +16,10 @@ class AddDeptCodeToStaffTable extends Migration
         Schema::table('staff', function (Blueprint $table) {
             //
             $table->string('dept_code')->after('usertype')->nullable();
-            $table->foreign('dept_code')->references('dept_code')->on('departments')->onUpdate('cascade');
+            $table->foreign('dept_code')
+                ->references('dept_code')
+                ->on('departments')
+                ->onUpdate('cascade');
         });
     }
 
@@ -27,9 +30,9 @@ class AddDeptCodeToStaffTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
         Schema::table('staff', function (Blueprint $table) {
             //
+            $table->dropForeign('staff_dept_code_foreign');
             $table->dropColumn('dept_code');
         });
     }

@@ -18,7 +18,11 @@ class CreateDepartmentsTable extends Migration
             $table->string('dept_name');
             $table->string('dept_code')->unique();
             $table->unsignedBigInteger('added_by')->nullable();
-            $table->foreign('added_by')->references('id')->on('staff')->onUpdate('cascade');
+
+            $table->foreign('added_by')
+                ->references('id')
+                ->on('staff')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

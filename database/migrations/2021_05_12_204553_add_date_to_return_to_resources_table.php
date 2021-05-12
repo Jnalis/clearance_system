@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStaffTable extends Migration
+class AddDateToReturnToResourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff', function (Blueprint $table) {
-            $table->id();
-            $table->string('fullname');
-            $table->string('username')->unique();
-            $table->string('usertype');
-            $table->string('password');
-            $table->timestamps();
+        Schema::table('resources', function (Blueprint $table) {
+            //
+            $table->date('date_to_return')->after('issued_to')->nullable();
         });
     }
 
@@ -30,6 +26,9 @@ class CreateStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staff');
+        Schema::table('resources', function (Blueprint $table) {
+            //
+            $table->dropColumn('date_to_return');
+        });
     }
 }
