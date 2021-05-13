@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HOD\Return_LostResourceController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\Registrar\Clearancetype;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('layouts.admin');
 // });
 
-Route::group(['middleware' => 'prevent-back-history'], function () {
+Route::group(['middleware' => 'back'], function () {
 
 
 
@@ -61,4 +62,14 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
         Route::resource('/resourceLost', 'ResourceLostController');
         Route::resource('/deanComment', 'DcommentController');
     });
+
+
+    Route::namespace('Registrar')->prefix('registrar')->as('registrar.')->middleware('registrar', 'auth')->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('/clearancetype', 'ClearancetypeController');
+        Route::resource('/certificate', 'CertificateController');
+    });
+
+
+
 }); // closing the prevent-back-history

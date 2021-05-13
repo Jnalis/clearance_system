@@ -41,7 +41,7 @@ class DepartmentsController extends Controller
     //the function to storre department data to db
     public function store(Request $request, Departments $department)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         //return $request->input();
 
         //now validating a form
@@ -50,8 +50,8 @@ class DepartmentsController extends Controller
             'dept_code' => 'required | unique:departments',
         ]);
 
-        //if form validated successfuly then add new user as staff
-        
+        //if form validated successfully then add new user as staff
+
         $department->dept_name = $request->dept_name;
         $department->dept_code = $request->dept_code;
         $department->added_by = auth()->id();
@@ -97,17 +97,19 @@ class DepartmentsController extends Controller
      */
     public function update(Request $request, Departments $department)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         //return $request->input();
 
         // now validating a form
-        $request->validate([
-            'dept_name' => 'required | unique:departments',
-            'dept_code' => 'required | unique:departments',
-        ]);
+        $request->validate(
+            [
+                'dept_name' => 'required | unique:departments',
+                'dept_code' => 'required | unique:departments',
+            ]
+        );
 
-        // if form validated successfuly then add new user as staff
-        
+        // if form validated successfully then add new user as staff
+
         $department->dept_name = $request->dept_name;
         $department->dept_code = $request->dept_code;
         $department->added_by = auth()->id();

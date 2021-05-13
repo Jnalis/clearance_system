@@ -30,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     @yield('tableCss')
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -43,7 +44,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
+                    <a href="{{ route('ra.home') }}" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -80,12 +81,16 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" role="menu" data-accordion="false">
 
-                        <?php
+
+                        {{-- segment --}}
+                        <?php 
+                        
                             $segment = Request::segment(2);
                             //echo $segment;
+                        
                         ?>
                         <li class="nav-item">
-                            <a href="{{ route('admin.home') }}" class="nav-link 
+                            <a href="{{ route('registrar.home') }}" class="nav-link 
                                 @if(!$segment) 
                                     active
                                 @endif
@@ -97,50 +102,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.staff.index') }}" class="nav-link
-                                @if($segment == 'staff') 
+                            <a href="{{ route('registrar.clearancetype.index') }}" class="nav-link 
+                                @if($segment=='clearancetype') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-users"></i>
+                                <i class="nav-icon fas fa-user-plus"></i>
                                 <p>
-                                    Staffs
+                                    Clearance Type
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.department.index') }}" class="nav-link
-                                @if($segment == 'department') 
+                            <a href="{{ route('registrar.certificate.index') }}" class="nav-link 
+                                @if($segment=='certificate') 
                                     active
                                 @endif
                             ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
-                                    Departments
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.usertype.index') }}" class="nav-link
-                                @if($segment == 'usertype') 
-                                    active
-                                @endif
-                            ">
-                                <i class="nav-icon fas fa-layer-group"></i>
-                                <p>
-                                    Usertypes
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('admin.systemlog.index') }}" class="nav-link
-                                @if($segment == 'systemlog') 
-                                    active
-                                @endif
-                            ">
-                                <i class="nav-icon fas fa-info"></i>
-                                <p>
-                                    System Logs
+                                    Certificate
                                 </p>
                             </a>
                         </li>
@@ -158,7 +139,6 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
 
-                        
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">
                                 Your: {{ Auth::user()->user_id }}
@@ -168,8 +148,9 @@
                             </p>
                         </div><!-- /.col -->
 
-                        @yield('smallNavigation')
 
+                        @yield('smallNavigation')
+                        
 
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -232,7 +213,9 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
+
     @yield('tableScript')
+
 </body>
 
 </html>
