@@ -76,7 +76,7 @@ class AllocateResourceController extends Controller
 
 
         if ($query) {
-            return redirect(route('ra.resource.index'))->with('success', 'Resource allocated successfull');
+            return redirect(route('ra.resource.index'))->with('success', 'Resource allocated successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -130,6 +130,6 @@ class AllocateResourceController extends Controller
 
         Resource::where('id', '=', $id)->update(['allocated' => 'NO']);
 
-        return redirect(route('ra.allocatedResource.index'))->with('danger', 'Resource removed from custodian successfull');
+        return redirect(route('ra.allocatedResource.index'))->with('danger', 'Resource removed from custodian successfully');
     }
 }
