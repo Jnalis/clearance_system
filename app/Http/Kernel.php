@@ -57,6 +57,7 @@ class Kernel extends HttpKernel
         'hod' => \App\Http\Middleware\HODMiddleware::class,
         'dean' => \App\Http\Middleware\DeanMiddleware::class,
         'ra' => \App\Http\Middleware\RAMiddleware::class,
+        'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
 
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
