@@ -58,6 +58,7 @@ class Kernel extends HttpKernel
         'dean' => \App\Http\Middleware\DeanMiddleware::class,
         'ra' => \App\Http\Middleware\RAMiddleware::class,
         'registrar' => \App\Http\Middleware\RegistrarMiddleware::class,
+        'bursar' => \App\Http\Middleware\BursarMiddleware::class,
         'back' => \App\Http\Middleware\PreventBackHistory::class,
 
         'auth' => \App\Http\Middleware\Authenticate::class,

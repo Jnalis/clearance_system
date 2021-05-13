@@ -70,6 +70,10 @@ Route::group(['middleware' => 'back'], function () {
         Route::resource('/certificate', 'CertificateController');
     });
 
+    Route::namespace('Bursar')->prefix('bursar')->as('bursar.')->middleware('bursar', 'auth')->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+    });
+
 
 
 }); // closing the prevent-back-history

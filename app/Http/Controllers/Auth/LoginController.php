@@ -61,6 +61,10 @@ class LoginController extends Controller
 
                 return redirect(route('registrar.home'));
                 
+            } else if (Auth::user()->user_type == 'Bursar') {
+
+                return redirect(route('bursar.home'));
+                
             }
         } else {
             return back()->with('fail','Check your credentials');
