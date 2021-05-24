@@ -49,7 +49,7 @@
 
                         <button type="submit" class="btn btn-success btn-block">Login</button>
                         
-                        <p class="pt-3 text-center">Student! click <a href="{{ route('student') }}">here</a> if it's the first time</p>
+                        {{-- <p class="pt-3 text-center">Student! click <a href="{{ route('student') }}">here</a> if it's the first time</p> --}}
                     </form>
                 </div>
             </div>

@@ -68,17 +68,19 @@ class AllocatedResourceController extends Controller
             ->firstWhere('resource_type', '=', $request->resource_type)->id;
         
         $staffId = auth()->user()->id;
+        $date = $request->date_to_return;
         
         $query = Resource::where('id', '=', $resourceId)->update([
             'issued_by' => $staffId,
             'issued_to' => $studentID,
+            'date_to_return' => $date,
             'issued' => 'YES',
             ]);
         
 
 
         if ($query) {
-            return redirect(route('hod.issuedResource.index'))->with('success', 'Resource issued successfull');
+            return redirect(route('hod.issuedResource.index'))->with('success', 'Resource issued successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }

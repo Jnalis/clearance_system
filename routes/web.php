@@ -20,7 +20,7 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::get('/', [MainController::class, 'index'])->middleware('auth')->name('home');
 
-    Route::get('/student', [MainController::class, 'student'])->name('student');
+    // Route::get('/student', [MainController::class, 'student'])->name('student');
 
 
     Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('admin', 'auth')->group(function () {
