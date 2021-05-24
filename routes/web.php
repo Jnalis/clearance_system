@@ -74,6 +74,10 @@ Route::group(['middleware' => 'back'], function () {
         Route::get('/', 'HomeController@index')->name('home');
     });
 
+    Route::namespace('Student')->prefix('student')->as('student.')->middleware('student', 'auth')->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+    });
+
 
 
 }); // closing the prevent-back-history
