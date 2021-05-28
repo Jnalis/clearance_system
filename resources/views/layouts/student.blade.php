@@ -86,11 +86,11 @@
                         <?php 
                         
                             $segment = Request::segment(2);
-                            //echo $segment;
+                            echo $segment;
                         
                         ?>
                         <li class="nav-item">
-                            <a href="{{ route('registrar.home') }}" class="nav-link 
+                            <a href="{{ route('student.home') }}" class="nav-link 
                                 @if(!$segment) 
                                     active
                                 @endif
@@ -102,14 +102,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('student.createClearance.create') }}" class="nav-link 
+                                @if($segment=='createClearance') 
+                                    active
+                                @endif
+                            ">
+                                <i class="nav-icon fas fa-file-alt"></i>
+                                <p>
+                                    Create clearance
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('registrar.clearancetype.index') }}" class="nav-link 
                                 @if($segment=='clearancetype') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-user-plus"></i>
+                            <i class="nav-icon far fa-file-alt"></i>
                                 <p>
-                                    Clearance Type
+                                    Clearance status
                                 </p>
                             </a>
                         </li>
@@ -119,9 +131,9 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fas fa-comment-dots"></i>
                                 <p>
-                                    Certificate
+                                    Comments
                                 </p>
                             </a>
                         </li>

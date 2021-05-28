@@ -76,6 +76,7 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::namespace('Student')->prefix('student')->as('student.')->middleware('student', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('/createClearance', 'ClearanceFormController');
     });
 
 
