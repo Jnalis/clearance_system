@@ -1,6 +1,15 @@
 @extends('layouts.hod')
 @section('title', 'Program')
 
+
+@section('selectCss')
+
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+@endsection
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -22,7 +31,7 @@
     <div class="col-md-6">
         <div class="card card-success">
             <div class="card-header">
-                <h3 class="card-title">Add new Prrogram</h3>
+                <h3 class="card-title">Add new Program</h3>
             </div>
             <!-- /.card-header -->
 
@@ -64,14 +73,15 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="department">Department</label>
-                                <select name="department" id="department" class="form-control">
-                                    <option>--select department--</option>
-        
+                                <select name="department" id="department" class="select2" multiple="multiple"
+                                    data-placeholder="Select a Department" style="width: 100%;">
+                                    <option></option>
+
                                     @foreach ($department as $item)
-        
+
                                     <option value="{{ $item->dept_code }}" @if (old('department')=="$item->dept_code" )
                                         {{ 'selected' }} @endif>{{ $item->dept_name }}</option>
-        
+
                                     @endforeach
                                 </select>
                                 <span class="text-danger">@error('department') {{ $message }} @enderror</span>
@@ -92,4 +102,22 @@
     <div class="col-md-3"></div>
     {{-- /.col (right) --}}
 </div>
+@endsection
+
+@section('selectJs')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endsection

@@ -1,6 +1,16 @@
 @extends('layouts.hod')
 @section('title', 'Issue Resource')
 
+
+@section('selectCss')
+
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+@endsection
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -46,8 +56,8 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="student_reg_no">Student Reg No</label>
 
-                                <select name="student_reg_no" id="student_reg_no" class="form-control">
-
+                                <select name="student_reg_no" id="student_reg_no" class="select2" multiple="multiple"
+                                data-placeholder="Select a student registration no" style="width: 100%;">
                                 <option></option>
 
                                 @foreach ($student as $item)
@@ -68,12 +78,14 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_type">Resource Type</label>
-                                <select name="resource_type" id="resource_type" class="form-control">
+                                <select name="resource_type" id="resource_type" class="select2" multiple="multiple"
+                                data-placeholder="Select Resource" style="width: 100%;">
 
                                     <option></option>
 
                                     @foreach ($data as $item)
-                                    <option value="{{ $item->resource_type }}" @if (old('resource_type')=="$item->resource_type" ) {{ 'selected' }} @endif>
+                                    <option value="{{ $item->resource_type }}" 
+                                        @if (old('resource_type')=="$item->resource_type" ) {{ 'selected' }} @endif>
                                         {{ $item->resource_type }}
                                     </option>
                                     @endforeach
@@ -83,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- usertype and depertment --}}
+                    {{-- usertype and department --}}
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
@@ -112,4 +124,22 @@
     <div class="col-md-3"></div>
     {{-- /.col (right) --}}
 </div>
+@endsection
+
+@section('selectJs')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endsection

@@ -30,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     @yield('tableCss')
+    @yield('selectCss')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -236,6 +237,7 @@
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
     @yield('tableScript')
+    @yield('selectJs')
 </body>
 
 </html>

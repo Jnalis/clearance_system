@@ -1,11 +1,21 @@
 @extends('layouts.ra')
 @section('title', 'Allocate Resource')
 
+
+@section('selectCss')
+
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+@endsection
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Resource list</a></li>
         <li class="breadcrumb-item active">Allocate resource</li>
 
     </ol>
@@ -38,7 +48,8 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-form-label" for="resource_type">Select Resource</label>
-                        <select name="resource_type" id="resource_type" class="form-control">
+                        <select name="resource_type" id="resource_type" class="select2" multiple="multiple"
+                        data-placeholder="Select Resource" style="width: 100%;">
                             <option></option>
 
                             @foreach ($resource as $item)
@@ -58,7 +69,8 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-form-label" for="select_custodian">Select Custodian</label>
-                        <select name="select_custodian" id="select_custodian" class="form-control">
+                        <select name="select_custodian" id="select_custodian" class="select2" multiple="multiple"
+                        data-placeholder="Select custodian of resource" style="width: 100%;">
                             <option></option>
 
                             @foreach ($custodian as $item)
@@ -91,4 +103,22 @@
 <div class="col-md-3"></div>
 {{-- /.col (right) --}}
 </div>
+@endsection
+
+@section('selectJs')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endsection
