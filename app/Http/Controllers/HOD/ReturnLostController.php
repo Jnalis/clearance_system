@@ -13,9 +13,22 @@ class ReturnLostController extends Controller
     public function returnResource($id)
     {
 
-        return $id;
-        Resource::where('id', '=', $id)->update(['issued' => 'NO']);
+        // return $id;
+        return $test = IssuedResource::select('id')
+            ->firstWhere('resource_issued_to', '=', $id)->id;
 
-        return redirect(route('hod.allocatedResource.index'))->with('success', 'Resource Returned Successfull');
+        Resource::where('issued_to', '=', $id)->update(['issued' => 'NO']);
+
+        return redirect(route('hod.allocatedResource.index'))->with('success', 'Resource Returned Successfully');
     }
+    public function resourceLost($id)
+    {
+
+       // return $id;
+        return Resource::select('id')->where('issued_to', '=', $id)->get('id');
+
+        return redirect(route('hod.allocatedResource.index'))->with('success', 'Resource Returned Successfully');
+    }
+
+
 }

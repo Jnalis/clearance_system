@@ -82,7 +82,7 @@ class StaffsController extends Controller
         //dd($data);
 
         if ($query) {
-            return redirect(route('admin.staff.index'))->with('success','Staff Added Succe');
+            return redirect(route('admin.staff.index'))->with('success','Staff Added Successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -122,7 +122,7 @@ class StaffsController extends Controller
      */
     public function update(Request $request, Staff $staff)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         //return $request->input();
 
         //now validating a form
@@ -133,7 +133,7 @@ class StaffsController extends Controller
             'department' => 'required',
         ]);
 
-        //if form validated successfuly then add new user as staff
+        //if form validated successfully then add new user as staff
         $data2 = $staff->username;
 
         $staff->fullname = $request->fullname;

@@ -46,9 +46,9 @@ class AllocatedResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Resource $resource)
+    public function store(Request $request, IssuedResource $issuedResource, Resource $resource)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         // return $request->input();
 
 
@@ -58,25 +58,39 @@ class AllocatedResourceController extends Controller
             'date_to_return' => 'required',
         ]);
 
-        //if form validated successfuly then add new usertype
+        //if form validated successfully then add new usertype
         // $name = Student::select(['fullname'])->firstWhere('student_id', '=', $request->student_reg_no)->fullname;
+
+        $resourceId = Resource::select('id')
+            ->firstWhere('resource_type', '=', $request->resource_type)->id;
+
 
         $studentID = Student::select('id')
             ->firstWhere('student_id', '=', $request->student_reg_no)->id;
 
-        $resourceId = Resource::select('id')
-            ->firstWhere('resource_type', '=', $request->resource_type)->id;
-        
+
         $staffId = auth()->user()->id;
-        $date = $request->date_to_return;
-        
-        $query = Resource::where('id', '=', $resourceId)->update([
-            'issued_by' => $staffId,
-            'issued_to' => $studentID,
-            'date_to_return' => $date,
-            'issued' => 'YES',
-            ]);
-        
+
+
+        $issuedResource->resource_issued  = $resourceId;
+        $issuedResource->resource_issued_to = $studentID;
+        $issuedResource->issued_by = $staffId;
+        $issuedResource->date_to_return = $request->date_to_return;
+
+        $query = $issuedResource->save();
+
+        //update the resource table
+        Resource::where('id', '=', $resourceId)->update(['issued' => 'YES']);
+
+
+
+        // $query = Resource::where('id', '=', $resourceId)->update([
+        //     'issued_by' => $staffId,
+        //     'issued_to' => $studentID,
+        //     'date_to_return' => $date,
+        //     'issued' => 'YES',
+        //     ]);
+
 
 
         if ($query) {

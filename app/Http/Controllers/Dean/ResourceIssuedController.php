@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dean;
 
 use App\Http\Controllers\Controller;
 use App\Models\IssuedResource;
+use App\Models\Resource;
 use Illuminate\Http\Request;
 
 class ResourceIssuedController extends Controller
@@ -15,7 +16,10 @@ class ResourceIssuedController extends Controller
      */
     public function index()
     {
-        $arr['issued_r'] = IssuedResource::all();
+        $staffId = auth()->user()->id;
+
+        $arr['issued_r'] = Resource::join('students', 'students.id', '=', 'resources.issued_to')->where('issued_by', '=', $staffId)->get();
+
         return view('pages.dean.view_issued_resource')->with($arr);
     }
 

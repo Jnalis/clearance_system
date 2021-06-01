@@ -29,6 +29,7 @@
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+    @yield('tableCss')
     @yield('selectCss')
     
 </head>
@@ -224,6 +225,7 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('dist/js/demo.js') }}"></script>
 
+    @yield('tableScript')
     @yield('selectJs')
 
 </body>

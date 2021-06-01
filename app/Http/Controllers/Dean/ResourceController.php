@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dean;
 use App\Http\Controllers\Controller;
 use App\Models\AllocatedResource;
 use App\Models\IssuedResource;
+use App\Models\Resource;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
@@ -17,7 +19,8 @@ class ResourceController extends Controller
     public function index()
     {
         //
-        $arr['allocated_r'] = AllocatedResource::join('resources', 'resources.id', '=', 'allocated_resources.resource_id')->get();
+        $id = auth()->user()->id;
+        $arr['resource'] = Resource::where('allocated_to', '=', $id)->get();
 
 
         return view('pages.dean.view_allocated_resource')->with($arr);
@@ -31,7 +34,10 @@ class ResourceController extends Controller
     public function create()
     {
         //
-        return view('pages.dean.issue_resource');
+        $id = auth()->user()->id;
+        $arr['data'] = Resource::where('allocated_to', '=', $id)->where('issued', '=', 'NO')->get();
+        $arrS['student'] = Student::all();
+        return view('pages.dean.issue_resource')->with($arr)->with($arrS);
     }
 
     /**
@@ -40,29 +46,38 @@ class ResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, IssuedResource $issuedResource)
+    public function store(Request $request, Resource $resource)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         //return $request->input();
 
         $request->validate([
-            'student_name' => 'required',
             'student_reg_no' => 'required',
             'resource_type' => 'required',
             'date_to_return' => 'required',
         ]);
 
-        //if form validated successfuly then add new usertype
-        
-        $issuedResource->student_name = $request->student_name;
-        $issuedResource->student_reg_no = $request->student_reg_no;
-        $issuedResource->resource_type = $request->resource_type;
-        $issuedResource->date_to_return = $request->date_to_return;
+        //this return the id of student
+        $studentID = Student::select('id')
+            ->firstWhere('student_id', '=', $request->student_reg_no)->id;
 
-        $query = $issuedResource->save(); //save your data to the model
+        $resourceId = Resource::select('id')
+            ->firstWhere('resource_type', '=', $request->resource_type)->id;
+        
+        $staffId = auth()->user()->id;
+
+        $date = $request->date_to_return;
+        
+        $query = Resource::where('id', '=', $resourceId)->update([
+            'issued_by' => $staffId,
+            'issued_to' => $studentID,
+            'date_to_return' => $date,
+            'issued' => 'YES',
+            ]);
+        
 
         if ($query) {
-            return redirect(route('dean.issuedResource.index'));
+            return redirect(route('dean.resourceIssued.index'))->with('success', 'Resource issued successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }

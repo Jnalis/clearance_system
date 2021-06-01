@@ -67,7 +67,7 @@ class AllocateResourceController extends Controller
             ]);
 
 
-        // //if form validated successfuly then alocate the resource
+        // if form validated successfuly then alocate the resource
         // $resource->allocated_by = auth()->id();
         // $resource->allocated_to = $request->select_custodian;
 

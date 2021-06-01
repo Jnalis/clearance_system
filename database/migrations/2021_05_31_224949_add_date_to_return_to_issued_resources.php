@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDateToReturnToResourcesTable extends Migration
+class AddDateToReturnToIssuedResources extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddDateToReturnToResourcesTable extends Migration
      */
     public function up()
     {
-        Schema::table('resources', function (Blueprint $table) {
+        Schema::table('issued_resources', function (Blueprint $table) {
             //
-            $table->date('date_to_return')->after('issued_to')->nullable();
+            $table->date('date_to_return')->after('issued_by')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddDateToReturnToResourcesTable extends Migration
      */
     public function down()
     {
-        Schema::table('resources', function (Blueprint $table) {
+        Schema::table('issued_resources', function (Blueprint $table) {
             //
             $table->dropColumn('date_to_return');
         });
