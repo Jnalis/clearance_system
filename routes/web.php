@@ -57,6 +57,8 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::namespace('Dean')->prefix('dean')->as('dean.')->middleware('dean', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/returnResource/{returnResource}', 'ReturnLostController@returnResource')->name('returnResource');
+        Route::get('/resourceLost/{resourceLost}', 'ReturnLostController@resourceLost')->name('resourceLost');
         Route::resource('/student', 'StudentController');
         Route::resource('/resourceList', 'ResourceController');
         Route::resource('/resourceIssued', 'ResourceIssuedController');

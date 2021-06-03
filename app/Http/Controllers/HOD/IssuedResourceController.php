@@ -20,12 +20,12 @@ class IssuedResourceController extends Controller
 
         $staffId = auth()->user()->id;
 
-         $arr['issued_r'] = IssuedResource::join('resources', 'resources.id', '=', 'issued_resources.resource_issued')
+        $arr['issued_r'] = IssuedResource::join('resources', 'resources.id', '=', 'issued_resources.resource_issued')
             ->join('students', 'students.id', '=', 'issued_resources.resource_issued_to')
             ->where('issued_by', '=', $staffId)
             ->where('issued', '=', 'YES')->get();
 
-        // $arr['issued_r'] = Student::join('issued_resources', 'issued_resources.id', '=', 'issued_resources.resource_issued')->get();
+
 
         return view('pages.hod.view_issued_resource')->with($arr);
     }

@@ -64,8 +64,12 @@
                     <td>{{ $r->resource_amount }}</td>
                     <td>{{ date('d/M/Y', strtotime($r->created_at)) }}</td>
                     <td>{{ $r->date_to_return }}</td>
-                    <td><a href="{{ route('hod.returnResource',$r->id) }}" class="btn btn-success">Return</a></td>
-                    <td><a href="#" class="btn btn-warning">Lost</a></td>
+                    <td>
+                        <a href="{{ route('hod.returnResource',$r->id) }}" class="btn btn-success">Return</a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-warning">Lost</a>
+                    </td>
                 </tr>
                 @php
                     $no++;
