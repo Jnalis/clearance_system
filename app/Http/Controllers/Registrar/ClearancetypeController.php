@@ -28,6 +28,7 @@ class ClearancetypeController extends Controller
     public function create()
     {
         //
+         return view('pages.registrar.ad_clearanceType');
     }
 
     /**
@@ -36,9 +37,25 @@ class ClearancetypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Clearancetype $clearancetype)
     {
-        //
+        // return $request->input();
+
+        $request->validate([
+            'clearance_name' => 'required',
+        ]);
+
+        $clearancetype->clearancetype = $request->clearance_name;
+        $clearancetype->added_by = auth()->user()->id;
+
+        $query = $clearancetype->save();
+
+        if ($query) {
+            return redirect(route('registrar.clearancetype.index'))->with('success', 'Clearance type added successfully');
+        } else {
+            return back()->with('fail', 'Something is wrong');
+        }
+        
     }
 
     /**
@@ -58,9 +75,10 @@ class ClearancetypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Clearancetype $clearancetype)
     {
-        //
+        $arr['clearance'] = $clearancetype;
+        return view('pages.registrar.edit_clearancetype')->with($arr);
     }
 
     /**
@@ -70,9 +88,25 @@ class ClearancetypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Clearancetype $clearancetype)
     {
-        //
+        // return $request->input();
+
+        $request->validate([
+            'clearance_name' => 'required',
+        ]);
+
+        $clearancetype->clearancetype = $request->clearance_name;
+        $clearancetype->added_by = auth()->user()->id;
+
+        $query = $clearancetype->save();
+
+        if ($query) {
+            return redirect(route('registrar.clearancetype.index'))->with('success', 'Clearance type updated successfully');
+        } else {
+            return back()->with('fail', 'Something is wrong');
+        }
+
     }
 
     /**
@@ -84,5 +118,7 @@ class ClearancetypeController extends Controller
     public function destroy($id)
     {
         //
+        Clearancetype::destroy($id);
+        return redirect(route('registrar.clearancetype.index'))->with('danger', 'Clearance type deleted successfully');
     }
 }

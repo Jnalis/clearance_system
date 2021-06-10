@@ -29,22 +29,23 @@
       <!-- /.card-header -->
       <div class="card-body">
         <p>
-          <a href="{{ route('admin.usertype.create') }}" class="btn btn-info">Add Clearance type</a>
+          <a href="{{ route('registrar.clearancetype.create') }}" class="btn btn-info">Add Clearance type</a>
         </p>
         <div class="result">
           @if (session('success'))
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
-          </div>
-          @endif
-          @if (session('info'))
-          <div class="alert alert-info" role="alert">
-            {{ session('info') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           @endif
           @if (session('danger'))
-          <div class="alert alert-danger" role="alert">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           @endif
         </div>
@@ -69,12 +70,12 @@
               <td>{{ $item->clearancetype }}</td>
               <td>{{ date('d/M/Y', strtotime($item->created_at)) }}</td>
               <td>
-                <a href="{{ route('admin.usertype.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('registrar.clearancetype.edit', $item->id) }}" class="btn btn-warning">Edit</a>
               </td>
               <td>
                 <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
                   class="btn btn-danger">Delete</a>
-                <form action="{{ route('admin.usertype.destroy', $item->id) }}" method="POST">
+                <form action="{{ route('registrar.clearancetype.destroy', $item->id) }}" method="POST">
                   @method('delete')
                   @csrf
                 </form>

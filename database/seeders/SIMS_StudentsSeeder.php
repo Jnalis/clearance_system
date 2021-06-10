@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Student;
-use App\Models\User;
+use App\Models\SimsStudent;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class StudentSeeder extends Seeder
+class SIMS_StudentsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +15,7 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2022',
                 'fullname' => 'Luhaga  Njuu',
@@ -27,7 +26,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2023',
                 'fullname' => 'Zahran Mbinga',
@@ -38,7 +37,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2024',
                 'fullname' => 'Othman Sadick',
@@ -49,7 +48,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2025',
                 'fullname' => 'Yusrat Nehemia',
@@ -60,7 +59,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2026',
                 'fullname' => 'Fulgency Das',
@@ -71,7 +70,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2027',
                 'fullname' => 'Bahati Mjema',
@@ -82,7 +81,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2028',
                 'fullname' => 'Palemo Chama',
@@ -93,7 +92,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2029',
                 'fullname' => 'Xsaxsa Nelimia',
@@ -104,7 +103,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2030',
                 'fullname' => 'Linus Mwinyi',
@@ -115,7 +114,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2031',
                 'fullname' => 'Gabriel Hsag',
@@ -126,7 +125,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2032',
                 'fullname' => 'Zaina Muya',
@@ -137,7 +136,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2033',
                 'fullname' => 'Lelei Hus',
@@ -148,7 +147,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2034',
                 'fullname' => 'Shaban Ally',
@@ -159,7 +158,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2035',
                 'fullname' => 'Peter Mabula',
@@ -170,7 +169,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2036',
                 'fullname' => 'Fedora Ahsan',
@@ -181,7 +180,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2037',
                 'fullname' => 'Ignas Mboma',
@@ -192,7 +191,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2038',
                 'fullname' => 'Seleman Daud',
@@ -203,7 +202,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCFCF/2016/2039',
                 'fullname' => 'Gunga Gayena',
@@ -214,7 +213,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/66',
                 'fullname' => 'Byalugaba Kinoo',
@@ -225,7 +224,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/67',
                 'fullname' => 'Rweyemamu Haniu',
@@ -236,7 +235,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/68',
                 'fullname' => 'Lukamal Nkomo',
@@ -247,7 +246,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/69',
                 'fullname' => 'Maria Felix',
@@ -258,7 +257,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/70',
                 'fullname' => 'Penuel Isaya',
@@ -269,7 +268,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/71',
                 'fullname' => 'Lucas Solomon',
@@ -280,7 +279,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/72',
                 'fullname' => 'Simih Lwano',
@@ -291,7 +290,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/73',
                 'fullname' => 'Ulmiho Donald',
@@ -302,7 +301,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/74',
                 'fullname' => 'Shaibu Mkawa',
@@ -313,7 +312,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/75',
                 'fullname' => 'Mbonea Chacha',
@@ -324,7 +323,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/76',
                 'fullname' => 'Ineke Olenangolo',
@@ -335,7 +334,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/77',
                 'fullname' => 'Machitala Nyumbu',
@@ -346,7 +345,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCICT/2017/78',
                 'fullname' => 'Machale Gabriel',
@@ -357,7 +356,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1456',
                 'fullname' => 'Shabani Mbuna',
@@ -368,7 +367,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1457',
                 'fullname' => 'Mohammed Iqram',
@@ -379,7 +378,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1458',
                 'fullname' => 'Sauda Masoud',
@@ -390,7 +389,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1459',
                 'fullname' => 'Ebrania Mushi',
@@ -401,7 +400,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1460',
                 'fullname' => 'Riziki  Masenga',
@@ -412,7 +411,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1461',
                 'fullname' => 'Groria Semenya',
@@ -423,7 +422,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1462',
                 'fullname' => 'Kwimba Bihambwa',
@@ -434,7 +433,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1463',
                 'fullname' => 'Kione  Kidole',
@@ -445,7 +444,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1464',
                 'fullname' => 'Derick Omond',
@@ -456,7 +455,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1465',
                 'fullname' => 'Felix Mkwese',
@@ -467,7 +466,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1466',
                 'fullname' => 'Ummu Burhan',
@@ -478,7 +477,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1467',
                 'fullname' => 'Swadiq Mubarack',
@@ -489,7 +488,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1468',
                 'fullname' => 'Deus Chacha',
@@ -500,7 +499,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1469',
                 'fullname' => 'Chenjele Majuka',
@@ -511,7 +510,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1470',
                 'fullname' => 'Felimin  Macha',
@@ -522,7 +521,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1471',
                 'fullname' => 'Inayma Rahb',
@@ -533,7 +532,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1472',
                 'fullname' => 'Prosper Gunga',
@@ -544,7 +543,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1473',
                 'fullname' => 'Tumaini Leo',
@@ -555,7 +554,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1474',
                 'fullname' => 'Njuu Michael',
@@ -566,7 +565,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1475',
                 'fullname' => 'Ongera Juma',
@@ -577,7 +576,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1476',
                 'fullname' => 'Guga Nhereje',
@@ -588,7 +587,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BCLTM/2016/1477',
                 'fullname' => 'Lulu Chems',
@@ -599,7 +598,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/22',
                 'fullname' => 'Samwel Samson',
@@ -610,7 +609,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/23',
                 'fullname' => 'Adelina Simon',
@@ -621,7 +620,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/24',
                 'fullname' => 'Aikael Muro',
@@ -632,7 +631,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/25',
                 'fullname' => 'Akida Kingwande',
@@ -643,7 +642,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/26',
                 'fullname' => 'Furaha Mkawa',
@@ -654,7 +653,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/27',
                 'fullname' => 'Mwakibete Mziha',
@@ -665,7 +664,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/28',
                 'fullname' => 'Joel Bruno Ngugo',
@@ -676,7 +675,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/29',
                 'fullname' => 'Asha Marwa',
@@ -687,7 +686,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/30',
                 'fullname' => 'Devid Jikole',
@@ -698,7 +697,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/31',
                 'fullname' => 'Soud Masoud',
@@ -709,7 +708,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/32',
                 'fullname' => 'Njelekela Godson',
@@ -720,7 +719,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/33',
                 'fullname' => 'Samira Hasheem',
@@ -731,7 +730,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/34',
                 'fullname' => 'Kilua Kikole',
@@ -742,7 +741,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/35',
                 'fullname' => 'Lameck Jumbe',
@@ -753,7 +752,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/36',
                 'fullname' => 'Michael Kombe',
@@ -764,7 +763,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/37',
                 'fullname' => 'Aina Minja',
@@ -775,7 +774,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/38',
                 'fullname' => 'Wakila Mwakatobe',
@@ -786,7 +785,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/39',
                 'fullname' => 'Watende Mjema',
@@ -797,7 +796,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/40',
                 'fullname' => 'Mwanauzi Mwinchumu',
@@ -808,7 +807,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/41',
                 'fullname' => 'Qudra Abdul-Malik',
@@ -819,7 +818,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BIT/2017/42',
                 'fullname' => 'Queen James',
@@ -830,7 +829,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/214',
                 'fullname' => 'Amisa Jumanne',
@@ -841,7 +840,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/215',
                 'fullname' => 'Shamsa Ally',
@@ -852,7 +851,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/216',
                 'fullname' => 'Jumanne Idd',
@@ -863,7 +862,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/217',
                 'fullname' => 'Judith  Joel',
@@ -874,7 +873,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/218',
                 'fullname' => 'Gory  Lucas',
@@ -885,7 +884,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/219',
                 'fullname' => 'Maimuna S. Hamidu',
@@ -896,7 +895,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/220',
                 'fullname' => 'Steven  M. Mwaluko',
@@ -907,7 +906,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/221',
                 'fullname' => 'Mariam  Gregory',
@@ -918,7 +917,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/222',
                 'fullname' => 'Hassan Ameir',
@@ -929,7 +928,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/223',
                 'fullname' => 'Suleiman Sultan Mwinyi',
@@ -940,7 +939,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/224',
                 'fullname' => 'Abdul-abbas Abdul-hasheem',
@@ -951,7 +950,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/225',
                 'fullname' => 'Shaha Kanyanze',
@@ -962,7 +961,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/226',
                 'fullname' => 'Selestine Joachin',
@@ -973,7 +972,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/227',
                 'fullname' => 'Derick Omond',
@@ -984,7 +983,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/228',
                 'fullname' => 'Steven Michael',
@@ -995,7 +994,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/229',
                 'fullname' => 'Ester Sarungi ',
@@ -1006,7 +1005,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/230',
                 'fullname' => 'Saganda Tumaini',
@@ -1017,7 +1016,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/231',
                 'fullname' => 'Salma  Shemweta',
@@ -1028,7 +1027,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/232',
                 'fullname' => 'Mamy Alphonce',
@@ -1039,7 +1038,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/233',
                 'fullname' => 'Dorcas Derrick',
@@ -1050,7 +1049,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/234',
                 'fullname' => 'Shamsa Ally Ameir',
@@ -1061,7 +1060,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/235',
                 'fullname' => 'Donald Nkomwa',
@@ -1072,7 +1071,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/236',
                 'fullname' => 'Sameer  Sadeek',
@@ -1083,7 +1082,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/237',
                 'fullname' => 'Abdul-abbas Salmin',
@@ -1094,7 +1093,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/238',
                 'fullname' => 'Akram  Abraham',
@@ -1105,7 +1104,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/239',
                 'fullname' => 'Florian Akwiline',
@@ -1116,7 +1115,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/240',
                 'fullname' => 'Jenipher Juakali',
@@ -1127,7 +1126,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/241',
                 'fullname' => 'Aqwiline  Mwakasege',
@@ -1138,7 +1137,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/242',
                 'fullname' => 'Adelphina  Adolph',
@@ -1149,7 +1148,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/243',
                 'fullname' => 'Flugence Nakwez',
@@ -1160,7 +1159,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/244',
                 'fullname' => 'Ahlam Ismael',
@@ -1171,7 +1170,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/245',
                 'fullname' => 'Nusrat Jumbe',
@@ -1182,7 +1181,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/246',
                 'fullname' => 'Ally Salum Ally',
@@ -1193,7 +1192,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/247',
                 'fullname' => 'Farida Mwinchumu ',
@@ -1204,7 +1203,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/248',
                 'fullname' => 'Sarah K. John',
@@ -1215,7 +1214,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/249',
                 'fullname' => 'Dorcas Julius',
@@ -1226,7 +1225,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/250',
                 'fullname' => 'Daud Felix Nzowa',
@@ -1237,7 +1236,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/251',
                 'fullname' => 'Obrean Donald',
@@ -1248,7 +1247,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/252',
                 'fullname' => 'Saning\'\'o Olenaiko',
@@ -1259,7 +1258,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/253',
                 'fullname' => 'Salmin Kiango',
@@ -1270,7 +1269,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/254',
                 'fullname' => 'Apokile Mwakipesile',
@@ -1281,7 +1280,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/255',
                 'fullname' => 'Ananiel Joel',
@@ -1292,7 +1291,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/256',
                 'fullname' => 'George Kennedy',
@@ -1303,7 +1302,7 @@ class StudentSeeder extends Seeder
                 'password' => Hash::make('123456'),
             ]
         );
-        Student::create(
+        SimsStudent::create(
             [
                 'student_id' => 'NIT/BLTM/2017/257',
                 'fullname' => 'Godfrey Mwinyimkuu',
@@ -1316,837 +1315,837 @@ class StudentSeeder extends Seeder
         );
 
 
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2022',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2023',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2024',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2025',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2026',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2027',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2028',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2029',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2030',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2031',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2032',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2033',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2034',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2035',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2036',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2037',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2038',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCFCF/2016/2039',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/66',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/67',
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2022',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2023',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2024',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2025',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2026',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2027',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2028',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2029',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2030',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2031',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2032',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2033',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2034',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2035',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2036',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2037',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2038',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCFCF/2016/2039',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/66',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/67',
 
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/68',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/69',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/70',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/71',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/72',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/73',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/74',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/75',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/76',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/77',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCICT/2017/78',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1456',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1457',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1458',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1459',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1460',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/68',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/69',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/70',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/71',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/72',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/73',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/74',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/75',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/76',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/77',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCICT/2017/78',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1456',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1457',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1458',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1459',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1460',
 
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1461',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1462',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1461',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1462',
 
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1463',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1464',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1465',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1466',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1467',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1468',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1469',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1470',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1471',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1472',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1473',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1474',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1475',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1476',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BCLTM/2016/1477',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/22',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/23',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/24',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/25',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1463',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1464',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1465',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1466',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1467',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1468',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1469',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1470',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1471',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1472',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1473',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1474',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1475',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1476',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BCLTM/2016/1477',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/22',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/23',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/24',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/25',
 
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/26',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/27',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/26',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/27',
 
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/28',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/29',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/30',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/31',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/32',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/33',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/34',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/35',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/36',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/37',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/38',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/39',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/40',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/41',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BIT/2017/42',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/214',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/215',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/216',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/217',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/218',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/219',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/220',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/221',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/222',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/223',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/224',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/225',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/226',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/227',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/228',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/229',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/230',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/231',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/232',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/233',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/234',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/235',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/236',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/237',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/238',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/239',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/240',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/241',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/242',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/243',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/244',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/245',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/246',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/28',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/29',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/30',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/31',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/32',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/33',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/34',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/35',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/36',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/37',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/38',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/39',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/40',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/41',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BIT/2017/42',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/214',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/215',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/216',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/217',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/218',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/219',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/220',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/221',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/222',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/223',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/224',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/225',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/226',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/227',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/228',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/229',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/230',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/231',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/232',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/233',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/234',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/235',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/236',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/237',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/238',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/239',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/240',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/241',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/242',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/243',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/244',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/245',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/246',
 
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/247',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/248',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/249',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/250',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/251',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/252',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/253',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/254',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/255',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/256',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
-        User::create(
-            [
-                'user_id' => 'NIT/BLTM/2017/257',
-                'user_type' => 'Student',
-                'password' => Hash::make('123456'),
-            ]
-        );
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/247',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/248',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/249',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/250',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/251',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/252',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/253',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/254',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/255',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/256',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
+        // User::create(
+        //     [
+        //         'user_id' => 'NIT/BLTM/2017/257',
+        //         'user_type' => 'Student',
+        //         'password' => Hash::make('123456'),
+        //     ]
+        // );
     }
 }

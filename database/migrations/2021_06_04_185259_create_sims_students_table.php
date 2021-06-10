@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudentsTable extends Migration
+class CreateSimsStudentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateStudentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('sims_students', function (Blueprint $table) {
             $table->id();
             $table->string('student_id')->unique();
             $table->string('fullname');
@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('department')->nullable();
             $table->year('entry_year');
             $table->enum('registered',['YES','NO'])->default('YES');
-            $table->string('password')->nullable();
+            $table->string('password');
 
             $table->foreign('program')
                 ->references('prog_code')
@@ -42,6 +42,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('sims_students');
     }
 }

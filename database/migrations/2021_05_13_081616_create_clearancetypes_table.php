@@ -15,7 +15,7 @@ class CreateClearancetypesTable extends Migration
     {
         Schema::create('clearancetypes', function (Blueprint $table) {
             $table->id();
-            $table->enum('clearancetype', ['Termination','Transfer','Graduate'])->default('Graduate');
+            $table->string('clearancetype');
             $table->unsignedBigInteger('added_by')->nullable();
 
             $table->foreign('added_by')
