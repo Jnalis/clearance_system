@@ -29,7 +29,7 @@
         <p>
             <a href="{{ route('dean.resource.create') }}" class="btn btn-info">Issue Resource</a>
             <a href="{{ route('dean.resourceIssued.index') }}" class="btn btn-success">Issued Resource</a>
-            <a href="{{ route('dean.resourceLost.index') }}" class="btn btn-danger">Lost Resource</a>
+            <a href="{{ route('dean.lostResource.index') }}" class="btn btn-danger">Lost Resource</a>
         </p>
 
         <div class="result">

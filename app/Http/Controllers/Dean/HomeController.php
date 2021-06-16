@@ -12,9 +12,14 @@ class HomeController extends Controller
 {
     //
     public function index(){
+        $id = auth()->user()->id;
+
         $arr['student'] = Student::all();
-        $arrR['resource'] = Resource::all();
+
+        $arrR['resource'] = Resource::where('allocated_to', '=', $id)->get();
+
         $arrC['comment'] = Comment::all();
+        
         return view('pages.dean.index')->with($arr)->with($arrR)->with($arrC);
     }
 }

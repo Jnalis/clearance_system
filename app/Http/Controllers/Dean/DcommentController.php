@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dean;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\Student;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,10 @@ class DcommentController extends Controller
      */
     public function index()
     {
-        $arr['comments'] = Comment::all();
+        $staffID = auth()->user()->id;
+
+        $arr['comments'] = Student::join('comments', 'comments.comment_to', '=', 'students.id')->where('comments.added_by', '=', $staffID)->get();
+
         return view('pages.dean.view_comment')->with($arr);
     }
 
@@ -28,7 +32,8 @@ class DcommentController extends Controller
     public function create()
     {
         //
-        return view('pages.dean.add_comment');
+        $student = Student::all();
+        return view('pages.dean.add_comment', ['student' => $student]);
     }
 
     /**
@@ -46,19 +51,22 @@ class DcommentController extends Controller
             'comment_text' => 'required',
         ]);
 
-        $comment->student_id = $request->student_id;
-        $comment->staff_id = 2;
+        $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
+        $studentID = $studentInfo->id;
+
+        $staffID = auth()->user()->id;
+
         $comment->comment_text = $request->comment_text;
+        $comment->comment_to = $studentID;
+        $comment->added_by = $staffID;
 
         $query = $comment->save();
 
         if ($query) {
-            return redirect(route('dean.deanComment.index'));
+            return redirect(route('dean.deanComment.index'))->with('success', 'Comment added successfully');
         } else {
-            return back()->with('fail','Something went wrong');
+            return back()->with('fail', 'Something went wrong');
         }
-        
-
     }
 
     /**
@@ -78,11 +86,16 @@ class DcommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comments)
+    public function edit($comments)
     {
         //
-        $arr['comment'] = $comments;
-        return view('pages.dean.edit_comment')->with($arr);
+        $comments = Comment::find($comments);
+        $students = Student::all();
+
+        return view('pages.dean.edit_comment', [
+            'comment' => $comments, 
+            'students' => $students
+        ]);
     }
 
     /**

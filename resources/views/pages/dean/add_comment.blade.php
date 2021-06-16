@@ -31,11 +31,6 @@
                 <form role="form" action="{{ route('dean.deanComment.store') }}" method="POST">
                     @csrf
                     <div class="result">
-                        {{-- @if (Session::get('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success') }}
-                        </div>
-                        @endif --}}
                         @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
@@ -47,17 +42,30 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="student_id">Student ID</label>
-                                <input type="text" name="student_id" id="student_id" class="form-control"
-                                    placeholder="Student ID" value="{{ old('student_id') }}">
+
+                                <select name="student_id" id="student_id" class="form-control select2bs4"
+                                    data-placeholder="Select Student" style="width: 100%;">
+
+                                    <option></option>
+
+                                    @foreach ($student as $item)
+                                    <option value="{{ $item->student_id }}" @if (old('student_id')=="$item->student_id"
+                                        ) {{ 'selected' }} @endif>
+                                        {{ $item->student_id }}
+                                    </option>
+                                    @endforeach
+
+                                </select>
                                 <span class="text-danger">@error('student_id') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="comment_text">Comment Text</label>
-                                <textarea class="form-control" name="comment_text" id="comment_text" cols="30" rows="5" value="{{ old('comment_text') }}"></textarea>
+                                <textarea class="form-control" name="comment_text" id="comment_text" cols="30" rows="5">{{ old('comment_text') }}</textarea>
                                 <span class="text-danger">@error('comment_text') {{ $message }} @enderror</span>
                             </div>
                         </div>

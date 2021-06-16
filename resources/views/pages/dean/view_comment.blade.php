@@ -42,28 +42,40 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Student ID</th>
-                    <th>Staff ID</th>
+                    <th>#</th>
+                    <th>Student Name</th>
                     <th>Comment Text</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 @if (count($comments))
-                @foreach ($comments as $comment)
 
-                <tr>
-                    <td>{{ $comment->id }}</td>
-                    <td>{{ $comment->student_id }}</td>
-                    <td>{{ $comment->staff_id }}</td>
-                    <td>{{ $comment->comment_text }}</td>
-                    <td>
-                        <a href="{{ route('dean.deanComment.edit', $comment->id) }}" class="btn btn-warning">Edit</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
-                    </td>
-                </tr>
-                @endforeach
+                @php
+                    $no = 1;
+                @endphp
+                    @foreach ($comments as $comment)
+                    <tr>
+                        <td>{{ $no }}</td>
+                        <td>{{ $comment->fullname }}</td>
+                        <td>{{ $comment->comment_text }}</td>
+                        <td>
+                            <a href="{{ route('dean.deanComment.edit',$comment->id) }}" class="btn btn-warning">Edit</a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+                                class="btn btn-danger">Delete</a>
+                            <form action="{{ route('dean.deanComment.destroy', $comment->id) }}" method="post">
+                                @method('delete')
+                                @csrf
+                            </form>
+                        </td>
+                    </tr>
+                    @php
+                        $no++;
+                    @endphp
+                    @endforeach
                 @else
                 <tr>
                     <td colspan="5">No Comment Found</td>

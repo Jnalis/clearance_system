@@ -16,8 +16,10 @@ class lostResourceController extends Controller
     public function index()
     {
         //
-        $arr['lost_r'] = LostResource::all();
-        return view('pages.dean.view_lost_resource')->with($arr);
+        $lost_r = LostResource::join('resources', 'resources.id', '=', 'lost_resources.lost_resource')
+            ->join('students', 'students.id', '=', 'lost_resources.lost_by')->get();
+
+        return view('pages.dean.view_lost_resource', ['lost_r' => $lost_r]);
     }
 
     /**

@@ -28,7 +28,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fas fa-user-graduate"></i>
       </div>
       <a href="{{ route('dean.student.index') }} " class="small-box-footer">
         More info <i class="fas fa-arrow-circle-right"></i>
@@ -52,7 +52,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fa fa-rocket"></i>
       </div>
       <a href="{{ route('dean.resource.index')}} " class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
@@ -75,7 +75,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fas fa-comments"></i>
       </div>
       <a href="{{ route('dean.deanComment.index')}} " class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>

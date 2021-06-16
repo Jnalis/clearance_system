@@ -27,7 +27,7 @@ class ReturnLostController extends Controller
     public function resourceLost($id, LostResource $lostResource)
     {
 
-        return $id;
+        // return $id;
 
         //? i insert the lost resource in lost_resource table
         $info = IssuedResource::where('resource_issued', '=', $id)->first();
@@ -51,6 +51,6 @@ class ReturnLostController extends Controller
         IssuedResource::where('resource_issued', '=', $id)->delete();
 
 
-        return redirect(route('hod.lostResource.index'))->with('danger', 'Resource Recorded as Lost Item');
+        return redirect(route('dean.lostResource.index'))->with('danger', 'Resource Recorded as Lost Item');
     }
 }

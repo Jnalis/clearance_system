@@ -116,7 +116,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('dean.resource.index') }}" class="nav-link 
-                                @if($segment=='resource' || $segment=='resourceIssued' || $segment=='resourceLost') 
+                                @if($segment=='resource' || $segment=='resourceIssued' || $segment=='lostResource') 
                                     active
                                 @endif
                             ">
