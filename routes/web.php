@@ -34,8 +34,11 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::namespace('HOD')->prefix('hod')->as('hod.')->middleware('hod', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+
         Route::get('/returnResource/{returnResource}', 'ReturnLostController@returnResource')->name('returnResource');
+
         Route::get('/resourceLost/{resourceLost}', 'ReturnLostController@resourceLost')->name('resourceLost');
+
         Route::resource('/student', 'StudentController');
         Route::resource('/allocatedResource', 'AllocatedResourceController');
         Route::resource('/issuedResource', 'IssuedResourceController');
@@ -57,12 +60,15 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::namespace('Dean')->prefix('dean')->as('dean.')->middleware('dean', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+
         Route::get('/returnResource/{returnResource}', 'ReturnLostController@returnResource')->name('returnResource');
+
         Route::get('/resourceLost/{resourceLost}', 'ReturnLostController@resourceLost')->name('resourceLost');
+
         Route::resource('/student', 'StudentController');
-        Route::resource('/resourceList', 'ResourceController');
+        Route::resource('/resource', 'ResourceController');
         Route::resource('/resourceIssued', 'ResourceIssuedController');
-        Route::resource('/resourceLost', 'ResourceLostController');
+        Route::resource('/lostResource', 'lostResourceController');
         Route::resource('/deanComment', 'DcommentController');
     });
 

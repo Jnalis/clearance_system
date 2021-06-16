@@ -52,7 +52,7 @@
                     {{-- names --}}
                     <div class="row">
                         
-                        <div class="col-sm-12">
+                        <div class="col-sm-12">NIT/BCFCF/2016/2027
                             <div class="form-group">
                                 <label class="col-form-label" for="student_reg_no">Student Reg No</label>
 

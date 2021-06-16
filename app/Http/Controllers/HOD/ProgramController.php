@@ -63,7 +63,7 @@ class ProgramController extends Controller
         $query = $program->save();
 
         if ($query) {
-            return redirect(route('hod.program.index'))->with('success','Program added successfull');
+            return redirect(route('hod.program.index'))->with('success','Program added successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -120,7 +120,7 @@ class ProgramController extends Controller
         $query = $program->save();
 
         if ($query) {
-            return redirect(route('hod.program.index'))->with('success','Program added successfull');
+            return redirect(route('hod.program.index'))->with('success','Program added successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -136,6 +136,6 @@ class ProgramController extends Controller
     {
         //
         Program::destroy($id);
-        return redirect(route('hod.program.index'))->with('success','Program deleted successfull');
+        return redirect(route('hod.program.index'))->with('success','Program deleted successfully');
     }
 }

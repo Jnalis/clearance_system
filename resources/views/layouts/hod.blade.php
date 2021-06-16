@@ -107,7 +107,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-user-plus"></i>
+                                <i class="nav-icon fas fa-user-graduate"></i>
                                 <p>
                                     Students
                                 </p>
@@ -131,7 +131,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fa fa-rocket"></i>
                                 <p>
                                     Allocated Resource
                                 </p>
@@ -143,7 +143,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fas fa-comments"></i>
                                 <p>
                                     Comments
                                 </p>

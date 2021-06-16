@@ -12,10 +12,10 @@
 
 @section('smallNavigation')
 <div class="col-sm-6">
-  <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Home</a></li>
-    <li class="breadcrumb-item active">Resource List</li>
-  </ol>
+    <ol class="breadcrumb float-sm-right">
+        <li class="breadcrumb-item"><a href="{{ route('hod.home') }}">Home</a></li>
+        <li class="breadcrumb-item active">Resource List</li>
+    </ol>
 </div><!-- /.col -->
 
 @endsection
@@ -35,10 +35,23 @@
         <div class="result">
             @if (session('success'))
             <div class="alert alert-success" role="alert">
-              {{ session('success') }}
+                {{ session('success') }}
             </div>
             @endif
-          </div>
+        </div>
+
+        <div class="result">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+        </div>
+
+
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
@@ -51,7 +64,7 @@
             </thead>
             <tbody>
                 @php
-                    $no = 1;
+                $no = 1;
                 @endphp
                 @if (count($resource))
                 @foreach ($resource as $item)
@@ -64,7 +77,7 @@
                     <td>{{ $item->available }}</td>
                 </tr>
                 @php
-                    $no++;
+                $no++;
                 @endphp
                 @endforeach
                 @else

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dean;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comments;
+use App\Models\Comment;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class DcommentController extends Controller
      */
     public function index()
     {
-        $arr['comments'] = Comments::all();
+        $arr['comments'] = Comment::all();
         return view('pages.dean.view_comment')->with($arr);
     }
 
@@ -37,7 +37,7 @@ class DcommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Comments $comment)
+    public function store(Request $request, Comment $comment)
     {
         //return $request->input();
 
@@ -78,7 +78,7 @@ class DcommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comments $comments)
+    public function edit(Comment $comments)
     {
         //
         $arr['comment'] = $comments;

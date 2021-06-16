@@ -1,6 +1,14 @@
 @extends('layouts.dean')
 @section('title','Allocated Resource')
 
+
+@section('tableCss')
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}" />
+@endsection
+
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -19,11 +27,23 @@
     <!-- /.card-header -->
     <div class="card-body">
         <p>
-            <a href="{{ route('dean.resourceList.create') }}" class="btn btn-info">Issue Resource</a>
+            <a href="{{ route('dean.resource.create') }}" class="btn btn-info">Issue Resource</a>
             <a href="{{ route('dean.resourceIssued.index') }}" class="btn btn-success">Issued Resource</a>
             <a href="{{ route('dean.resourceLost.index') }}" class="btn btn-danger">Lost Resource</a>
         </p>
-        <table class="table table-bordered table-striped">
+
+        <div class="result">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            @endif
+        </div>
+
+        <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -35,7 +55,7 @@
             </thead>
             <tbody>
                 @php
-                    $no = 1;
+                $no = 1;
                 @endphp
                 @if (count($resource))
                 @foreach ($resource as $item)
@@ -48,7 +68,7 @@
                     <td>{{ $item->available }}</td>
                 </tr>
                 @php
-                    $no++;
+                $no++;
                 @endphp
                 @endforeach
                 @else
@@ -61,4 +81,23 @@
     </div>
     <!-- /.card-body -->
 </div>
+@endsection
+
+@section('tableScript')
+
+<!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+
+<script>
+    $(function () {
+    $("#example1").DataTable({
+      responsive: true,
+      autoWidth: false,
+    });
+  });
+</script>
+
 @endsection

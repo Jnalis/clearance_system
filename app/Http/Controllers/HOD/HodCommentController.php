@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\HOD;
 
 use App\Http\Controllers\Controller;
-use App\Models\Comments;
+use App\Models\Comment;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class HodCommentController extends Controller
@@ -16,7 +17,9 @@ class HodCommentController extends Controller
     public function index()
     {
         //
-        $arr['comments'] = Comments::all();
+        $staffID = auth()->user()->id;
+
+        $arr['comment'] = Student::join('comments', 'comments.comment_to', '=', 'students.id')->where('comments.added_by', '=', $staffID)->get();
 
         return view('pages.hod.view_comment')->with($arr);
     }
@@ -29,7 +32,8 @@ class HodCommentController extends Controller
     public function create()
     {
         //
-        return view('pages.hod.add_comment');
+        $arrS['student'] = Student::all();
+        return view('pages.hod.add_comment')->with($arrS);
     }
 
     /**
@@ -38,7 +42,7 @@ class HodCommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Comments $comment)
+    public function store(Request $request, Comment $comment)
     {
         //
         //return $request->input();
@@ -48,15 +52,19 @@ class HodCommentController extends Controller
             'comment_text' => 'required',
         ]);
 
+        $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
+        $studentID = $studentInfo->id;
 
-        $comment->student_id = $request->student_id;
-        $comment->added_by = $request->added_by;
+        $staffID = auth()->user()->id;
+
         $comment->comment_text = $request->comment_text;
+        $comment->comment_to = $studentID;
+        $comment->added_by = $staffID;
 
         $query = $comment->save();
 
         if ($query) {
-            return redirect(route('hod.hodComment.index'));
+            return redirect(route('hod.hodComment.index'))->with('success', 'Comment added successfully');
         } else {
             return back()->with('fail','Something went wrong');
         }
@@ -80,11 +88,18 @@ class HodCommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comments $comments)
+    public function edit($comment)
     {
-        //
-        $arr['comment'] = $comments;
-        return view('pages.hod.edit_comment')->with($arr);
+        
+        $students = Student::all();
+
+        $comment = Comment::find($comment);
+
+        return view('pages.hod.edit_comment', [
+            'comment' => $comment,
+            'students' => $students
+        ]);
+
     }
 
     /**
@@ -94,7 +109,7 @@ class HodCommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comments $comments)
+    public function update(Request $request, Comment $comment)
     {
         //
         //return $request->input();
@@ -105,14 +120,19 @@ class HodCommentController extends Controller
         ]);
 
 
-        $comments->student_id = $request->student_id;
-        $comments->staff_id = 3;
-        $comments->comment_text = $request->comment_text;
+        $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
+        $studentID = $studentInfo->id;
 
-        $query = $comments->save();
+        $staffID = auth()->user()->id;
+
+        $comment->comment_text = $request->comment_text;
+        $comment->comment_to = $studentID;
+        $comment->added_by = $staffID;
+
+        $query = $comment->save();
 
         if ($query) {
-            return redirect(route('hod.hodComment.index'));
+            return redirect(route('hod.hodComment.index'))->with('success', 'Comment added successfully');
         } else {
             return back()->with('fail','Something went wrong');
         }
@@ -128,5 +148,10 @@ class HodCommentController extends Controller
     public function destroy($id)
     {
         //
+        // return $id;
+
+
+        Comment::destroy($id);
+        return redirect(route('hod.hodComment.index'))->with('success', 'Comment deleted successfully');
     }
 }

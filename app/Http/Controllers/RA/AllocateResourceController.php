@@ -34,7 +34,7 @@ class AllocateResourceController extends Controller
     {
         $arr['resource'] = Resource::where('allocated', '=', 'NO')->get();
 
-        $arrC['custodian'] = Staff::where('usertype', '=', 'HOD')->get();
+        $arrC['custodian'] = Staff::where('usertype', '=', 'HOD')->orWhere('usertype', '=', 'Dean')->get();
         //return $arrC;
         return view('pages.ra.allocate_resource')->with($arr)->with($arrC);
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AllocatedResource;
 use App\Models\IssuedResource;
 use App\Models\Resource;
+use App\Models\SimsStudent;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -46,9 +47,9 @@ class ResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, IssuedResource $issuedResource)
+    public function store(Request $request, Student $student, IssuedResource $issuedResource)
     {
-         // checking if you get all the data from the form
+        // checking if you get all the data from the form
         // return $request->input();
 
 
@@ -58,45 +59,93 @@ class ResourceController extends Controller
             'date_to_return' => 'required',
         ]);
 
-        //if form validated successfully then add new usertype
-        // $name = Student::select(['fullname'])->firstWhere('student_id', '=', $request->student_reg_no)->fullname;
+
+
+        $ID =  $request->student_reg_no;
+
+        $student_info_from_db = Student::where('student_id', '=', $ID)->first();
 
         $resourceId = Resource::select('id')
             ->firstWhere('resource_type', '=', $request->resource_type)->id;
-
-
-        $studentID = Student::select('id')
-            ->firstWhere('student_id', '=', $request->student_reg_no)->id;
-
-
         $staffId = auth()->user()->id;
 
 
-        $issuedResource->resource_issued  = $resourceId;
-        $issuedResource->resource_issued_to = $studentID;
-        $issuedResource->issued_by = $staffId;
-        $issuedResource->date_to_return = $request->date_to_return;
+        if ($student_info_from_db) {
 
-        $query = $issuedResource->save();
+            $student_id_from_db = $student_info_from_db->id;
 
-        //update the resource table
-        Resource::where('id', '=', $resourceId)->update(['issued' => 'YES']);
+            //! this is used to add info to issued_resources table
+            $issuedResource->resource_issued  = $resourceId;
+            $issuedResource->resource_issued_to = $student_id_from_db;
+            $issuedResource->issued_by = $staffId;
+            $issuedResource->date_to_return = $request->date_to_return;
 
 
+            $query2 = $issuedResource->save();
 
-        // $query = Resource::where('id', '=', $resourceId)->update([
-        //     'issued_by' => $staffId,
-        //     'issued_to' => $studentID,
-        //     'date_to_return' => $date,
-        //     'issued' => 'YES',
-        //     ]);
+            Resource::where('id', '=', $resourceId)->update(['issued' => 'YES']);
 
-        
+            if ($query2) {
 
-        if ($query) {
-            return redirect(route('dean.resourceIssued.index'))->with('success', 'Resource issued successfully');
+                return redirect(route('dean.resourceIssued.index'))->with('success', 'Resource issued successfully');
+            } else {
+
+                return back()->with('fail', 'Failed to issue resource to student, check your internet connection');
+            }
         } else {
-            return back()->with('fail', 'Something went wrong');
+
+            //? this is like  SIMS API which gives us students infos
+            $studentInfo = SimsStudent::where('student_id', '=', $ID)->first();
+
+
+            if ($studentInfo) {
+                //TODO this are individual data for student from sims
+                $studentID = $studentInfo->student_id;
+                $studentName = $studentInfo->fullname;
+                $studentProgram = $studentInfo->program;
+                $studentDepartment = $studentInfo->department;
+                $studentEntryYear = $studentInfo->entry_year;
+                $studentRegistered = $studentInfo->registered;
+
+
+                //! this is used to add student information from sims 
+                //! to our studentInfo table
+                $student->student_id = $studentID;
+                $student->fullname = $studentName;
+                $student->program = $studentProgram;
+                $student->department = $studentDepartment;
+                $student->entry_year = $studentEntryYear;
+                $student->registered = $studentRegistered;
+
+                $query1 = $student->save();
+
+                if ($query1) {
+
+                    $ourStudentInfo = Student::where('student_id', '=', $studentID)->first();
+                    $ourStudentID = $ourStudentInfo->id;
+
+                    //! this is used to add info to issued_resources table
+                    $issuedResource->resource_issued  = $resourceId;
+                    $issuedResource->resource_issued_to = $ourStudentID;
+                    $issuedResource->issued_by = $staffId;
+                    $issuedResource->date_to_return = $request->date_to_return;
+
+
+                    $query2 = $issuedResource->save();
+
+                    Resource::where('id', '=', $resourceId)->update(['issued' => 'YES']);
+
+                    if ($query2) {
+                        return redirect(route('dean.resourceIssued.index'))->with('success', 'Resource issued successfully');
+                    } else {
+                        return back()->with('fail', 'Failed to issue resource to student, check your internet connection');
+                    }
+                } else {
+                    return back()->with('fail', 'Failed to get student information, check your internet connection');
+                }
+            } else {
+                return back()->with('fail', 'Make sure student is already registered SIMS');
+            }
         }
     }
 

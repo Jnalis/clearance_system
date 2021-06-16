@@ -21,30 +21,54 @@
         <p>
             <a href="{{ route('hod.hodComment.create') }}" class="btn btn-info">Add comment</a>
         </p>
+
+        <div class="result">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ session('success') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            @endif
+        </div>
+        
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Student ID</th>
-                    <th>Staff ID</th>
+                    <th>#</th>
+                    <th>Student Name</th>
                     <th>Comment Text</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
-                @if (count($comments))
-                    @foreach ($comments as $comment)
-                        
+                @if (count($comment))
+
+                @php
+                    $no = 1;
+                @endphp
+                    @foreach ($comment as $item)
                     <tr>
-                        <td>{{ $comment->id }}</td>
-                        <td>{{ $comment->student_id }}</td>
-                        <td>{{ $comment->added_by }}</td>
-                        <td>{{ $comment->comment_text }}</td>
+                        <td>{{ $no }}</td>
+                        <td>{{ $item->fullname }}</td>
+                        <td>{{ $item->comment_text }}</td>
                         <td>
-                            <a href="{{ route('hod.hodComment.edit',$comment->id) }}" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                            <a href="{{ route('hod.hodComment.edit',$item->id) }}" class="btn btn-warning">Edit</a>
+                        </td>
+                        <td>
+                            <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+                                class="btn btn-danger">Delete</a>
+                            <form action="{{ route('hod.hodComment.destroy', $item->id) }}" method="post">
+                                @method('delete')
+                                @csrf
+                            </form>
                         </td>
                     </tr>
+                    @php
+                        $no++;
+                    @endphp
                     @endforeach
                 @else
                 <tr>

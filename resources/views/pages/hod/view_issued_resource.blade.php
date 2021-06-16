@@ -30,8 +30,11 @@
 
     <div class="result">
       @if (session('success'))
-      <div class="alert alert-success" role="alert">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       @endif
     </div>
@@ -63,7 +66,7 @@
           <td>{{ $r->resource_type }}</td>
           <td>{{ $r->resource_amount }}</td>
           <td>{{ date('d/M/Y', strtotime($r->created_at)) }}</td>
-          <td>{{ $r->date_to_return }}</td>
+          <td>{{ date('d/M/Y', strtotime($r->date_to_return)) }}</td>
 
           <td>
             <a href="{{ route('hod.returnResource',$r->id) }}" class="btn btn-success">Return</a>

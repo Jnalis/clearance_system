@@ -93,5 +93,6 @@ class IssuedResourceController extends Controller
     public function destroy($id)
     {
         //
+        
     }
 }

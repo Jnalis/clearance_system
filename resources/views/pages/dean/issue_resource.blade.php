@@ -15,7 +15,7 @@
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="{{ route('dean.home') }}">Home</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('dean.resourceList.index') }}">Resource List</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('dean.resource.index') }}">Resource List</a></li>
     <li class="breadcrumb-item active">Issue resource</li>
   </ol>
 </div><!-- /.col -->
@@ -40,14 +40,10 @@
             <div class="card-body">
 
 
-                <form role="form" action="{{ route('dean.resourceList.store') }}" method="POST">
+                <form role="form" action="{{ route('dean.resource.store') }}" method="POST">
                     @csrf
                     <div class="result">
-                        @if (Session::get('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success') }}
-                        </div>
-                        @endif
+                       
                         @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
@@ -61,19 +57,12 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="student_reg_no">Student Reg No</label>
 
-                                <select name="student_reg_no" id="student_reg_no" class="select2" multiple="multiple"
-                                data-placeholder="Select a student registration no" style="width: 100%;">
-                                <option></option>
+                                <input type="text" name="student_reg_no" id="student_reg_no" class="form-control"
+                                    value="{{ old('student_reg_no') }}" placeholder="Enter Student Reg no">
 
-                                @foreach ($student as $item)
-                                <option value="{{ $item->student_id }}" @if (old('student_reg_no')=="$item->student_id"
-                                    ) {{ 'selected' }} @endif>
-                                    {{ $item->student_id }}
-                                </option>
-                                @endforeach
-
-                                </select>
-                                <span class="text-danger">@error('student_reg_no') {{ $message }} @enderror</span>
+                                <span class="text-danger">
+                                    @error('student_reg_no') {{ $message }} @enderror
+                                </span>
                                 
                             </div>
                         </div>
@@ -83,7 +72,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_type">Resource Type</label>
-                                <select name="resource_type" id="resource_type" class="select2" multiple="multiple"
+                                <select name="resource_type" id="resource_type" class="form-control select2bs4"
                                 data-placeholder="Select Resource" style="width: 100%;">
 
                                     <option></option>

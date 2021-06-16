@@ -47,7 +47,7 @@ class AllocatedResourceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Student $student, IssuedResource $issuedResource, Resource $resource)
+    public function store(Request $request, Student $student, IssuedResource $issuedResource)
     {
         // checking if you get all the data from the form
         //  return $request->input();
@@ -70,7 +70,7 @@ class AllocatedResourceController extends Controller
 
         if ($student_info_from_db) {
 
-            $student_id_from_db = $student_info_from_db->student_id;
+            $student_id_from_db = $student_info_from_db->id;
 
             //! this is used to add info to issued_resources table
             $issuedResource->resource_issued  = $resourceId;

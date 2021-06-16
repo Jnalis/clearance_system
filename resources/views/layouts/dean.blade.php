@@ -31,7 +31,7 @@
 
     @yield('tableCss')
     @yield('selectCss')
-    
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -108,21 +108,21 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-user-plus"></i>
+                                <i class="nav-icon fas fa-user-graduate"></i>
                                 <p>
                                     Students
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('dean.resourceList.index') }}" class="nav-link 
-                                @if($segment=='resourceList' || $segment=='resourceIssued' || $segment=='resourceLost') 
+                            <a href="{{ route('dean.resource.index') }}" class="nav-link 
+                                @if($segment=='resource' || $segment=='resourceIssued' || $segment=='resourceLost') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fa fa-rocket"></i>
                                 <p>
-                                    Resource
+                                    Allocated Resource
                                 </p>
                             </a>
                         </li>
@@ -132,7 +132,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fas fa-comments"></i>
                                 <p>
                                     Comments
                                 </p>
@@ -152,7 +152,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
 
-                        
+
                         <div class="col-sm-6">
                             <h1 class="m-0 text-dark">
                                 Your: {{ Auth::user()->user_id }}
@@ -229,4 +229,5 @@
     @yield('selectJs')
 
 </body>
+
 </html>

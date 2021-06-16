@@ -48,7 +48,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-form-label" for="resource_type">Select Resource</label>
-                        <select name="resource_type" id="resource_type" class="select2" multiple="multiple"
+                        <select name="resource_type" id="resource_type" class="form-control select2bs4"
                         data-placeholder="Select Resource" style="width: 100%;">
                             <option></option>
 
@@ -69,8 +69,8 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="col-form-label" for="select_custodian">Select Custodian</label>
-                        <select name="select_custodian" id="select_custodian" class="select2" multiple="multiple"
-                        data-placeholder="Select custodian of resource" style="width: 100%;">
+                        <select name="select_custodian" id="select_custodian" class="form-control select2bs4"
+                        data-placeholder="Select Custodian" style="width: 100%;">
                             <option></option>
 
                             @foreach ($custodian as $item)
