@@ -108,7 +108,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-user-plus"></i>
+                                <i class="nav-icon fas fa-file"></i>
                                 <p>
                                     Clearance Type
                                 </p>
@@ -120,7 +120,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fas fa-certificate"></i>
                                 <p>
                                     Certificate
                                 </p>
