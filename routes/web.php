@@ -3,6 +3,8 @@
 use App\Http\Controllers\HOD\Return_LostResourceController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Registrar\Clearancetype;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\StudentEnterPassowrdController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +22,15 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::get('/', [MainController::class, 'index'])->middleware('auth')->name('home');
 
-    // Route::get('/student', [MainController::class, 'student'])->name('student');
+   
+    
+    Route::post('/student', [StudentController::class, 'index'])->name('newStudent');
+
+    Route::get('/password/{student}', [StudentController::class, 'enterPassword'])->middleware('auth')->name('enterPassword');
+
+    Route::post('/passwordStore', [StudentController::class, 'storePassword'])->name('passwordStore');
+    
+
 
 
     Route::namespace('Admin')->prefix('admin')->as('admin.')->middleware('admin', 'auth')->group(function () {

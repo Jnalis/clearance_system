@@ -81,6 +81,9 @@
         <main class="mt-2">
             @yield('content')
         </main>
+        
+        @yield('showHiddenDiv')
     </div>
+
 </body>
 </html>
