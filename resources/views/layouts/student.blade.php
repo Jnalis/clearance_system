@@ -87,7 +87,7 @@
                         <?php 
                         
                             $segment = Request::segment(2);
-                            echo $segment;
+                           // echo $segment;
                         
                         ?>
                         <li class="nav-item">
@@ -103,20 +103,20 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('student.createClearance.create') }}" class="nav-link 
-                                @if($segment=='createClearance') 
+                            <a href="{{ route('student.initiateClearance') }}" class="nav-link 
+                                @if($segment=='initiateClearance') 
                                     active
                                 @endif
                             ">
                                 <i class="nav-icon fas fa-file-alt"></i>
                                 <p>
-                                    Create clearance
+                                    Initiate clearance
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('registrar.clearancetype.index') }}" class="nav-link 
-                                @if($segment=='clearancetype') 
+                            <a href="{{ route('student.viewClearance') }}" class="nav-link 
+                                @if($segment=='viewClearance') 
                                     active
                                 @endif
                             ">
@@ -127,8 +127,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('registrar.certificate.index') }}" class="nav-link 
-                                @if($segment=='certificate') 
+                            <a href="{{ route('student.viewComment') }}" class="nav-link 
+                                @if($segment=='viewComment') 
                                     active
                                 @endif
                             ">

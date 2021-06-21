@@ -48,16 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label class="col-form-label" for="clearance_code">Clearance code</label>
-                                <input type="text" name="clearance_code" id="clearance_code" class="form-control"
-                                    placeholder="Clearance code" value="{{ old('clearance_code') }}">
-                                <span class="text-danger">@error('clearance_code') {{ $message }} @enderror</span>
-                            </div>
-                        </div>
-                    </div> --}}
+                    
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Add new Clearance</button>
                     </div>

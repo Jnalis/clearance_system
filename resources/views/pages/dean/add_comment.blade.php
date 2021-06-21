@@ -1,6 +1,15 @@
 @extends('layouts.dean')
 @section('title', 'Comment')
 
+
+@section('selectCss')
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+@endsection
+
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
@@ -84,4 +93,22 @@
     <div class="col-md-3"></div>
     {{-- /.col (right) --}}
 </div>
+@endsection
+
+@section('selectJs')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endsection

@@ -3,6 +3,8 @@
 use App\Http\Controllers\HOD\Return_LostResourceController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\Registrar\Clearancetype;
+use App\Http\Controllers\Student\InitiateClearanceController;
+use App\Http\Controllers\Student\ViewCommentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentEnterPassowrdController;
 use Illuminate\Support\Facades\Auth;
@@ -95,6 +97,10 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::namespace('Student')->prefix('student')->as('student.')->middleware('student', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::resource('/createClearance', 'ClearanceFormController');
+        Route::get('/initiateClearance', [InitiateClearanceController::class, 'create'])->name('initiateClearance');
+        Route::post('/storeClearance', [InitiateClearanceController::class, 'store'])->name('storeClearance');
+        Route::get('/viewClearance', [InitiateClearanceController::class, 'index'])->name('viewClearance');
+        Route::get('/viewComment', [ViewCommentController::class, 'index'])->name('viewComment');
+
     });
 }); // closing the prevent-back-history
