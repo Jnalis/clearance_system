@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     public function login(Request $request)
     {
@@ -73,7 +73,7 @@ class LoginController extends Controller
             return back()->with('fail','Check your credentials');
         }
     }
-
+    
     /**
      * Create a new controller instance.
      *

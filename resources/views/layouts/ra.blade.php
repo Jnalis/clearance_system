@@ -108,7 +108,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-user-plus"></i>
+                                <i class="nav-icon fa fa-rocket"></i>
                                 <p>
                                     Resource
                                 </p>
@@ -126,18 +126,6 @@
                                 </p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ route('ra.custodian.index') }}" class="nav-link 
-                                @if($segment=='custodian') 
-                                    active
-                                @endif
-                            ">
-                                <i class="nav-icon fas fa-building"></i>
-                                <p>
-                                    Custodians
-                                </p>
-                            </a>
-                        </li> --}}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -153,17 +141,12 @@
                     <div class="row mb-2">
 
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">
-                                Your: {{ Auth::user()->user_id }}
-                            </h1>
-                            <p>
-                                {{ Auth::user()->user_type }}
-                            </p>
+                            @include('includes.loggingUser')
                         </div><!-- /.col -->
 
 
                         @yield('smallNavigation')
-                        
+
 
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->

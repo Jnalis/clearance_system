@@ -12,6 +12,7 @@
 
 
 @section('smallNavigation')
+
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
@@ -34,24 +35,25 @@
             <a href="{{ route('ra.allocatedResource.index') }}" class="btn btn-success">Allocated Resource</a>
             <a href="{{ route('ra.lostResource.index') }}" class="btn btn-danger">Lost Resource</a>
         </p>
+
         <div class="result">
             @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ session('success') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
             @endif
-            @if (session('danger'))
-            <div class="alert alert-danger" role="alert">
-                {{ session('danger') }}
-            </div>
-            @endif
-        </div>
+          </div>
+
+        
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Resource Type</th>
-                    <th>Resource Amount</th>
+                    <th>Resource Name</th>
+                    <th>Resource Value(Tshs)</th>
                     <th>Registered at</th>
                     <th>Allocated</th>
                     <th>Available</th>
@@ -66,6 +68,7 @@
                 @if (count($resource))
                 @foreach ($resource as $r)
                 <tr>
+
                     <td>{{ $no }}</td>
                     <td>{{ $r->resource_type }}</td>
                     <td>{{ $r->resource_amount }}</td>

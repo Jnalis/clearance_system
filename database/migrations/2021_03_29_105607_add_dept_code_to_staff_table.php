@@ -15,7 +15,7 @@ class AddDeptCodeToStaffTable extends Migration
     {
         Schema::table('staff', function (Blueprint $table) {
             //
-            $table->string('dept_code')->after('usertype')->nullable();
+            $table->string('dept_code')->after('username')->nullable();
             $table->foreign('dept_code')
                 ->references('dept_code')
                 ->on('departments')

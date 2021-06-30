@@ -88,7 +88,7 @@
             @endforeach
             @else
             <tr>
-              <td colspan="4">No Usertype Found</td>
+              <td colspan="4">No certificate issued</td>
             </tr>
             @endif
           </tbody>

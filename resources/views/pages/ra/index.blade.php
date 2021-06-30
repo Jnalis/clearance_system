@@ -14,13 +14,13 @@
 <!-- Small boxes (Stat box) -->
 <div class="row">
 
-  <div class="col-lg-3 col-6">
+  <div class="col-lg-4">
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
         @php
         $num = count($resource);
-
+        
         if ($num > 0) {
         echo "<h3 class=\"text-center\">$num Resource</h3>";
         }
@@ -30,7 +30,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fa fa-rocket"></i>
       </div>
       <a href="{{ route('ra.resource.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
@@ -38,8 +38,8 @@
   </div>
   <!-- ./col -->
 
-
-  {{-- <div class="col-lg-4 col-6">
+{{-- 
+  <div class="col-lg-4">
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
@@ -60,10 +60,10 @@
       <a href="{{ route('ra.allocatedResource.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
     </div>
-  </div> --}}
+  </div>
 
 
-  {{-- <div class="col-lg-3 col-6">
+  <div class="col-lg-4">
     <!-- small box -->
     <div class="small-box bg-danger">
       <div class="inner">
@@ -84,8 +84,8 @@
       <a href="{{ route('ra.lostResource.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
     </div>
-  </div> --}}
-</div>
+  </div>
+</div> --}}
 <!-- ./col -->
 
 

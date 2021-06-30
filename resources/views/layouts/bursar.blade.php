@@ -91,7 +91,7 @@
                         
                         ?>
                         <li class="nav-item">
-                            <a href="{{ route('registrar.home') }}" class="nav-link 
+                            <a href="{{ route('bursar.home') }}" class="nav-link 
                                 @if(!$segment) 
                                     active
                                 @endif
@@ -103,26 +103,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('registrar.clearancetype.index') }}" class="nav-link 
+                            <a href="#" class="nav-link 
                                 @if($segment=='clearancetype') 
                                     active
                                 @endif
                             ">
                                 <i class="nav-icon fas fa-user-plus"></i>
                                 <p>
-                                    Clearance Type
+                                    Caution money
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('registrar.certificate.index') }}" class="nav-link 
+                            <a href="#" class="nav-link 
                                 @if($segment=='certificate') 
                                     active
                                 @endif
                             ">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
-                                    Certificate
+                                    Fee Status
                                 </p>
                             </a>
                         </li>
@@ -141,12 +141,7 @@
                     <div class="row mb-2">
 
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">
-                                Your: {{ Auth::user()->user_id }}
-                            </h1>
-                            <p>
-                                {{ Auth::user()->user_type }}
-                            </p>
+                            @include('includes.loggingUser')
                         </div><!-- /.col -->
 
 

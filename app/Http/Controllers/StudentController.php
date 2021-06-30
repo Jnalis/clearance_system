@@ -39,31 +39,36 @@ class StudentController extends Controller
             $regNo = $request->reg_no;
             $studentInfoFromSIMS = SimsStudent::where('student_id', '=', $regNo)->first();
 
-            $studentId = $studentInfoFromSIMS->student_id;
-            $studentName = $studentInfoFromSIMS->fullname;
-            $studentProgram = $studentInfoFromSIMS->program;
-            $studentDepartment = $studentInfoFromSIMS->department;
-            $studentEntryYear = $studentInfoFromSIMS->entry_year;
-            $studentRegistered = $studentInfoFromSIMS->registered;
+            if ($studentInfoFromSIMS) {
+                
+                $studentId = $studentInfoFromSIMS->student_id;
+                $studentName = $studentInfoFromSIMS->fullname;
+                $studentProgram = $studentInfoFromSIMS->program;
+                $studentDepartment = $studentInfoFromSIMS->department;
+                $studentEntryYear = $studentInfoFromSIMS->entry_year;
+                $studentRegistered = $studentInfoFromSIMS->registered;
 
-            $student->student_id = $studentId;
-            $student->fullname = $studentName;
-            $student->program = $studentProgram;
-            $student->department = $studentDepartment;
-            $student->department = $studentDepartment;
-            $student->entry_year = $studentEntryYear;
-            $student->registered = $studentRegistered;
+                $student->student_id = $studentId;
+                $student->fullname = $studentName;
+                $student->program = $studentProgram;
+                $student->department = $studentDepartment;
+                $student->department = $studentDepartment;
+                $student->entry_year = $studentEntryYear;
+                $student->registered = $studentRegistered;
 
-            $query3 = $student->save();
+                $query3 = $student->save();
 
-            if ($query3) {
-                $regNo = $request->reg_no;
-                $studentFromOurDB = Student::where('student_id', '=', $regNo)->first();
-                $id = $studentFromOurDB->id;
+                if ($query3) {
+                    $regNo = $request->reg_no;
+                    $studentFromOurDB = Student::where('student_id', '=', $regNo)->first();
+                    $id = $studentFromOurDB->id;
 
-                return redirect(route('enterPassword', $id))->with('danger', 'Please enter your password to secure your account');
+                    return redirect(route('enterPassword', $id))->with('danger', 'Please enter your password to secure your account');
+                } else {
+                    return back()->with('fail', 'Error it might be your internet connection');
+                }
             } else {
-                return back()->with('fail', 'Error it might be your internet connection');
+                return back()->with('fail', 'Student has not been registered in SIMS');
             }
         }
     }

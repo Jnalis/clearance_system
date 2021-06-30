@@ -22,8 +22,8 @@ class StaffsController extends Controller
     public function index()
     {
         //getting all the staffs
-        $arr['staffs'] = Staff::all();
-        return view('pages.admin.view_user')->with($arr);
+        $staffs = Staff::all();
+        return view('pages.admin.view_user', ['staffs' => $staffs]);
     }
 
     /**
@@ -31,7 +31,7 @@ class StaffsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //function to dispaly the add form
+    //function to display the add form
     public function create()
     {
         $arr['depts'] = Departments::all();
@@ -47,8 +47,9 @@ class StaffsController extends Controller
      */
     public function store(Request $request, Staff $staff, User $user)
     {
-        // checking if you gett all the data from the form
-        //return $request->input();
+        // checking if you get all the data from the form
+        // return Auth::user()->user_id;
+        // return $request->input();
 
         //now validating a form
         $request->validate([
@@ -62,12 +63,13 @@ class StaffsController extends Controller
             'password2' => 'required | min:4 | max:12',
         ]);
 
-        //if form validated successfuly then add new user as staff
-        $fullname = $request->firstname.' '.$request->secondname.' '.$request->lastname;
+        //if form validated successfully then add new user as staff
+        $fullname = $request->firstname . ' ' . $request->secondname . ' ' . $request->lastname;
         $staff->fullname = $fullname;
         $staff->username = 'NIT/STAFF/' . $request->username;
         $staff->usertype = $request->usertype;
         $staff->dept_code = $request->department;
+        $staff->added_by = Auth::user()->user_id;
         $staff->password = Hash::make($request->password);
 
         $query = $staff->save(); //save your data to the model
@@ -75,14 +77,13 @@ class StaffsController extends Controller
         //fill user table
         $user->user_id = 'NIT/STAFF/' . $request->username;
         $user->user_type = $request->usertype;
-        $user->added_by = auth()->id();
         $user->password = Hash::make($request->password);
         $user->save();
 
         //dd($data);
 
         if ($query) {
-            return redirect(route('admin.staff.index'))->with('success','Staff Added Successfully');
+            return redirect(route('admin.staff.index'))->with('success', 'Staff Added Successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -143,19 +144,20 @@ class StaffsController extends Controller
 
 
         $query = $staff->save(); //save your data to the model
-        
+
         // return $data2;
         //edit user table
         $data = auth()->id();
-        User::where('added_by', '=', $data)->where('user_id', '=', $data2)->update(['user_id' => $request->username, 'user_type' =>  $request->usertype]);
-
-
-
+        User::where('user_id', '=', $data2)
+            ->update([
+                'user_id' => $request->username,
+                'user_type' =>  $request->usertype,
+            ]);
 
         // dd($data);
 
         if ($query) {
-            return redirect(route('admin.staff.index'));
+            return redirect(route('admin.staff.index'))->with('success', 'Staff Updated Successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -170,9 +172,14 @@ class StaffsController extends Controller
     public function destroy($id)
     {
         //
-        //dd($id);
+        // return $id;
+        $staff = Staff::find($id);
+        $username = $staff->username;
+
+        $userID = User::select('id')->firstWhere('user_id', $username)->id;
+        
         Staff::destroy($id);
-        User::destroy($id);
-        return redirect(route('admin.staff.index'));
+        User::destroy($userID);
+        return redirect(route('admin.staff.index'))->with('success', 'user deleted successfully');
     }
 }

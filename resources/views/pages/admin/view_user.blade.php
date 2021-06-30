@@ -29,13 +29,18 @@
         <p>
           <a href="{{ route('admin.staff.create') }}" class="btn btn-info">Add Staff</a>
         </p>
+
         <div class="result">
           @if (session('success'))
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           @endif
         </div>
+        
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -53,19 +58,19 @@
             $no = 1;
             @endphp
             @if (count($staffs))
-            @foreach ($staffs as $s)
+            @foreach ($staffs as $staff)
             <tr>
               <td>{{ $no }}</td>
-              <td>{{ $s->fullname }}</td>
-              <td>{{ $s->username }}</td>
-              <td>{{ $s->usertype }}</td>
-              <td>{{ $s->dept_code }}</td>
+              <td>{{ $staff->fullname }}</td>
+              <td>{{ $staff->username }}</td>
+              <td>{{ $staff->usertype }}</td>
+              <td>{{ $staff->dept_code }}</td>
 
               <td>
-                <a href="{{ route('admin.staff.edit', $s->id) }}" class="btn btn-warning">Edit</a>
+                <a href="{{ route('admin.staff.edit', $staff->id) }}" class="btn btn-warning">Edit</a>
                 <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
                   class="btn btn-danger">Delete</a>
-                <form action="{{ route('admin.staff.destroy', $s->id) }}" method="post">
+                <form action="{{ route('admin.staff.destroy', $staff->id) }}" method="post">
                   @method('delete')
                   @csrf
                 </form>

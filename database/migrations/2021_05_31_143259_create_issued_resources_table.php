@@ -30,6 +30,9 @@ class CreateIssuedResourcesTable extends Migration
             $table->unsignedBigInteger('issued_by')->nullable();
             $table->foreign('issued_by')->references('id')->on('staff')->onUpdate('cascade');
 
+            $table->date('date_to_return');
+
+
             $table->timestamps();
         });
     }

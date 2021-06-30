@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usertypes;
+use Illuminate\Support\Facades\Auth;
 
 class UsertypesController extends Controller
 {
@@ -38,7 +39,7 @@ class UsertypesController extends Controller
      */
     public function store(Request $request, Usertypes $usertype)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         // return $request->input();
 
 
@@ -48,16 +49,16 @@ class UsertypesController extends Controller
             'usertype_code' => 'required | unique:usertypes',
         ]);
 
-        //if form validated successfuly then add new usertype
+        //if form validated successfully then add new usertype
         
         $usertype->usertype_name = $request->usertype_name;
         $usertype->usertype_code = $request->usertype_code;
-        $usertype->added_by = auth()->id();
+        $usertype->added_by = Auth::user()->user_id;
 
         $query = $usertype->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.usertype.index'))->with('success','Usertype Added');
+            return redirect(route('admin.usertype.index'))->with('success','Usertype Added successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -101,20 +102,20 @@ class UsertypesController extends Controller
 
         //now validating a form
         $request->validate([
-            'usertype_name' => 'required | unique:usertypes',
-            'usertype_code' => 'required | unique:usertypes',
+            'usertype_name' => 'required',
+            'usertype_code' => 'required',
         ]);
 
-        //if form validated successfuly then add new usertype
+        //if form validated successfully then add new usertype
         
         $usertype->usertype_name = $request->usertype_name;
         $usertype->usertype_code = $request->usertype_code;
-        $usertype->added_by = auth()->id();
+        $usertype->added_by = Auth::user()->user_id;
 
         $query = $usertype->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.usertype.index'))->with('info','Usertype Edited');
+            return redirect(route('admin.usertype.index'))->with('success','Usertype Edited');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -130,6 +131,6 @@ class UsertypesController extends Controller
     {
         //
         Usertypes::destroy($id);
-        return redirect(route('admin.usertype.index'))->with('danger','Usertype Deleted');
+        return redirect(route('admin.usertype.index'))->with('success','Usertype Deleted');
     }
 }

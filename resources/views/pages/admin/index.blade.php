@@ -11,8 +11,10 @@
 
 @section('content')
     <!-- Small boxes (Stat box) -->
-    <div class="row">
-        <div class="col-lg-3 col-6">
+    <div class="row">     
+      <div class="col-md-1"></div> 
+
+        <div class="col-md-4">
           <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
@@ -34,8 +36,10 @@
           </div>
         </div>
         <!-- ./col -->
+        <div class="col-md-2"></div>
 
-        <div class="col-lg-3 col-6">
+
+        <div class="col-md-4">
           <div class="small-box bg-success">
             <div class="inner">
               @php
@@ -57,7 +61,15 @@
         </div>
         <!-- ./col -->
 
-        <div class="col-lg-3 col-6">
+        <div class="col-md-1"></div> 
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-1"></div> 
+
+
+        <div class="col-md-4">
           <div class="small-box bg-warning">
             <div class="inner">
               @php
@@ -78,8 +90,11 @@
           </div>
         </div>
         <!-- ./col -->
+        
+        <div class="col-md-2"></div>
 
-        <div class="col-lg-3 col-6">
+
+        <div class="col-md-4">
           <div class="small-box bg-danger">
             <div class="inner">
               @php
@@ -100,5 +115,7 @@
           </div>
         </div>
         <!-- ./col -->
+
+        <div class="col-md-1"></div> 
       </div>
 @endsection

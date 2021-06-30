@@ -16,10 +16,10 @@ class CreateClearancetypesTable extends Migration
         Schema::create('clearancetypes', function (Blueprint $table) {
             $table->id();
             $table->string('clearancetype');
-            $table->unsignedBigInteger('added_by')->nullable();
+            $table->string('added_by')->nullable();
 
             $table->foreign('added_by')
-                ->references('id')
+                ->references('username')
                 ->on('staff')
                 ->onUpdate('cascade');
 

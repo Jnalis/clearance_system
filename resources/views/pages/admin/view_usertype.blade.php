@@ -31,23 +31,20 @@
         <p>
           <a href="{{ route('admin.usertype.create') }}" class="btn btn-info">Add Usertype</a>
         </p>
+
+        
         <div class="result">
           @if (session('success'))
-          <div class="alert alert-success" role="alert">
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
-          </div>
-          @endif
-          @if (session('info'))
-          <div class="alert alert-info" role="alert">
-            {{ session('info') }}
-          </div>
-          @endif
-          @if (session('danger'))
-          <div class="alert alert-danger" role="alert">
-            {{ session('danger') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           @endif
         </div>
+
+
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>

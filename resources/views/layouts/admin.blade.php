@@ -46,12 +46,18 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
                 </li>
+
+                {{-- <li class="nav-item d-none d-sm-inline-block">
+                    <p class="nav-link">
+                        Welcome: {{ Auth::user()->user_id }}
+                    </p>
+                </li> --}}
             </ul>
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Messages Dropdown Menu -->
-                <li class="nav-item dropdown">
+                <li class="nav-item">
                     <a class="nav-link" data-toggle="dropdown" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
@@ -161,12 +167,7 @@
 
                         
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">
-                                Your: {{ Auth::user()->user_id }}
-                            </h1>
-                            <p>
-                                {{ Auth::user()->user_type }}
-                            </p>
+                            @include('includes.loggingUser')
                         </div><!-- /.col -->
 
                         @yield('smallNavigation')

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Departments;
+use Illuminate\Support\Facades\Auth;
 
 class DepartmentsController extends Controller
 {
@@ -38,7 +39,7 @@ class DepartmentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    //the function to storre department data to db
+    //the function to store department data to db
     public function store(Request $request, Departments $department)
     {
         // checking if you get all the data from the form
@@ -54,11 +55,11 @@ class DepartmentsController extends Controller
 
         $department->dept_name = $request->dept_name;
         $department->dept_code = $request->dept_code;
-        $department->added_by = auth()->id();
+        $department->added_by = Auth::user()->user_id;
         $query = $department->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.department.index'));
+            return redirect(route('admin.department.index'))->with('success', 'Department added successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -103,8 +104,8 @@ class DepartmentsController extends Controller
         // now validating a form
         $request->validate(
             [
-                'dept_name' => 'required | unique:departments',
-                'dept_code' => 'required | unique:departments',
+                'dept_name' => 'required',
+                'dept_code' => 'required',
             ]
         );
 
@@ -112,11 +113,11 @@ class DepartmentsController extends Controller
 
         $department->dept_name = $request->dept_name;
         $department->dept_code = $request->dept_code;
-        $department->added_by = auth()->id();
+        $department->added_by = Auth::user()->user_id;
         $query = $department->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.department.index'));
+            return redirect(route('admin.department.index'))->with('success', 'Department updated successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -132,6 +133,6 @@ class DepartmentsController extends Controller
     {
         // dd($id);
         Departments::destroy($id);
-        return redirect(route('admin.department.index'));
+        return redirect(route('admin.department.index'))->with('success', 'Department deleted successfully');
     }
 }

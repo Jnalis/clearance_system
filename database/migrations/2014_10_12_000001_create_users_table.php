@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDateToReturnToIssuedResources extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class AddDateToReturnToIssuedResources extends Migration
      */
     public function up()
     {
-        Schema::table('issued_resources', function (Blueprint $table) {
-            //
-            $table->date('date_to_return')->after('issued_by')->nullable();
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+
+            $table->string('user_id')->unique();
+            $table->string('user_type');
+
+            $table->string('password');
+            $table->timestamps();
         });
     }
 
@@ -26,9 +31,6 @@ class AddDateToReturnToIssuedResources extends Migration
      */
     public function down()
     {
-        Schema::table('issued_resources', function (Blueprint $table) {
-            //
-            $table->dropColumn('date_to_return');
-        });
+        Schema::dropIfExists('users');
     }
 }

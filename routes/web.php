@@ -28,7 +28,7 @@ Route::group(['middleware' => 'back'], function () {
     
     Route::post('/student', [StudentController::class, 'index'])->name('newStudent');
 
-    Route::get('/password/{student}', [StudentController::class, 'enterPassword'])->middleware('auth')->name('enterPassword');
+    Route::get('/password/{student}', [StudentController::class, 'enterPassword'])->name('enterPassword');
 
     Route::post('/passwordStore', [StudentController::class, 'storePassword'])->name('passwordStore');
     
@@ -104,3 +104,5 @@ Route::group(['middleware' => 'back'], function () {
 
     });
 }); // closing the prevent-back-history
+
+

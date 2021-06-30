@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Add Usertype</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Add Usertype</button>
                     </div>
                 </form>
             </div>

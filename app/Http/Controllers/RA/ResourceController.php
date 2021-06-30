@@ -38,7 +38,7 @@ class ResourceController extends Controller
      */
     public function store(Request $request, Resource $resource)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         // return $request->input();
 
         $request->validate([
@@ -46,11 +46,11 @@ class ResourceController extends Controller
             'resource_amount' => 'required',
         ]);
 
-        //if form validated successfuly then add new usertype
+        //if form validated successfully then add new usertype
         
         $resource->resource_type = $request->resource_name;
         $resource->resource_amount = $request->resource_amount;
-        $resource->added_by = auth()->id();
+        $resource->added_by = Auth::user()->user_id;
 
         $query = $resource->save(); //save your data to the model
 
@@ -94,7 +94,7 @@ class ResourceController extends Controller
      */
     public function update(Request $request, Resource $resource)
     {
-        // checking if you gett all the data from the form
+        // checking if you get all the data from the form
         // return $request->input();
 
         $request->validate([
@@ -102,11 +102,11 @@ class ResourceController extends Controller
             'resource_amount' => 'required',
         ]);
 
-        //if form validated successfuly then add new usertype
+        //if form validated successfully then add new usertype
         
         $resource->resource_type = $request->resource_name;
         $resource->resource_amount = $request->resource_amount;
-        $resource->added_by = auth()->id();
+        $resource->added_by = Auth::user()->user_id;
 
         $query = $resource->save(); //save your data to the model
 
@@ -127,7 +127,7 @@ class ResourceController extends Controller
     {
         //
         Resource::destroy($id);
-        return redirect(route('ra.resource.index'))->with('danger', 'Resource deleted successfully');
+        return redirect(route('ra.resource.index'))->with('success', 'Resource deleted successfully');
 
     }
 }

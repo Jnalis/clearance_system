@@ -19,11 +19,19 @@ class CreateLostResourcesTable extends Migration
             $table->unsignedBigInteger('lost_resource')->nullable();
             $table->foreign('lost_resource')->references('id')->on('resources')->onUpdate('cascade');
 
-            $table->unsignedBigInteger('lost_by')->nullable();
-            $table->foreign('lost_by')->references('id')->on('students')->onUpdate('cascade');
+            $table->string('lost_by')->nullable();
+            $table->foreign('lost_by')
+                ->references('student_id')
+                ->on('students')
+                ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('added_by')->nullable();
-            $table->foreign('added_by')->references('id')->on('staff')->onUpdate('cascade');
+            $table->string('added_by')->nullable();
+            $table->foreign('added_by')
+                ->references('username')
+                ->on('staff')
+                ->onUpdate('cascade');
+
+            $table->enum('refunded_status', ['REFUNDED','NOT REFUNDED'])->default('NOT REFUNDED');
 
             $table->timestamps();
         });

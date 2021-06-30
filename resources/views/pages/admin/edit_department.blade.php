@@ -20,7 +20,7 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-warning">
+        <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Edit Department</h3>
             </div>
@@ -67,7 +67,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-warning btn-lg btn-block">Edit Department</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Edit Department</button>
                     </div>
                 </form>
             </div>

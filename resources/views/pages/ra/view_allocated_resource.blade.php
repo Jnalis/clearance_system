@@ -19,24 +19,25 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
+
         <div class="result">
             @if (session('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{ session('success') }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
             @endif
-            @if (session('danger'))
-            <div class="alert alert-danger" role="alert">
-                {{ session('danger') }}
-            </div>
-            @endif
-        </div>
+          </div>
+
+          
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Resource Type</th>
-                    <th>Resource Amount</th>
+                    <th>Resource Name</th>
+                    <th>Resource Value(Tshs)</th>
                     <th>Custodian</th>
                     <th>Remove from Custodian</th>
                 </tr>
@@ -45,17 +46,17 @@
                 @php
                 $no = 1;
                 @endphp
-                @if (count($data))
-                @foreach ($data as $r)
+                @if (count($resources))
+                @foreach ($resources as $resource)
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $r->resource_type }}</td>
-                    <td>{{ $r->resource_amount }}</td>
-                    <td>{{ $r->fullname }}</td>
+                    <td>{{ $resource->resource_type }}</td>
+                    <td>{{ $resource->resource_amount }}</td>
+                    <td>{{ $resource->fullname }}</td>
                     <td>
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
                             class="btn btn-danger">Remove</a>
-                        <form action="{{ route('ra.allocatedResource.destroy', $r->id) }}" method="post">
+                        <form action="{{ route('ra.allocatedResource.destroy', $resource->id) }}" method="post">
                             @method('delete')
                             @csrf
                         </form>

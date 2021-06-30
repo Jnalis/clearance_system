@@ -41,11 +41,6 @@
                 <form role="form" action="{{ route('admin.staff.store') }}" method="POST">
                     @csrf
                     <div class="result">
-                        {{-- @if (Session::get('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success') }}
-                    </div>
-                    @endif --}}
                     @if (Session::get('fail'))
                     <div class="alert alert-danger">
                         {{ Session::get('fail') }}
@@ -99,8 +94,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label class="col-form-label" for="usertype">User Type</label>
-                        <select name="usertype" id="usertype" class="select2" multiple="multiple"
-                            data-placeholder="Select a Usertype" style="width: 100%;">
+                        <select name="usertype" id="usertype" class="form-control select2bs4"
+                        data-placeholder="Select usertype" style="width: 100%;">
                             <option></option>
 
                             @foreach ($user_type as $item)
@@ -118,8 +113,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label class="col-form-label" for="department">Department</label>
-                        <select name="department" id="department" class="select2" multiple="multiple"
-                            data-placeholder="Select a Department" style="width: 100%;">
+                        <select name="department" id="department" class="form-control select2bs4"
+                        data-placeholder="Select department" style="width: 100%;">
 
                             <option></option>
                             @foreach ($depts as $dept)
@@ -160,7 +155,7 @@
             </div>
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
             </div>
 
 

@@ -1,6 +1,17 @@
 @extends('layouts.admin')
 @section('title', 'Edit user')
 
+
+@section('selectCss')
+
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+@endsection
+
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -66,12 +77,13 @@
                     </div>
                 </div>
             </div>
-            {{-- usertype and depertment --}}
+            {{-- usertype and department --}}
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label class="col-form-label" for="usertype">User Type</label>
-                        <select name="usertype" id="usertype" class="form-control">
+                        <select name="usertype" id="usertype" class="form-control select2bs4"
+                        data-placeholder="Select department" style="width: 100%;">
                             <option></option>
 
                             @foreach ($user_type as $item)
@@ -89,7 +101,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label class="col-form-label" for="department">Department</label>
-                        <select name="department" id="department" class="form-control">
+                        <select name="department" id="department" class="form-control select2bs4"
+                        data-placeholder="Select department" style="width: 100%;">
                             <option></option>
 
                             @foreach ($depts as $dept)
@@ -113,7 +126,7 @@
 
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-warning btn-lg btn-block">Edit</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Edit</button>
             </div>
 
 
@@ -129,4 +142,22 @@
 <div class="col-md-1"></div>
 {{-- /.col (right) --}}
 </div>
+@endsection
+
+@section('selectJs')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endsection

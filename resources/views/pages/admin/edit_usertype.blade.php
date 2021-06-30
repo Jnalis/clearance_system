@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Edit</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Edit</button>
                     </div>
                 </form>
             </div>
