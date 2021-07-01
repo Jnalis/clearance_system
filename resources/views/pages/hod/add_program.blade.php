@@ -10,6 +10,8 @@
 <!-- Theme style -->
 <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
 @endsection
+
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -29,7 +31,7 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-success">
+        <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Add new Program</h3>
             </div>
@@ -73,8 +75,8 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="department">Department</label>
-                                <select name="department" id="department" class="select2" multiple="multiple"
-                                    data-placeholder="Select a Department" style="width: 100%;">
+                                <select name="department" id="department" class="form-control select2bs4"
+                                    data-placeholder="Select Department" style="width: 100%;">
                                     <option></option>
 
                                     @foreach ($department as $item)
@@ -89,7 +91,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Add Program</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Add Program</button>
                     </div>
                 </form>
             </div>

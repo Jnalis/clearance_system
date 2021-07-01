@@ -65,7 +65,7 @@
           <td>{{ $r->student_id }}</td>
           <td>{{ $r->resource_type }}</td>
           <td>{{ $r->resource_amount }}</td>
-          <td>{{ date('d/M/Y', strtotime($r->created_at)) }}</td>
+          <td>{{ date('d/M/Y H:i', strtotime($r->created_at)) }}</td>
           <td>{{ date('d/M/Y', strtotime($r->date_to_return)) }}</td>
 
           <td>

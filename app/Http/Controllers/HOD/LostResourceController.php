@@ -16,7 +16,7 @@ class LostResourceController extends Controller
     public function index()
     {
         $arr['lost_r'] = LostResource::join('resources', 'resources.id', '=', 'lost_resources.lost_resource')
-            ->join('students', 'students.id', '=', 'lost_resources.lost_by')->get();
+            ->join('students', 'students.student_id', '=', 'lost_resources.lost_by')->get();
         return view('pages.hod.view_lost_resource')->with($arr);
     }
 

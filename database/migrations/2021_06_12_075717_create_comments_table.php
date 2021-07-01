@@ -17,9 +17,11 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->text('comment_text');
 
-            $table->unsignedBigInteger('comment_to')->nullable();
+            $table->string('comment_to')->nullable();
             $table->foreign('comment_to')
-                ->references('id')->on('students')->onUpdate('cascade');
+                ->references('student_id')
+                ->on('students')
+                ->onUpdate('cascade');
 
             $table->string('added_by')->nullable();
             $table->foreign('added_by')

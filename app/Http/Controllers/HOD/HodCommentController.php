@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HodCommentController extends Controller
 {
@@ -17,9 +18,9 @@ class HodCommentController extends Controller
     public function index()
     {
         //
-        $staffID = auth()->user()->id;
+        $staffID = Auth::user()->user_id;
 
-        $arr['comment'] = Student::join('comments', 'comments.comment_to', '=', 'students.id')->where('comments.added_by', '=', $staffID)->get();
+        $arr['comment'] = Student::join('comments', 'comments.comment_to', '=', 'students.student_id')->where('comments.added_by', '=', $staffID)->get();
 
         return view('pages.hod.view_comment')->with($arr);
     }
@@ -53,9 +54,9 @@ class HodCommentController extends Controller
         ]);
 
         $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
-        $studentID = $studentInfo->id;
+        $studentID = $studentInfo->student_id;
 
-        $staffID = auth()->user()->id;
+        $staffID = Auth::user()->user_id;
 
         $comment->comment_text = $request->comment_text;
         $comment->comment_to = $studentID;
@@ -121,15 +122,20 @@ class HodCommentController extends Controller
 
 
         $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
-        $studentID = $studentInfo->id;
+        $studentID = $studentInfo->student_id;
 
-        $staffID = auth()->user()->id;
+        $staffID = Auth::user()->user_id;
 
-        $comment->comment_text = $request->comment_text;
-        $comment->comment_to = $studentID;
-        $comment->added_by = $staffID;
+      return $text = $comment->comment_text;
 
-        $query = $comment->save();
+
+        $query = Comment::where('comment_text', $text)
+            ->update([
+                'comment_text' => NULL,
+                'comment_to' => $studentID,
+                'added_by' => $staffID,
+
+            ]);
 
         if ($query) {
             return redirect(route('hod.hodComment.index'))->with('success', 'Comment added successfully');

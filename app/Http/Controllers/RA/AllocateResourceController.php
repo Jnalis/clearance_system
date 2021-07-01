@@ -21,9 +21,9 @@ class AllocateResourceController extends Controller
         //$arr['allocResources'] = AllocatedResource::all();
 
 
-        $arr['resources'] = Resource::join('staff', 'staff.username', '=', 'resources.allocated_to')->where('resources.allocated', '=', 'YES')->get();
+        $resources = Staff::join('resources', 'resources.allocated_to', '=', 'staff.username')->where('resources.allocated', '=', 'YES')->get();
 
-        return view('pages.ra.view_allocated_resource')->with($arr);
+        return view('pages.ra.view_allocated_resource', ['resources' => $resources]);
     }
 
     /**
@@ -124,6 +124,8 @@ class AllocateResourceController extends Controller
         //
         //getting resource id from allocated resource table
         //$id_to_update = Resource::select('id')->firstWhere('id', '=', $id)->id;
+
+        // return $id;
 
         Resource::where('id', '=', $id)->update(['allocated' => 'NO']);
 

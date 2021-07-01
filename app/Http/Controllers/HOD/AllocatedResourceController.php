@@ -10,6 +10,7 @@ use App\Models\Resource;
 use App\Models\SimsStudent;
 use App\Models\Staff;
 use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 
 class AllocatedResourceController extends Controller
 {
@@ -20,7 +21,7 @@ class AllocatedResourceController extends Controller
      */
     public function index()
     {
-        $id = auth()->user()->id;
+        $id = Auth::user()->user_id;
         $arr['resource'] = Resource::where('allocated_to', '=', $id)->get();
 
         return view('pages.hod.view_allocated_resource')->with($arr);
@@ -33,7 +34,7 @@ class AllocatedResourceController extends Controller
      */
     public function create()
     {
-        $id = auth()->user()->id;
+        $id = Auth::user()->user_id;
         $arr['data'] = Resource::where('allocated_to', '=', $id)->where('issued', '=', 'NO')->get();
 
         // $arrS['student'] = Student::all();   NIT/BCFCF/2016/2022
@@ -60,17 +61,19 @@ class AllocatedResourceController extends Controller
         ]);
 
 
-        $ID =  $request->student_reg_no;
+        $student_id =  $request->student_reg_no;
 
-        $student_info_from_db = Student::where('student_id', '=', $ID)->first();
+        $student_info_from_db = Student::where('student_id', '=', $student_id)->first();
 
-        $resourceId = Resource::select('id')->firstWhere('resource_type', '=', $request->resource_type)->id;
-        $staffId = auth()->user()->id;
+        $resourceId = Resource::select('id')
+            ->firstWhere('resource_type', '=', $request->resource_type)->id;
+
+        $staffId = Auth::user()->user_id;
 
 
         if ($student_info_from_db) {
 
-            $student_id_from_db = $student_info_from_db->id;
+            $student_id_from_db = $student_info_from_db->student_id;
 
             //! this is used to add info to issued_resources table
             $issuedResource->resource_issued  = $resourceId;
@@ -93,7 +96,7 @@ class AllocatedResourceController extends Controller
         } else {
 
             //? this is like  SIMS API which gives us students infos
-            $studentInfo = SimsStudent::where('student_id', '=', $ID)->first();
+            $studentInfo = SimsStudent::where('student_id', '=', $student_id)->first();
 
 
             if ($studentInfo) {
@@ -120,7 +123,7 @@ class AllocatedResourceController extends Controller
                 if ($query1) {
 
                     $ourStudentInfo = Student::where('student_id', '=', $studentID)->first();
-                    $ourStudentID = $ourStudentInfo->id;
+                    $ourStudentID = $ourStudentInfo->student_id;
 
                     //! this is used to add info to issued_resources table
                     $issuedResource->resource_issued  = $resourceId;

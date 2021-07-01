@@ -19,16 +19,21 @@ class CreateIssuedResourcesTable extends Migration
             $table->unsignedBigInteger('resource_issued')->nullable();
             $table->foreign('resource_issued')
                 ->references('id')
-                ->on('resources')->onUpdate('cascade');
+                ->on('resources')
+                ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('resource_issued_to')->nullable();
+            $table->string('resource_issued_to')->nullable();
             $table->foreign('resource_issued_to')
-                ->references('id')
-                ->on('students')->onUpdate('cascade');
+                ->references('student_id')
+                ->on('students')
+                ->onUpdate('cascade');
 
 
-            $table->unsignedBigInteger('issued_by')->nullable();
-            $table->foreign('issued_by')->references('id')->on('staff')->onUpdate('cascade');
+            $table->string('issued_by')->nullable();
+            $table->foreign('issued_by')
+                ->references('username')
+                ->on('staff')
+                ->onUpdate('cascade');
 
             $table->date('date_to_return');
 

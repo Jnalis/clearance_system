@@ -70,7 +70,7 @@ class StaffsController extends Controller
         $staff->usertype = $request->usertype;
         $staff->dept_code = $request->department;
         $staff->added_by = Auth::user()->user_id;
-        $staff->password = Hash::make($request->password);
+        // $staff->password = Hash::make($request->password);
 
         $query = $staff->save(); //save your data to the model
 

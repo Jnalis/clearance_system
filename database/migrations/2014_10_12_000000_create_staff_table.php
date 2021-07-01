@@ -18,7 +18,7 @@ class CreateStaffTable extends Migration
             $table->string('fullname');
             $table->string('username')->unique();
             $table->string('usertype');
-            $table->string('password');
+            // $table->string('password');
             $table->timestamps();
         });
     }

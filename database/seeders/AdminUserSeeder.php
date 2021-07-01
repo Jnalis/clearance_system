@@ -23,7 +23,7 @@ class AdminUserSeeder extends Seeder
             'username' => 'NIT/STAFF/100',
             'usertype' => 'Admin',
             //'dept_code' => 'CCT',
-            'password' => Hash::make('123456'),
+            // 'password' => Hash::make('123456'),
 
         ]);
         User::create([

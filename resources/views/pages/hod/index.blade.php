@@ -29,7 +29,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fas fa-user-graduate"></i>
       </div>
       <a href="{{ route('hod.student.index')}} " class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
@@ -53,7 +53,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fas fa-plus"></i>
       </div>
       <a href="{{ route('hod.program.index')}} " class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
@@ -76,7 +76,7 @@
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-building"></i>
+        <i class="fa fa-rocket"></i>
       </div>
       <a href="{{ route('hod.allocatedResource.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>

@@ -7,6 +7,7 @@ use App\Models\Departments;
 use App\Models\Program;
 use App\Models\Staff;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProgramController extends Controller
 {
@@ -57,7 +58,7 @@ class ProgramController extends Controller
 
         $program->prog_name = $request->prog_name;
         $program->prog_code = $request->prog_code;
-        $program->added_by = auth()->id();
+        $program->added_by = Auth::user()->user_id;
         $program->dept_code = $request->department;
         
         $query = $program->save();
@@ -114,7 +115,7 @@ class ProgramController extends Controller
 
         $program->prog_name = $request->prog_name;
         $program->prog_code = $request->prog_code;
-        $program->added_by = auth()->id();
+        $program->added_by = Auth::user()->user_id;
         $program->dept_code = $request->department;
         
         $query = $program->save();

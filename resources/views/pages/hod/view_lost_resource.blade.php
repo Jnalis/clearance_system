@@ -45,8 +45,8 @@
           <th>#</th>
           <th>Student Fullname</th>
           <th>Student Reg no</th>
-          <th>Lost Resource</th>
-          <th>Lost Resource Amount</th>
+          <th>Lost Resource Name</th>
+          <th>Lost Resource Value(Tshs)</th>
           <th>Status</th>
         </tr>
       </thead>

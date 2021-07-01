@@ -17,7 +17,10 @@ class CreateLostResourcesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('lost_resource')->nullable();
-            $table->foreign('lost_resource')->references('id')->on('resources')->onUpdate('cascade');
+            $table->foreign('lost_resource')
+                ->references('id')
+                ->on('resources')
+                ->onUpdate('cascade');
 
             $table->string('lost_by')->nullable();
             $table->foreign('lost_by')
@@ -31,7 +34,7 @@ class CreateLostResourcesTable extends Migration
                 ->on('staff')
                 ->onUpdate('cascade');
 
-            $table->enum('refunded_status', ['REFUNDED','NOT REFUNDED'])->default('NOT REFUNDED');
+            $table->enum('refunded_status', ['REFUNDED', 'NOT REFUNDED'])->default('NOT REFUNDED');
 
             $table->timestamps();
         });

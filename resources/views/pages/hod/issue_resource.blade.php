@@ -71,7 +71,7 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="resource_type">Resource Type</label>
-                                <select name="resource_type" id="resource_type" class="select2" multiple="multiple"
+                                <select name="resource_type" id="resource_type" class="form-control select2bs4"
                                 data-placeholder="Select Resource" style="width: 100%;">
 
                                     <option></option>
