@@ -29,7 +29,7 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-success">
+        <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Add new comment</h3>
             </div>
@@ -60,7 +60,7 @@
                                     @foreach ($student as $item)
                                     <option value="{{ $item->student_id }}" @if (old('student_id')=="$item->student_id"
                                         ) {{ 'selected' }} @endif>
-                                        {{ $item->student_id }}
+                                        {{ $item->fullname.', '.$item->student_id }}
                                     </option>
                                     @endforeach
 

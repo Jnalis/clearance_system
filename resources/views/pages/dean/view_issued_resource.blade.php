@@ -45,8 +45,8 @@
           <th> #</th>
           <th>Student Name</th>
           <th>Student Reg No</th>
-          <th>Resource Type</th>
-          <th>Resource Amount</th>
+          <th>Resource Name</th>
+          <th>Resource Value(Tshs)</th>
           <th>Date Issued</th>
           <th>Date to Return</th>
           <th>Return</th>
@@ -65,7 +65,7 @@
           <td>{{ $r->student_id }}</td>
           <td>{{ $r->resource_type }}</td>
           <td>{{ $r->resource_amount }}</td>
-          <td>{{ date('d/M/Y', strtotime($r->created_at)) }}</td>
+          <td>{{ date('d/M/Y H:i', strtotime($r->created_at)) }}</td>
           <td>{{ $r->date_to_return }}</td>
           <td>
             <a href="{{ route('dean.returnResource',$r->id) }}" class="btn btn-success">Return</a>

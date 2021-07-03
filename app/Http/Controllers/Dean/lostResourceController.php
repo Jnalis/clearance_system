@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dean;
 use App\Http\Controllers\Controller;
 use App\Models\LostResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class lostResourceController extends Controller
 {
@@ -17,7 +18,9 @@ class lostResourceController extends Controller
     {
         //
         $lost_r = LostResource::join('resources', 'resources.id', '=', 'lost_resources.lost_resource')
-            ->join('students', 'students.id', '=', 'lost_resources.lost_by')->get();
+            ->join('students', 'students.student_id', '=', 'lost_resources.lost_by')
+            ->where('lost_resources.added_by', Auth::user()->user_id)
+            ->get();
 
         return view('pages.dean.view_lost_resource', ['lost_r' => $lost_r]);
     }

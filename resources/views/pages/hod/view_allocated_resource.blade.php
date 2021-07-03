@@ -49,8 +49,8 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Resource Type</th>
-                    <th>Resource Amount</th>
+                    <th>Resource Name</th>
+                    <th>Resource Value(Tshs)</th>
                     <th>Issued</th>
                     <th>Available</th>
                 </tr>

@@ -11,13 +11,14 @@ use App\Models\Resource;
 use App\Models\Staff;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function index()
     {
         $arrS['student'] = Student::all();
-        $arrR['resource'] = Resource::all();
+        $arrR['resource'] = Resource::where('allocated_to', Auth::user()->user_id)->get();
 
         $d = Staff::firstWhere('id', '=', auth()->user()->id)->dept_code;
 

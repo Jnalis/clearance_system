@@ -45,8 +45,8 @@
           <th> #</th>
           <th>Student Name</th>
           <th>Student Reg No</th>
-          <th>Resource Type</th>
-          <th>Resource Amount</th>
+          <th>Resource Name</th>
+          <th>Resource Value(Tshs)</th>
           <th>Date Issued</th>
           <th>Date to Return</th>
           <th>Return</th>

@@ -7,6 +7,7 @@ use App\Models\IssuedResource;
 use App\Models\Resource;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ResourceIssuedController extends Controller
 {
@@ -17,12 +18,23 @@ class ResourceIssuedController extends Controller
      */
     public function index()
     {
-        $staffId = auth()->user()->id;
+        $staffId = Auth::user()->user_id;
 
-        $arr['issued_r'] = Student::join('issued_resources', 'issued_resources.resource_issued_to', '=', 'students.id')
-            ->join('resources', 'resources.id', '=', 'issued_resources.resource_issued')
-            ->where('issued_resources.issued_by', '=', $staffId)
-            ->where('resources.issued', '=', 'YES')->get();
+        $arr['issued_r'] = Student::select([
+           'resources.id',
+            'students.fullname',
+            'students.student_id',
+            'issued_resources.resource_issued',
+            'issued_resources.resource_issued_to',
+            'issued_resources.issued_by',
+            'issued_resources.created_at',
+            'issued_resources.date_to_return',
+            'resources.resource_type',
+            'resources.resource_amount',
+            ])->join('issued_resources', 'issued_resources.resource_issued_to', '=', 'students.student_id')
+             ->join('resources', 'resources.id', '=', 'issued_resources.resource_issued')
+             ->where('issued_resources.issued_by', '=', $staffId)
+             ->where('resources.issued', '=', 'YES')->get();
 
         return view('pages.dean.view_issued_resource')->with($arr);
     }

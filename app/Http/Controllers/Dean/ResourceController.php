@@ -9,6 +9,7 @@ use App\Models\Resource;
 use App\Models\SimsStudent;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ResourceController extends Controller
 {
@@ -20,7 +21,7 @@ class ResourceController extends Controller
     public function index()
     {
         //
-        $id = auth()->user()->id;
+        $id = Auth::user()->user_id;
         $arr['resource'] = Resource::where('allocated_to', '=', $id)->get();
 
 
@@ -35,7 +36,7 @@ class ResourceController extends Controller
     public function create()
     {
         //
-        $id = auth()->user()->id;
+        $id = Auth::user()->user_id;
         $arr['data'] = Resource::where('allocated_to', '=', $id)->where('issued', '=', 'NO')->get();
         $arrS['student'] = Student::all();
         return view('pages.dean.issue_resource')->with($arr)->with($arrS);
@@ -67,12 +68,13 @@ class ResourceController extends Controller
 
         $resourceId = Resource::select('id')
             ->firstWhere('resource_type', '=', $request->resource_type)->id;
-        $staffId = auth()->user()->id;
+
+        $staffId = Auth::user()->user_id;
 
 
         if ($student_info_from_db) {
 
-            $student_id_from_db = $student_info_from_db->id;
+            $student_id_from_db = $student_info_from_db->student_id;
 
             //! this is used to add info to issued_resources table
             $issuedResource->resource_issued  = $resourceId;
@@ -122,7 +124,7 @@ class ResourceController extends Controller
                 if ($query1) {
 
                     $ourStudentInfo = Student::where('student_id', '=', $studentID)->first();
-                    $ourStudentID = $ourStudentInfo->id;
+                    $ourStudentID = $ourStudentInfo->student_id;
 
                     //! this is used to add info to issued_resources table
                     $issuedResource->resource_issued  = $resourceId;

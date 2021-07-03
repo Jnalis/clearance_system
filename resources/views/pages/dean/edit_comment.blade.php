@@ -1,6 +1,16 @@
 @extends('layouts.dean')
 @section('title', 'Comment')
 
+
+@section('selectCss')
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+<!-- Theme style -->
+<link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+@endsection
+
+
 @section('smallNavigation')
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
@@ -20,7 +30,7 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-success">
+        <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title">Edit Comment</h3>
             </div>
@@ -51,7 +61,7 @@
 
                                     @foreach ($students as $student)
                                     <option value="{{ $student->student_id }}" @if (old('student_id', $student->student_id)=="$student->student_id") {{ 'selected' }} @endif>
-                                        {{ $student->student_id }}
+                                        {{ $student->fullname.', '.$student->student_id }}
                                     </option>
                                     @endforeach
 
@@ -72,7 +82,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-success btn-lg btn-block">Edit Comment</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Edit Comment</button>
                     </div>
                 </form>
             </div>
@@ -85,4 +95,22 @@
     <div class="col-md-3"></div>
     {{-- /.col (right) --}}
 </div>
+@endsection
+
+@section('selectJs')
+
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<script>
+    $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+  })
+</script>
 @endsection

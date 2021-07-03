@@ -7,6 +7,7 @@ use App\Models\IssuedResource;
 use App\Models\LostResource;
 use App\Models\Resource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReturnLostController extends Controller
 {
@@ -31,9 +32,10 @@ class ReturnLostController extends Controller
 
         //? i insert the lost resource in lost_resource table
         $info = IssuedResource::where('resource_issued', '=', $id)->first();
+        
         $resourceID = $info->resource_issued;
         $studentID = $info->resource_issued_to;
-        $added_by = auth()->user()->id;
+        $added_by = Auth::user()->user_id;
 
         $lostResource->lost_resource = $resourceID;
         $lostResource->lost_by = $studentID;

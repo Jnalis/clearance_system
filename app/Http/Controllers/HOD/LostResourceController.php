@@ -5,6 +5,7 @@ namespace App\Http\Controllers\HOD;
 use App\Http\Controllers\Controller;
 use App\Models\LostResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LostResourceController extends Controller
 {
@@ -16,7 +17,9 @@ class LostResourceController extends Controller
     public function index()
     {
         $arr['lost_r'] = LostResource::join('resources', 'resources.id', '=', 'lost_resources.lost_resource')
-            ->join('students', 'students.student_id', '=', 'lost_resources.lost_by')->get();
+            ->join('students', 'students.student_id', '=', 'lost_resources.lost_by')
+            ->where('lost_resources.added_by', Auth::user()->user_id)
+            ->get();
         return view('pages.hod.view_lost_resource')->with($arr);
     }
 

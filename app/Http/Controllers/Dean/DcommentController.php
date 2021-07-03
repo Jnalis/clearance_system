@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Student;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DcommentController extends Controller
 {
@@ -17,9 +18,9 @@ class DcommentController extends Controller
      */
     public function index()
     {
-        $staffID = auth()->user()->id;
+        $staffID = Auth::user()->user_id;
 
-        $arr['comments'] = Student::join('comments', 'comments.comment_to', '=', 'students.id')->where('comments.added_by', '=', $staffID)->get();
+        $arr['comments'] = Student::join('comments', 'comments.comment_to', '=', 'students.student_id')->where('comments.added_by', '=', $staffID)->get();
 
         return view('pages.dean.view_comment')->with($arr);
     }
@@ -51,13 +52,10 @@ class DcommentController extends Controller
             'comment_text' => 'required',
         ]);
 
-        $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
-        $studentID = $studentInfo->id;
-
-        $staffID = auth()->user()->id;
+        $staffID = Auth::user()->user_id;
 
         $comment->comment_text = $request->comment_text;
-        $comment->comment_to = $studentID;
+        $comment->comment_to = $request->student_id;
         $comment->added_by = $staffID;
 
         $query = $comment->save();
@@ -93,7 +91,7 @@ class DcommentController extends Controller
         $students = Student::all();
 
         return view('pages.dean.edit_comment', [
-            'comment' => $comments, 
+            'comment' => $comments,
             'students' => $students
         ]);
     }
@@ -105,9 +103,30 @@ class DcommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        //return $request->input();
+
+        $request->validate([
+            'student_id' => 'required',
+            'comment_text' => 'required',
+        ]);
+        $commentID = $request->segment(3);
+
+        $query = Comment::where('id', $commentID)
+            ->update([
+                'comment_text' => $request->comment_text,
+                'comment_to' => $request->student_id,
+                'added_by' => Auth::user()->user_id,
+
+            ]);
+
+        if ($query) {
+            return redirect(route('dean.deanComment.index'))->with('success', 'Comment updated successfully');
+        } else {
+            return back()->with('fail','Something went wrong');
+        }
     }
 
     /**
@@ -119,5 +138,7 @@ class DcommentController extends Controller
     public function destroy($id)
     {
         //
+        Comment::destroy($id);
+        return redirect(route('dean.deanComment.index'))->with('success', 'Comment deleted successfully');
     }
 }

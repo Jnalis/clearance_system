@@ -46,20 +46,17 @@ class HodCommentController extends Controller
     public function store(Request $request, Comment $comment)
     {
         //
-        //return $request->input();
+        //  return $request->input();
 
         $request->validate([
             'student_id' => 'required',
             'comment_text' => 'required',
         ]);
 
-        $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
-        $studentID = $studentInfo->student_id;
-
         $staffID = Auth::user()->user_id;
 
         $comment->comment_text = $request->comment_text;
-        $comment->comment_to = $studentID;
+        $comment->comment_to = $request->student_id;
         $comment->added_by = $staffID;
 
         $query = $comment->save();
@@ -67,9 +64,8 @@ class HodCommentController extends Controller
         if ($query) {
             return redirect(route('hod.hodComment.index'))->with('success', 'Comment added successfully');
         } else {
-            return back()->with('fail','Something went wrong');
+            return back()->with('fail', 'Something went wrong');
         }
-        
     }
 
     /**
@@ -91,7 +87,7 @@ class HodCommentController extends Controller
      */
     public function edit($comment)
     {
-        
+
         $students = Student::all();
 
         $comment = Comment::find($comment);
@@ -100,7 +96,6 @@ class HodCommentController extends Controller
             'comment' => $comment,
             'students' => $students
         ]);
-
     }
 
     /**
@@ -121,28 +116,21 @@ class HodCommentController extends Controller
         ]);
 
 
-        $studentInfo = Student::where('student_id', '=', $request->student_id)->first();
-        $studentID = $studentInfo->student_id;
+        $commentID = $request->segment(3);
 
-        $staffID = Auth::user()->user_id;
-
-      return $text = $comment->comment_text;
-
-
-        $query = Comment::where('comment_text', $text)
+        $query = Comment::where('id', $commentID)
             ->update([
-                'comment_text' => NULL,
-                'comment_to' => $studentID,
-                'added_by' => $staffID,
+                'comment_text' => $request->comment_text,
+                'comment_to' => $request->student_id,
+                'added_by' => Auth::user()->user_id,
 
             ]);
 
         if ($query) {
-            return redirect(route('hod.hodComment.index'))->with('success', 'Comment added successfully');
+            return redirect(route('hod.hodComment.index'))->with('success', 'Comment edited successfully');
         } else {
-            return back()->with('fail','Something went wrong');
+            return back()->with('fail', 'Something went wrong');
         }
-
     }
 
     /**
