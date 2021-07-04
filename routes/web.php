@@ -93,6 +93,11 @@ Route::group(['middleware' => 'back'], function () {
 
     Route::namespace('Bursar')->prefix('bursar')->as('bursar.')->middleware('bursar', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+        Route::resource('/student', 'StudentController');
+        Route::resource('/resource', 'ResourceController');
+
+        Route::get('/cautionMoney/{cautionMoney}/issueMoney', 'CautionMoneyController@index')->name('issueMoney');
+        Route::post('/issueCautionMoney/{cautionMoney}', 'CautionMoneyController@store')->name('issue');
     });
 
 

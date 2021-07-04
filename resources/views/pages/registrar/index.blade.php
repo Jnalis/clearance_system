@@ -22,10 +22,11 @@
         $num = count($clearance);
 
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Clearance</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Clearance</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Clearance</h3>";
+        echo "<h3>No Clearance</h3>";
         }
         @endphp
       </div>

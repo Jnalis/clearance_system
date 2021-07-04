@@ -22,10 +22,11 @@
         $num = count($resource);
         
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Resource</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        echo "<h3>No Resource</h3>";
         }
         @endphp
       </div>

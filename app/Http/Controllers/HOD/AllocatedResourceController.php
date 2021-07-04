@@ -84,7 +84,9 @@ class AllocatedResourceController extends Controller
 
             $query2 = $issuedResource->save();
 
-            Resource::where('id', '=', $resourceId)->update(['issued' => 'YES']);
+            Resource::where('id', '=', $resourceId)->update([
+                'issued' => 'YES',
+            ]);
 
             if ($query2) {
 
@@ -107,6 +109,7 @@ class AllocatedResourceController extends Controller
                 $studentDepartment = $studentInfo->department;
                 $studentEntryYear = $studentInfo->entry_year;
                 $studentRegistered = $studentInfo->registered;
+                $studentFeeStatus = $studentInfo->fee_status;
 
 
                 //! this is used to add student information from sims 
@@ -117,6 +120,7 @@ class AllocatedResourceController extends Controller
                 $student->department = $studentDepartment;
                 $student->entry_year = $studentEntryYear;
                 $student->registered = $studentRegistered;
+                $student->fee_status = $studentFeeStatus;
 
                 $query1 = $student->save();
 

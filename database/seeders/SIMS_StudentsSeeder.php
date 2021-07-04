@@ -23,7 +23,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -34,7 +34,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -45,7 +45,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -56,7 +56,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -67,7 +67,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -78,7 +78,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -89,7 +89,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -100,7 +100,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -111,7 +111,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -122,7 +122,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -133,7 +133,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -144,7 +144,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -155,7 +155,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -166,7 +166,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -177,7 +177,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -188,7 +188,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -199,7 +199,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -210,7 +210,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'LTS',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -221,7 +221,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -232,7 +232,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -243,7 +243,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -254,7 +254,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -265,7 +265,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -276,7 +276,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -287,7 +287,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -298,7 +298,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -309,7 +309,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -320,7 +320,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -331,7 +331,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -342,7 +342,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -353,7 +353,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -364,7 +364,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -375,7 +375,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -386,7 +386,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -397,7 +397,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -408,7 +408,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -419,7 +419,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -430,7 +430,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -441,7 +441,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -452,7 +452,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -463,7 +463,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -474,7 +474,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -485,7 +485,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -496,7 +496,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -507,7 +507,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -518,7 +518,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -529,7 +529,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -540,7 +540,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -551,7 +551,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -562,7 +562,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -573,7 +573,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -584,7 +584,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -595,7 +595,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2016',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -606,7 +606,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -617,7 +617,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -628,7 +628,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -639,7 +639,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -650,7 +650,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -661,7 +661,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -672,7 +672,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -683,7 +683,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -694,7 +694,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -705,7 +705,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -716,7 +716,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -727,7 +727,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -738,7 +738,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -749,7 +749,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -760,7 +760,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -771,7 +771,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -782,7 +782,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -793,7 +793,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -804,7 +804,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -815,7 +815,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -826,7 +826,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -837,7 +837,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -848,7 +848,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -859,7 +859,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -870,7 +870,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -881,7 +881,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -892,7 +892,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -903,7 +903,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -914,7 +914,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -925,7 +925,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -936,7 +936,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -947,7 +947,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -958,7 +958,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -969,7 +969,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -980,7 +980,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -991,7 +991,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1002,7 +1002,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1013,7 +1013,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1024,7 +1024,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1035,7 +1035,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1046,7 +1046,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1057,7 +1057,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1068,7 +1068,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1079,7 +1079,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1090,7 +1090,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1101,7 +1101,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1112,7 +1112,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1123,7 +1123,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1134,7 +1134,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1145,7 +1145,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1156,7 +1156,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1167,7 +1167,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1178,7 +1178,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1189,7 +1189,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1200,7 +1200,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1211,7 +1211,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1222,7 +1222,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1233,7 +1233,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1244,7 +1244,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1255,7 +1255,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1266,7 +1266,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1277,7 +1277,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1288,7 +1288,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'UNPAID',
             ]
         );
         SimsStudent::create(
@@ -1299,7 +1299,7 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
         SimsStudent::create(
@@ -1310,842 +1310,11 @@ class SIMS_StudentsSeeder extends Seeder
                 'department' => 'CCT',
                 'entry_year' => '2017',
                 'registered' => 'YES',
-                'password' => Hash::make('123456'),
+                'fee_status' => 'PAID',
             ]
         );
 
 
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2022',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2023',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2024',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2025',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2026',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2027',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2028',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2029',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2030',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2031',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2032',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2033',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2034',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2035',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2036',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2037',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2038',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCFCF/2016/2039',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/66',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/67',
-
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/68',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/69',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/70',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/71',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/72',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/73',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/74',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/75',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/76',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/77',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCICT/2017/78',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1456',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1457',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1458',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1459',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1460',
-
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1461',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1462',
-
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1463',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1464',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1465',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1466',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1467',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1468',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1469',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1470',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1471',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1472',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1473',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1474',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1475',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1476',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BCLTM/2016/1477',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/22',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/23',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/24',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/25',
-
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/26',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/27',
-
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/28',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/29',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/30',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/31',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/32',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/33',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/34',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/35',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/36',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/37',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/38',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/39',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/40',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/41',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BIT/2017/42',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/214',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/215',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/216',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/217',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/218',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/219',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/220',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/221',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/222',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/223',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/224',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/225',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/226',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/227',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/228',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/229',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/230',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/231',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/232',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/233',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/234',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/235',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/236',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/237',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/238',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/239',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/240',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/241',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/242',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/243',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/244',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/245',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/246',
-
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/247',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/248',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/249',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/250',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/251',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/252',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/253',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/254',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/255',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/256',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
-        // User::create(
-        //     [
-        //         'user_id' => 'NIT/BLTM/2017/257',
-        //         'user_type' => 'Student',
-        //         'password' => Hash::make('123456'),
-        //     ]
-        // );
+       
     }
 }

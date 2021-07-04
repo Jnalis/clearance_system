@@ -20,10 +20,11 @@
         $num = count($student);
 
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Student</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Student</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">No Student</h3>";
+        echo "<h3>No</h3>";
         }
         @endphp
       </div>
@@ -44,10 +45,11 @@
         $num = count($resource);
 
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Resource</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">No Resource</h3>";
+        echo "<h3>No Resource</h3>";
         }
         @endphp
       </div>
@@ -67,10 +69,11 @@
         $num = count($comment);
 
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Comment</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Comment</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">No Comment</h3>";
+        echo "<h3>No Comment</h3>";
         }
         @endphp
       </div>

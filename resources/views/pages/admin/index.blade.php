@@ -22,10 +22,11 @@
                   $num = count($staff);
                   
                   if ($num > 0) {
-                    echo "<h3 class=\"text-center\">$num Staff</h3>";
+                    echo "<h3>$num</h3>";
+                    echo "<p>Staff</p>";
                   }
                   else {
-                    echo "<h3 class=\"text-center\">$num Staff</h3>";
+                    echo "<h3>No Staff</h3>";
                   }
               @endphp
             </div>
@@ -46,10 +47,11 @@
                   $num = count($dept);
                   
                   if ($num > 0) {
-                    echo "<h3 class=\"text-center\">$num Departments</h3>";
+                    echo "<h3>$num</h3>";
+                    echo "<p>Departments</p>";
                   }
                   else {
-                    echo "<h3 class=\"text-center\">$num Departments</h3>";
+                    echo "<h3>No Departments</h3>";
                   }
               @endphp
             </div>
@@ -76,10 +78,11 @@
                   $num = count($user_type);
                   
                   if ($num > 0) {
-                    echo "<h3 class=\"text-center\">$num Usertype</h3>";
+                    echo "<h3>$num</h3>";
+                    echo "<p>Usertype</p>";
                   }
                   else {
-                    echo "<h3 class=\"text-center\">$num Usertype</h3>";
+                    echo "<h3>No Usertype</h3>";
                   }
               @endphp
             </div>
@@ -101,10 +104,11 @@
                   $num = 0;
                   
                   if ($num > 0) {
-                    echo "<h3 class=\"text-center\">$num System Logs</h3>";
+                    echo "<h3>$num</h3>";
+                    echo "<p>System Logs</p>";
                   }
                   else {
-                    echo "<h3 class=\"text-center\">$num System Logs</h3>";
+                    echo "<h3>No System Logs</h3>";
                   }
               @endphp
             </div>

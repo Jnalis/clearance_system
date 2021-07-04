@@ -87,7 +87,7 @@
                         <?php 
                         
                             $segment = Request::segment(2);
-                            //echo $segment;
+                            // echo $segment;
                         
                         ?>
                         <li class="nav-item">
@@ -103,26 +103,26 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link 
-                                @if($segment=='clearancetype') 
+                            <a href="{{ route('bursar.student.index') }}" class="nav-link 
+                                @if($segment=='student' || $segment=='cautionMoney') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-user-plus"></i>
+                                <i class="nav-icon fas fa-user-graduate"></i>
                                 <p>
-                                    Caution money
+                                    Student
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link 
-                                @if($segment=='certificate') 
+                            <a href="{{ route('bursar.resource.index') }}" class="nav-link 
+                                @if($segment=='resource') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-building"></i>
+                                <i class="nav-icon fa fa-rocket"></i>
                                 <p>
-                                    Fee Status
+                                    Lost Resource
                                 </p>
                             </a>
                         </li>

@@ -21,6 +21,9 @@ class CreateStudentsTable extends Migration
             $table->string('department')->nullable();
             $table->year('entry_year');
             $table->enum('registered',['YES','NO'])->default('YES');
+
+            $table->enum('fee_status',['PAID','UNPAID'])->default('UNPAID');
+
             $table->string('password')->nullable();
 
             $table->foreign('program')

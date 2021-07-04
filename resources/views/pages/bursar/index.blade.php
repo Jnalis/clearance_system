@@ -14,28 +14,30 @@
 <!-- Small boxes (Stat box) -->
 <div class="row">
 
-  {{-- <div class="col-lg-3 col-6">
+  <div class="col-lg-3 col-6">
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
         @php
-        $num = count($resource);
+        $num = count($students);
 
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Student</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Resource</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Student</p>";
         }
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fas fa-user-graduate"></i>
       </div>
-      <a href="{{ route('ra.resource.index') }}" class="small-box-footer">More info <i
+      <a href="{{ route('bursar.student.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
     </div>
-  </div> --}}
+  </div>
   <!-- ./col -->
 
 

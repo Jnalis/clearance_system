@@ -21,7 +21,7 @@ class CreateSimsStudentsTable extends Migration
             $table->string('department')->nullable();
             $table->year('entry_year');
             $table->enum('registered',['YES','NO'])->default('YES');
-            $table->string('password');
+            $table->enum('fee_status', ['PAID','UNPAID']);
 
             $table->timestamps();
         });

@@ -108,6 +108,7 @@ class ResourceController extends Controller
                 $studentDepartment = $studentInfo->department;
                 $studentEntryYear = $studentInfo->entry_year;
                 $studentRegistered = $studentInfo->registered;
+                $studentFeeStatus = $studentInfo->fee_status;
 
 
                 //! this is used to add student information from sims 
@@ -118,6 +119,7 @@ class ResourceController extends Controller
                 $student->department = $studentDepartment;
                 $student->entry_year = $studentEntryYear;
                 $student->registered = $studentRegistered;
+                $student->fee_status = $studentFeeStatus;
 
                 $query1 = $student->save();
 
