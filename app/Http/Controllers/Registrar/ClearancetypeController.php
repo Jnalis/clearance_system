@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Registrar;
 use App\Http\Controllers\Controller;
 use App\Models\Clearancetype;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClearancetypeController extends Controller
 {
@@ -46,7 +47,7 @@ class ClearancetypeController extends Controller
         ]);
 
         $clearancetype->clearancetype = $request->clearance_name;
-        $clearancetype->added_by = auth()->user()->id;
+        $clearancetype->added_by = Auth::user()->user_id;
 
         $query = $clearancetype->save();
 
@@ -97,7 +98,7 @@ class ClearancetypeController extends Controller
         ]);
 
         $clearancetype->clearancetype = $request->clearance_name;
-        $clearancetype->added_by = auth()->user()->id;
+        $clearancetype->added_by = Auth::user()->user_id;
 
         $query = $clearancetype->save();
 

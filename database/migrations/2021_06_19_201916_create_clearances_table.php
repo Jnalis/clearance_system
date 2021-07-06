@@ -16,7 +16,7 @@ class CreateClearancesTable extends Migration
         Schema::create('clearances', function (Blueprint $table) {
             $table->id();
             
-            $table->string('clearance_type');
+            $table->string('clearance_type')->nullable();
 
             $table->string('student_id')->nullable();
             $table->foreign('student_id')
@@ -31,7 +31,7 @@ class CreateClearancesTable extends Migration
 
             $table->enum('library_claim', ['NO','YES'])->default('NO')->nullable();
 
-            $table->enum('tuition_fee_status', ['CLEARED','NOT CLEARED'])->default('CLEARED')->nullable();
+            $table->enum('tuition_fee_status', ['PAID','UNPAID'])->default('PAID')->nullable();
 
             $table->enum('clearance_status', ['CLEARED','NOT CLEARED'])->default('NOT CLEARED')->nullable();
 

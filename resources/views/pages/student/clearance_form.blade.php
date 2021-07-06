@@ -34,13 +34,23 @@
                 <form role="form" method="POST" action="{{ route('student.storeClearance') }}">
                     @csrf
 
-                    <div class="result">
+                    {{-- <div class="result">
                         @if (Session::get('danger'))
                         <div class="alert alert-danger">
                             {{ Session::get('danger') }}
                         </div>
                         @endif
-                    </div>
+                    </div> --}}
+                    <div class="result">
+                        @if (session('danger'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                          {{ session('danger') }}
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        @endif
+                      </div>
 
                     <div class="row">
                         <div class="col-sm-3"></div>

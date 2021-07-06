@@ -109,9 +109,7 @@ class ResourceController extends Controller
         $status = $request->resource_status;
 
         if ($status == 'REFUNDED' || $status == 'NOT REFUNDED') {
-            $query = LostResource::where('id', $resourceID)->update([
-                'refunded_status' => $status,
-            ]);
+            $query = LostResource::where('id', $resourceID)->delete();
 
             if ($query) {
                 return redirect(route('bursar.resource.index'))->with('success', 'Student Resource Status updates successfully');

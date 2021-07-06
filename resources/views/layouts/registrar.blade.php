@@ -87,7 +87,7 @@
                         <?php 
                         
                             $segment = Request::segment(2);
-                            //echo $segment;
+                            // echo $segment;
                         
                         ?>
                         <li class="nav-item">
@@ -102,6 +102,22 @@
                                 </p>
                             </a>
                         </li>
+
+
+                        <li class="nav-item">
+                            <a href="{{ route('registrar.student.index') }}" class="nav-link 
+                                @if($segment=='student') 
+                                    active
+                                @endif
+                            ">
+                                <i class="nav-icon fas fa-user-graduate"></i>
+                                <p>
+                                    Student
+                                </p>
+                            </a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a href="{{ route('registrar.clearancetype.index') }}" class="nav-link 
                                 @if($segment=='clearancetype') 
@@ -114,6 +130,22 @@
                                 </p>
                             </a>
                         </li>
+
+
+                        <li class="nav-item">
+                            <a href="{{ route('registrar.clearance.index') }}" class="nav-link 
+                                @if($segment=='clearance') 
+                                    active
+                                @endif
+                            ">
+                                <i class="nav-icon fas fa-file"></i>
+                                <p>
+                                    Clearance Status
+                                </p>
+                            </a>
+                        </li>
+
+
                         <li class="nav-item">
                             <a href="{{ route('registrar.certificate.index') }}" class="nav-link 
                                 @if($segment=='certificate') 
@@ -146,7 +178,7 @@
 
 
                         @yield('smallNavigation')
-                        
+
 
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
