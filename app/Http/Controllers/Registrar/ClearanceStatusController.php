@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Registrar;
 
 use App\Http\Controllers\Controller;
+use App\Models\Certificate;
 use App\Models\Clearance;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClearanceStatusController extends Controller
 {
@@ -61,9 +63,20 @@ class ClearanceStatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($clearance)
     {
         //
+        $clearanceID = $clearance;
+        $clearanceStudentId = Clearance::select('student_id')->firstWhere('id', $clearance)->student_id;
+
+        $studentName = Student::select('fullname')->firstWhere('student_id', $clearanceStudentId)->fullname;
+
+
+        return view('pages.registrar.issue_certificate', [
+            'clearanceID' => $clearanceID,
+            'clearanceStudentId' => $clearanceStudentId,
+            'studentName' => $studentName,
+        ]);
     }
 
     /**
@@ -73,9 +86,30 @@ class ClearanceStatusController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $clearanceID, Certificate $certificate)
     {
         //
+        $request->validate([
+            'certificateStatus' => 'required',
+        ]);
+
+
+        $clearanceStudentId = Clearance::select('student_id')->firstWhere('id', $clearanceID)->student_id;
+
+        $certificate->certificate_status = $request->certificateStatus;
+        $certificate->student_id  = $clearanceStudentId;
+        $certificate->clearance_id   = $clearanceID;
+        $certificate->issued_by    = Auth::user()->user_id;
+
+        $query = $certificate->save();
+
+        if ($query) {
+            return redirect(route('registrar.certificate.index'))->with('success', 'Certificate issued successfully');
+        } else {
+            return back()->with('warning', 'Check your internet connection');
+        }
+        
+        
     }
 
     /**

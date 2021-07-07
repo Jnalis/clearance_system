@@ -27,7 +27,7 @@ class CreateCertificatesTable extends Migration
 
             $table->foreign('clearance_id')
                 ->references('id')
-                ->on('clearancetypes')
+                ->on('clearances')
                 ->onUpdate('cascade');
 
             $table->foreign('issued_by')
