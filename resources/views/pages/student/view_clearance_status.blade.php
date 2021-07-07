@@ -49,7 +49,7 @@
         Student Department: <span style="text-decoration:underline; font-weight:bold">{{ $student_department }}</span>
       </p>
       <p>
-        Purpose of clearing:  
+        Purpose of clearing:
         <span style="text-decoration:underline; font-weight:bold">
           @if ($clearanceTypeStatus == 1)
           {{ $clearanceType }}
@@ -66,7 +66,7 @@
         </span>
       </p>
       <p>
-        
+
       </p>
 
       <table id="example1" class="table table-bordered table-striped">
@@ -90,99 +90,91 @@
           @foreach ($departments as $department)
           <tr>
             <td>{{ $no }}</td>
-
-
+            {{-- dept name --}}
             <td>{{ $department->dept_name }}</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
 
+            {{-- property not returned --}}
+            <td>
+              @if ($clearAllStatus == 1)
+              {{ 'CLEARED' }}
+              @else
+              @if ($department->dept_code == $student_department)
+              @if ($issuedResourceName == null)
+              {{ 'CLEARED' }}
+              @else
+              {{ $issuedResourceName }}
+              @endif
+              @else
+              {{ 'CLEARED' }}
+              @endif
+              @endif
+            </td>
 
-            {{-- <td>
-              @if ($lostStatus == 0)
-              @if ($department->dept_code == $student_Dept)
-              {{ $resource_name }}
+            {{-- property not returned value(tshs) --}}
+            <td>
+              @if ($clearAllStatus == 1)
+              {{ 'CLEARED' }}
               @else
-              {{ 'NO' }}
+              @if ($department->dept_code == $student_department)
+              @if ($issuedResourceValue == null)
+              {{ 'CLEARED' }}
+              @else
+              {{ $issuedResourceValue }}
               @endif
               @else
-              @if ($department->dept_code == $student_Dept)
-              {{ $resource_name }}
-              @else
-              {{ 'NO' }}
+              {{ 'CLEARED' }}
               @endif
               @endif
-            </td> --}}
+            </td>
 
-
-            {{-- <td>
-              @if ($lostStatus == 0)
-              @if ($department->dept_code == $student_Dept)
-              {{ $resource_value }}
+            {{-- property lost --}}
+            <td>
+              @if ($clearAllStatus == 1)
+              {{ 'CLEARED' }}
               @else
-              {{ 'NO' }}
-              @endif
+              @if ($department->dept_code == $student_department)
+              @if ($lostResourceName == null)
+              {{ 'CLEARED' }}
               @else
-              @if ($department->dept_code == $student_Dept)
-              {{ $resource_value }}
-              @else
-              {{ 'NO' }}
-              @endif
-              @endif
-            </td> --}}
-
-            {{-- <td>
-              @if ($lostResourceStatus)
-              @if ($department->dept_code == $student_Dept && $lostResourceStatus == 'NOT REFUNDED')
               {{ $lostResourceName }}
-              @else
-              {{ 'NO' }}
               @endif
               @else
-              @if ($department->dept_code == $student_Dept)
-              @if ($lostStatus == 1)
-              {{ $resource_name }}
-              @else
-              {{ 'NO' }}
-              @endif
-              @else
-              {{ 'NO' }}
+              {{ 'CLEARED' }}
               @endif
               @endif
-            </td> --}}
+            </td>
 
-            {{-- <td>
-              @if ($lostResourceStatus)
-              @if ($department->dept_code == $student_Dept && $lostResourceStatus == 'NOT REFUNDED')
+            {{-- property lost value(tshs) --}}
+            <td>
+              @if ($clearAllStatus == 1)
+              {{ 'CLEARED' }}
+              @else
+              @if ($department->dept_code == $student_department)
+              @if ($lostResourceValue == null)
+              {{ 'CLEARED' }}
+              @else
               {{ $lostResourceValue }}
-              @else
-              {{ 'NO' }}
               @endif
               @else
-              @if ($department->dept_code == $student_Dept)
-              @if ($lostStatus == 1)
-              {{ $resource_value }}
-              @else
-              {{ 'NO' }}
-              @endif
-              @else
-              {{ 'NO' }}
+              {{ 'CLEARED' }}
               @endif
               @endif
-            </td> --}}
+            </td>
 
-
-            {{-- <td>
-              @if ($department->dept_code == $student_Dept)
+            {{-- dept status cleared or not --}}
+            <td>
+              @if ($clearAllStatus == 1)
+              {{ 'CLEARED' }}
+              @else
+              @if ($department->dept_code == $student_department)
               {{ 'NOT CLEARED' }}
               @else
               {{ 'CLEARED' }}
               @endif
-            </td> --}}
+              @endif
+            </td>
 
-
+            {{-- date cleared --}}
             <td>
               {{date('d-M-Y')}}
             </td>
@@ -199,23 +191,28 @@
         </tbody>
         <tfoot style="text-align:center">
           <tr>
+            <td colspan="8">
+              <p>Your clearance status is: <span
+                  style="text-decoration:underline; font-weight:bold">{{ $clearanceStatus }}</span></p>
+            </td>
+          </tr>
+          <tr>
             <td colspan="4">
-              <a href="{{ route('student.download') }}" class="btn btn-primary">Download</a>
+              <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-primary">Download</a>
             </td>
             <td colspan="4">
               <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
-                  class="btn btn-danger">Delete</a>
-                <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
-                  @method('delete')
-                  @csrf
-                </form>
-              {{-- <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-danger">Delete</a> --}}
+                class="btn btn-danger">Delete</a>
+              <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
+                @method('delete')
+                @csrf
+              </form>
             </td>
           </tr>
         </tfoot>
       </table>
       <p style="padding: 20px">
-        
+
       </p>
     </table>
   </div>

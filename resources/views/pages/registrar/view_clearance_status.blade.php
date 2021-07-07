@@ -11,7 +11,7 @@
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('registrar.home') }}">Home</a></li>
-        <li class="breadcrumb-item active">Student list</li>
+        <li class="breadcrumb-item active">Clearance list</li>
     </ol>
 </div><!-- /.col -->
 
@@ -19,7 +19,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">List of student</h3>
+        <h3 class="card-title">List of clearance</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -68,7 +68,7 @@
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="8">No Student Found</td>
+                    <td colspan="8">No clearance found</td>
                 </tr>
                 @endif
             </tbody>

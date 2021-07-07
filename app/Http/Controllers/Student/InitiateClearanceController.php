@@ -12,7 +12,7 @@ use App\Models\Resource;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 
 
 class InitiateClearanceController extends Controller
@@ -37,52 +37,232 @@ class InitiateClearanceController extends Controller
          * this give me clearance info
          */
         $clearanceTypeInfo = Clearance::where('student_id', $student_id)->first();
-        $clearanceID = $clearanceTypeInfo->id;
+
         if ($clearanceTypeInfo) {
-            $clearanceTypeStatus = 1;
-            $clearanceType = $clearanceTypeInfo->clearance_type;
-            $feeStatus = $clearanceTypeInfo->tuition_fee_status;
+
+            $clearanceID = $clearanceTypeInfo->id;
+
+            /**
+             * this is used to give me fee status
+             */
+            if ($clearanceTypeInfo) {
+                $clearanceTypeStatus = 1;
+                $clearanceType = $clearanceTypeInfo->clearance_type;
+                $feeStatus = $clearanceTypeInfo->tuition_fee_status;
+            } else {
+                $clearanceTypeStatus = 0;
+                $clearanceType = 'NO';
+                $feeStatus = 'Initiate clearance to see it';
+            }
+
+            /**
+             * this give me department
+             */
+            $departments = Departments::select(['dept_name', 'dept_code'])->get();
+
+            /**
+             * this give me clearance status
+             */
+            $clearanceStatus = $clearanceTypeInfo->clearance_status;
+
+            /**
+             * this give a value to clear the form
+             */
+            if ($clearanceStatus == 'CLEARED') {
+                $clearAllStatus = 1;
+
+                $issuedResourceName = null;
+                $issuedResourceValue = null;
+                $lostResourceName = null;
+                $lostResourceValue = null;
+                
+            } else {
+                $clearAllStatus = 0;
+
+
+                /**
+                 * give me information from issued table
+                 */
+                $checkStudentIDinIssuedResourceInfo = IssuedResource::where('resource_issued_to', $student_id)->first();
+                /**
+                 * give info from lost table
+                 */
+                $checkStudentIDinLostResourceInfo = LostResource::where('lost_by', $student_id)->first();
+
+                $issued = $checkStudentIDinIssuedResourceInfo;
+                $lost = $checkStudentIDinLostResourceInfo;
+
+                if ($issued && $lost) {
+                    $idFromIssued = $issued->resource_issued;
+                    $idFromLost = $lost->lost_resource;
+                    /**
+                     * return resource issued
+                     */
+                    $resourceInfoIssued = Resource::select(
+                        [
+                            'resource_type',
+                            'resource_amount'
+                        ]
+                    )->where('id', $idFromIssued)->first();
+
+                    /**
+                     * return resource lost
+                     */
+                    $resourceInfoLost = Resource::select(
+                        [
+                            'resource_type',
+                            'resource_amount'
+                        ]
+                    )->where('id', $idFromLost)->first();
+
+                    $issuedResourceName = $resourceInfoIssued->resource_type;
+                    $issuedResourceValue = $resourceInfoIssued->resource_amount;
+                    $lostResourceName = $resourceInfoLost->resource_type;
+                    $lostResourceValue = $resourceInfoLost->resource_amount;
+                } elseif ($issued) {
+                    $idFromIssued = $issued->resource_issued;
+                    /**
+                     * return resource issued
+                     */
+                    $resourceInfoIssued = Resource::select(
+                        [
+                            'resource_type',
+                            'resource_amount'
+                        ]
+                    )->where('id', $idFromIssued)->first();
+
+                    $issuedResourceName = $resourceInfoIssued->resource_type;
+                    $issuedResourceValue = $resourceInfoIssued->resource_amount;
+                    $lostResourceName = null;
+                    $lostResourceValue = null;
+                } elseif ($lost) {
+                    $idFromLost = $lost->lost_resource;
+
+                    /**
+                     * return resource lost
+                     */
+                    $resourceInfoLost = Resource::select(
+                        [
+                            'resource_type',
+                            'resource_amount'
+                        ]
+                    )->where('id', $idFromLost)->first();
+
+                    $issuedResourceName = null;
+                    $issuedResourceValue = null;
+                    $lostResourceName = $resourceInfoLost->resource_type;
+                    $lostResourceValue = $resourceInfoLost->resource_amount;
+                } else {
+                    $issuedResourceName = null;
+                    $issuedResourceValue = null;
+                    $lostResourceName = null;
+                    $lostResourceValue = null;
+                }
+            }
+
+
+
+            return view('pages.student.view_clearance_status', [
+                // 'clearances' => $clearance,
+                'student_name' => $student_name,
+                'student_program' => $student_program,
+                'student_department' => $student_department,
+                'student_identity' => $student_identity,
+                'clearanceTypeStatus' => $clearanceTypeStatus,
+                'clearanceType' => $clearanceType,
+                'clearanceID' => $clearanceID,
+                'feeStatus' => $feeStatus,
+                'departments' => $departments,
+                'clearanceStatus' => $clearanceStatus,
+                'clearAllStatus' => $clearAllStatus,
+                'issuedResourceName' => $issuedResourceName,
+                'issuedResourceValue' => $issuedResourceValue,
+                'lostResourceName' => $lostResourceName,
+                'lostResourceValue' => $lostResourceValue,
+            ]);
         } else {
-            $clearanceTypeStatus = 0;
-            $clearanceType = 'NO';
-            $feeStatus = 'Initiate clearance to see it';
+            return redirect(route('student.initiateClearance'))->with('info', 'Please initiate a clearance to view your status');
         }
-
-        /**
-         * this give me department
-         */
-        $departments = Departments::select(['dept_name', 'dept_code'])->get();
-
-        /**
-         * 
-         */
-
-        return view('pages.student.view_clearance_status', [
-            // 'clearances' => $clearance,
-            'student_name' => $student_name,
-            'student_program' => $student_program,
-            'student_department' => $student_department,
-            'student_identity' => $student_identity,
-            'clearanceTypeStatus' => $clearanceTypeStatus,
-            'clearanceType' => $clearanceType,
-            'clearanceID' => $clearanceID,
-            'feeStatus' => $feeStatus,
-            'departments' => $departments,
-        ]);
     }
 
 
 
 
-    public function downloadPdf()
+    public function downloadPdf($id)
     {
+        // $student_id = Auth::user()->user_id;
 
-        $departments = Departments::all();
 
-        $pdf = PDF::loadView('pages.student.view_clearance_status', [
-            'departments' => $departments,
-        ]);
-        return $pdf->download('clearanceDoc.pdf');
+
+        // /**
+        //  * this is used to give me some of info from student
+        //  */
+        // $studentFromTableInfo = Student::where('student_id', $student_id)->first();
+        // $student_name = $studentFromTableInfo->fullname;
+        // $student_program = $studentFromTableInfo->program;
+        // $student_department = $studentFromTableInfo->department;
+        // $student_identity = $studentFromTableInfo->student_id;
+
+        // /** 
+        //  * this give me clearance info
+        //  */
+        // $clearanceTypeInfo = Clearance::where('student_id', $student_id)->first();
+
+        // if ($clearanceTypeInfo) {
+
+        //     $clearanceID = $clearanceTypeInfo->id;
+
+        //     /**
+        //      * this is used to give me fee status
+        //      */
+        //     if ($clearanceTypeInfo) {
+        //         $clearanceTypeStatus = 1;
+        //         $clearanceType = $clearanceTypeInfo->clearance_type;
+        //         $feeStatus = $clearanceTypeInfo->tuition_fee_status;
+        //     } else {
+        //         $clearanceTypeStatus = 0;
+        //         $clearanceType = 'NO';
+        //         $feeStatus = 'Initiate clearance to see it';
+        //     }
+
+        //     /**
+        //      * this give me department
+        //      */
+        //     $departments = Departments::select(['dept_name', 'dept_code'])->get();
+
+        //     /**
+        //      * this give me clearance status
+        //      */
+        //     $clearanceStatus = $clearanceTypeInfo->clearance_status;
+
+        //     /**
+        //      * this give a value to clear the form
+        //      */
+        //     if ($clearanceStatus == 'CLEARED') {
+        //         $clearAllStatus = 1;
+        //     } else {
+        //         $clearAllStatus = 0;
+        //     }
+
+
+        //     $pdf = PDF::loadView('pages.student.view_clearance_status', [
+        //         // 'clearances' => $clearance,
+        //         'student_name' => $student_name,
+        //         'student_program' => $student_program,
+        //         'student_department' => $student_department,
+        //         'student_identity' => $student_identity,
+        //         'clearanceTypeStatus' => $clearanceTypeStatus,
+        //         'clearanceType' => $clearanceType,
+        //         'clearanceID' => $clearanceID,
+        //         'feeStatus' => $feeStatus,
+        //         'departments' => $departments,
+        //         'clearanceStatus' => $clearanceStatus,
+        //         'clearAllStatus' => $clearAllStatus,
+        //     ]);
+        //     return $pdf->download('clearanceDoc.pdf');
+        // } else {
+        //     return redirect(route('student.initiateClearance'))->with('info', 'Please initiate a clearance to view your status');
+        // }
     }
 
 
@@ -101,13 +281,14 @@ class InitiateClearanceController extends Controller
     public function store(Request $request, Clearance $clearance)
     {
 
+
         $userID = Auth::user()->user_id;
 
-        $studentIDinClearance = Clearance::select('student_id')->firstWhere('student_id', $userID)->student_id;
+        $studentInfoInClearanceTable = Clearance::where('student_id', $userID)->first();
 
-        if ($studentIDinClearance) {
-            return back()->with('danger', 'Please delete your previous clearance and initiate again');
-        } else {
+        if ($studentInfoInClearanceTable == null) {
+            // return 'ok';
+
             $resource_issued_to = IssuedResource::where('resource_issued_to', '=', $userID)->first();
 
             $lost_by = LostResource::where('lost_by', '=', $userID)->first();
@@ -116,18 +297,19 @@ class InitiateClearanceController extends Controller
 
 
             if ($resource_issued_to) {
-                $resource_claim = 'YES';
+                $resource_claim_issued = 'YES';
             } else {
-                $resource_claim = 'NO';
+                $resource_claim_issued = 'NO';
             }
 
             if ($lost_by) {
-                $resource_claim = 'YES';
+                $resource_claim_lost = 'YES';
             } else {
-                $resource_claim = 'NO';
+                $resource_claim_lost = 'NO';
             }
 
-            $resource_claim;
+            $resource_claim_issued;
+            $resource_claim_lost;
 
 
             if ($fee_status) {
@@ -140,18 +322,21 @@ class InitiateClearanceController extends Controller
 
 
 
-            if ($feeStatus == 'UNPAID' || $resource_claim == 'YES') {
+            if ($feeStatus == 'UNPAID' || $resource_claim_issued == 'YES' || $resource_claim_lost == 'YES') {
+                $resourceClaim = 'YES';
                 $clearance_status =  'NOT CLEARED';
             } else {
+                $resourceClaim = 'NO';
                 $clearance_status =  'CLEARED';
             }
 
+            $resourceClaim;
             $clearance_status;
 
 
             $clearance->clearance_type = $request->clearancetype;
             $clearance->student_id = Auth::user()->user_id;
-            $clearance->resource_claim = $resource_claim;
+            $clearance->resource_claim = $resourceClaim;
             $clearance->library_claim = null;
             $clearance->tuition_fee_status = $feeStatus;
             $clearance->clearance_status = $clearance_status;
@@ -164,218 +349,22 @@ class InitiateClearanceController extends Controller
             } else {
                 return back()->with('danger', 'Something went wrong');
             }
+        } else {
+            return back()->with('danger', 'Please delete your previous clearance and initiate again');
         }
     }
+
+
+
+
+
+
 
     public function deleteClearance($id)
     {
-        return  $id;
+        // return  $id;
+        Clearance::destroy($id);
+        return redirect(route('student.initiateClearance'))->with('danger', 'You have deleted your clearance successfully');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function getPdf($id)
-    {
-        // return $id;
-        $student_id = Auth::user()->user_id;
-        $studentFromTableInfo = Student::where('student_id', $student_id)->first();
-
-        $student_name = $studentFromTableInfo->fullname;
-        $student_program = $studentFromTableInfo->program;
-        $student_department = $studentFromTableInfo->department;
-        $student_identity = $studentFromTableInfo->student_id;
-
-
-        $clearanceInfo = Clearance::where('id', $id)->first();
-        $studentID = $clearanceInfo->student_id;
-
-
-        $checkStudentIDinIssuedResourceInfo = IssuedResource::where('resource_issued_to', $studentID)->first();
-
-        $checkStudentIDinLostResourceInfo = LostResource::where('lost_by', $studentID)->first();
-
-        if ($checkStudentIDinIssuedResourceInfo) {
-            $resourceID = $checkStudentIDinIssuedResourceInfo->resource_issued;
-
-            $resourceInfo = Resource::select(['resource_type', 'resource_amount'])->where('id', $resourceID)->first();
-
-            $student = $checkStudentIDinIssuedResourceInfo->resource_issued_to;
-
-            $studentInfo = Student::where('student_id', $student)->first();
-            $studentDept = $studentInfo->department;
-
-
-            $studentInfoInLostResource = LostResource::where('lost_by', $student)->first();
-
-            if ($studentInfoInLostResource) {
-                $resource_status = $studentInfoInLostResource->refunded_status;
-
-                $resource_status;
-
-                $lostResourceID = $studentInfoInLostResource->lost_resource;
-
-                $infoResource = Resource::where('id', $lostResourceID)->first();
-
-                $departments = Departments::select(['id', 'dept_name', 'dept_code'])->get();
-
-                $student_Dept = $studentDept;
-
-                $resource_name = $resourceInfo->resource_type;
-                $resource_value = $resourceInfo->resource_amount;
-
-                $lostResourceName = $infoResource->resource_type;
-                $lostResourceValue = $infoResource->resource_amount;
-
-                $lostStatus = 0;
-
-                return view('pages.student.pdf_template', [
-                    'departments' => $departments,
-                    'student_Dept' => $student_Dept,
-                    'resource_name' => $resource_name,
-                    'resource_value' => $resource_value,
-                    'lostResourceName' => $lostResourceName,
-                    'lostResourceValue' => $lostResourceValue,
-                    'lostResourceStatus' => $resource_status,
-                    'lostStatus' => $lostStatus,
-                    'student_name' => $student_name,
-                    'student_program' => $student_program,
-                    'student_department' => $student_department,
-                    'student_identity' => $student_identity,
-                ]);
-            } else {
-
-                $departments = Departments::select(['id', 'dept_name', 'dept_code'])->get();
-
-                $student_Dept = $studentDept;
-
-                $resource_name = $resourceInfo->resource_type;
-                $resource_value = $resourceInfo->resource_amount;
-
-                $lostResourceStatus = null;
-                $lostStatus = 1;
-
-                return view('pages.student.pdf_template', [
-                    'departments' => $departments,
-                    'student_Dept' => $student_Dept,
-                    'resource_name' => $resource_name,
-                    'resource_value' => $resource_value,
-                    'lostResourceStatus' => $lostResourceStatus,
-                    'lostStatus' => $lostStatus,
-                    'student_name' => $student_name,
-                    'student_program' => $student_program,
-                    'student_department' => $student_department,
-                    'student_identity' => $student_identity,
-
-                ]);
-            }
-        } elseif ($checkStudentIDinLostResourceInfo) {
-
-
-            $resourceID = $checkStudentIDinLostResourceInfo->lost_resource;
-
-            $resourceInfo = Resource::select(['resource_type', 'resource_amount'])->where('id', $resourceID)->first();
-
-            $student = $checkStudentIDinLostResourceInfo->lost_by;
-
-            $studentInfo = Student::where('student_id', $student)->first();
-            $studentDept = $studentInfo->department;
-
-
-
-            $departments = Departments::select(['id', 'dept_name', 'dept_code'])->get();
-
-            $student_Dept = $studentDept;
-
-            $resource_name = $resourceInfo->resource_type;
-            $resource_value = $resourceInfo->resource_amount;
-
-            $lostResourceStatus = null;
-            $lostStatus = 1;
-
-            return view('pages.student.pdf_template', [
-                'departments' => $departments,
-                'student_Dept' => $student_Dept,
-                'resource_name' => $resource_name,
-                'resource_value' => $resource_value,
-                'lostResourceStatus' => $lostResourceStatus,
-                'lostStatus' => $lostStatus,
-                'student_name' => $student_name,
-                'student_program' => $student_program,
-                'student_department' => $student_department,
-                'student_identity' => $student_identity,
-
-            ]);
-        } else {
-
-
-            $studentInfo = Student::where('student_id', $studentID)->first();
-            // $studentDept = $studentInfo->department;
-
-
-
-            $departments = Departments::select(['id', 'dept_name', 'dept_code'])->get();
-
-            $student_Dept = null;
-
-            $resource_name = null;
-            $resource_value = null;
-
-            $lostResourceStatus = null;
-            $lostStatus = 1;
-
-            return view('pages.student.pdf_template', [
-                'departments' => $departments,
-                'student_Dept' => $student_Dept,
-                'resource_name' => $resource_name,
-                'resource_value' => $resource_value,
-                'lostResourceStatus' => $lostResourceStatus,
-                'lostStatus' => $lostStatus,
-                'student_name' => $student_name,
-                'student_program' => $student_program,
-                'student_department' => $student_department,
-                'student_identity' => $student_identity,
-
-            ]);
-        }
-    }
 }

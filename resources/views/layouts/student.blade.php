@@ -153,7 +153,18 @@
                     <div class="row mb-2">
 
                         <div class="col-sm-6">
-                            @include('includes.loggingUser')
+                            <h1 class="m-0 text-dark">
+                                Welcome: 
+                                @php
+                                    $id = Auth::user()->user_id;
+                                   $user = DB::table('students')->where('student_id', $id)->first();
+                                   $name = $user->fullname;
+                                @endphp 
+                                {{ $name }}
+                            </h1>
+                            <p>
+                                {{ Auth::user()->user_type }}
+                            </p>
                         </div><!-- /.col -->
 
 

@@ -34,23 +34,26 @@
                 <form role="form" method="POST" action="{{ route('student.storeClearance') }}">
                     @csrf
 
-                    {{-- <div class="result">
-                        @if (Session::get('danger'))
-                        <div class="alert alert-danger">
-                            {{ Session::get('danger') }}
-                        </div>
-                        @endif
-                    </div> --}}
+
                     <div class="result">
                         @if (session('danger'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                          {{ session('danger') }}
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
+                            {{ session('danger') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true" style="color: white">&times;</span>
+                            </button>
                         </div>
                         @endif
-                      </div>
+
+                        @if (session('info'))
+                        <div class="alert alert-info alert-dismissible fade show" role="alert">
+                            {{ session('info') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true" style="color: white">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+                    </div>
 
                     <div class="row">
                         <div class="col-sm-3"></div>
@@ -58,19 +61,19 @@
                         <div class="col-sm-6">
                             <!-- radio -->
 
-                            @foreach ($clearanceTypes as $clearanceType)
                             <div class="form-group">
+                                @foreach ($clearanceTypes as $clearanceType)
                                 <div class="custom-control custom-radio">
 
                                     <input name="clearancetype" class="custom-control-input" type="radio"
                                         id="{{ $clearanceType->clearancetype }}"
-                                        value="{{ $clearanceType->clearancetype }}">
+                                        value="{{ $clearanceType->clearancetype }}" required>
                                     <label for="{{ $clearanceType->clearancetype }}"
                                         class="custom-control-label">{{ $clearanceType->clearancetype }}</label>
 
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
 
                         </div>
 
