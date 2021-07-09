@@ -5,7 +5,7 @@
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="{{ route('ra.home') }}">Home</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Reseource list</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('ra.resource.index') }}">Resource list</a></li>
     <li class="breadcrumb-item active">Add resource</li>
     
   </ol>
@@ -48,7 +48,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="resource_amount">Resource Amount</label>
+                                <label class="col-form-label" for="resource_amount">Resource Value(Tshs)</label>
                                 <input type="text" name="resource_amount" id="resource_amount" class="form-control"
                                     placeholder="Resource Amount" value="{{ old('resource_amount') }}">
                                 <span class="text-danger">@error('resource_amount') {{ $message }} @enderror</span>

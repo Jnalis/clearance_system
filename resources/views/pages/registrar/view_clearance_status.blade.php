@@ -1,5 +1,5 @@
 @extends('layouts.registrar')
-@section('title','Student List')
+@section('title','Clearance List')
 
 @section('tableCss')
 <!-- DataTables -->

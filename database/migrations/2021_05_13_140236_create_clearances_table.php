@@ -14,7 +14,7 @@ class CreateClearancesTable extends Migration
     public function up()
     {
         Schema::create('clearances', function (Blueprint $table) {
-            $table->id();
+            $table->id(); 
             
             $table->string('clearance_type')->nullable();
 

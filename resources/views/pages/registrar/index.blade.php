@@ -38,6 +38,32 @@
     </div>
   </div>
   <!-- ./col -->
+
+
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+      <div class="inner">
+        @php
+        $num = count($students);
+
+        if ($num > 0) {
+        echo "<h3>$num</h3>";
+        echo "<p>Student</p>";
+        }
+        else {
+        echo "<h3>No Student</h3>";
+        }
+        @endphp
+      </div>
+      <div class="icon">
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <a href="{{ route('registrar.student.index') }}" class="small-box-footer">More info <i
+          class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
 </div>
 
 </div>

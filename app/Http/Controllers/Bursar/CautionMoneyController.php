@@ -13,7 +13,14 @@ class CautionMoneyController extends Controller
     {
         // return $id;
 
-        $students = Student::find($id);
+        $students = Student::select([
+            'students.id',
+            'students.fullname',
+            'students.student_id',
+            'students.caution_money_status'
+        ])->join('clearances', 'clearances.student_id', '=', 'students.student_id')->first();
+
+
         return view('pages.bursar.issue_caution_money', [
             'students' => $students,
         ]);
@@ -39,7 +46,7 @@ class CautionMoneyController extends Controller
             ]);
 
             if ($query) {
-                return redirect(route('bursar.student.index'))->with('success', 'Caution money issued successfully');
+                return redirect(route('bursar.clearance.index'))->with('success', 'Caution money issued successfully');
             } else {
                 return back()->with('warning', 'Fails to issue caution money, Check your internet connection');
             }

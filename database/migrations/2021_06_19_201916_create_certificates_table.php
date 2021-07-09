@@ -15,9 +15,13 @@ class CreateCertificatesTable extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
+
             $table->enum('certificate_status',['ISSUED','NOT ISSUED']);
+
             $table->string('student_id')->nullable();
+
             $table->unsignedBigInteger('clearance_id')->nullable();
+            
             $table->string('issued_by')->nullable();
 
             $table->foreign('student_id')

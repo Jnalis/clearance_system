@@ -87,7 +87,7 @@
             @endforeach
             @else
             <tr>
-              <td colspan="5">No Usertype Found</td>
+              <td colspan="5" class="text text-center">No Clearance Type Found</td>
             </tr>
             @endif
           </tbody>

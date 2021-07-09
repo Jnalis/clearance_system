@@ -82,17 +82,17 @@
 
                     <div class="card-footer">
                         <div class="row">
-                            <div class="col-sm-3"></div>
+                            <div class="col-xs-3 col-md-3 p-3"></div>
 
-                            <div class="col-sm-3">
+                            <div class="col-xs-3 col-md-3 p-3">
                                 <button type="submit" class="btn btn-primary">Select</button>
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-xs-3 col-md-3 p-3">
                                 <button type="reset" class="btn btn-danger">Clear</button>
                             </div>
 
-                            <div class="col-sm-3"></div>
+                            <div class="col-xs-3 col-md-3 p-3"></div>
                         </div>
                     </div>
                 </form>

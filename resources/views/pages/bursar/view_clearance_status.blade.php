@@ -1,5 +1,5 @@
 @extends('layouts.bursar')
-@section('title','Student List')
+@section('title','Clearance List')
 
 @section('tableCss')
 <!-- DataTables -->
@@ -11,7 +11,7 @@
 <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="{{ route('bursar.home') }}">Home</a></li>
-        <li class="breadcrumb-item active">Student list</li>
+        <li class="breadcrumb-item active">Clearance list</li>
     </ol>
 </div><!-- /.col -->
 
@@ -19,7 +19,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">List of student</h3>
+        <h3 class="card-title">List of clearance</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -42,36 +42,29 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Registration No</th>
-                    {{-- <th>Program</th>
-                    <th>Department</th> --}}
-                    <th>Entry Year</th>
-                    <th>Registered</th>
-                    <th>Fee Status</th>
-                    <th>Change Fee Status</th>
+                    <th>Clearance Status</th>
+                    <th>Caution Money Status</th>
+                    <th>Issue money</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                 $no = 1;
                 @endphp
-                @if (count($students))
-                @foreach ($students as $student)
+                @if (count($clearanceStatus))
+                @foreach ($clearanceStatus as $status)
 
                 <tr>
                     <td>{{ $no }}</td>
-                    <td>{{ $student->fullname }}</td>
-                    <td>{{ $student->student_id }}</td>
-                    {{-- <td>{{ $student->program }}</td>
-                    <td>{{ $student->department }}</td> --}}
-                    <td>{{ $student->entry_year }}</td>
-                    <td>{{ $student->registered }}</td>
-                    <td>{{ $student->fee_status }}</td>
-                    
-                    <td>
-                        <a href="{{ route('bursar.student.edit',$student->id) }}" class="btn btn-warning">Change</a>
-                    </td>
+                    <td>{{ $status->fullname }}</td>
+                    <td>{{ $status->student_id }}</td>
+                    <td>{{ $status->clearance_status }}</td>
+                    <td>{{ $status->caution_money_status }}</td>
 
                     
+                    <td>
+                        <a href="{{ route('bursar.issueMoney',$status->id) }}" class="btn btn-success">Issue</a>
+                    </td>
                 </tr>
                 @php
                 $no++;
@@ -79,7 +72,7 @@
                 @endforeach
                 @else
                 <tr>
-                    <td colspan="9">No Student Found</td>
+                    <td colspan="8">No clearance found</td>
                 </tr>
                 @endif
             </tbody>

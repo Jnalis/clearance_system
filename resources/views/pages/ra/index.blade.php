@@ -39,111 +39,33 @@
   </div>
   <!-- ./col -->
 
-{{-- 
+
   <div class="col-lg-4">
     <!-- small box -->
-    <div class="small-box bg-info">
+    <div class="small-box bg-success">
       <div class="inner">
         @php
-        $num = count($allocated_resource);
-
+        $num = count($departments);
+        
         if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Allocated Resource</h3>";
+        echo "<h3>$num</h3>";
+        echo "<p>Department</p>";
         }
         else {
-        echo "<h3 class=\"text-center\">$num Allocated Resource</h3>";
+        echo "<h3>No department</h3>";
         }
         @endphp
       </div>
       <div class="icon">
-        <i class="fas fa-users"></i>
+        <i class="fas fa-building"></i>
       </div>
-      <a href="{{ route('ra.allocatedResource.index') }}" class="small-box-footer">More info <i
+      <a href="{{ route('ra.viewDeptRA.index') }}" class="small-box-footer">More info <i
           class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
+  <!-- ./col -->
 
 
-  <div class="col-lg-4">
-    <!-- small box -->
-    <div class="small-box bg-danger">
-      <div class="inner">
-        @php
-        $num = count($data);
-
-        if ($num > 0) {
-        echo "<h3 class=\"text-center\">$num Lost Resource</h3>";
-        }
-        else {
-        echo "<h3 class=\"text-center\">$num Lost Resource</h3>";
-        }
-        @endphp
-      </div>
-      <div class="icon">
-        <i class="fas fa-users"></i>
-      </div>
-      <a href="{{ route('ra.lostResource.index') }}" class="small-box-footer">More info <i
-          class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
-</div> --}}
-<!-- ./col -->
-
-
-
-
-{{-- <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3>53</h3>
-
-              <p></p>
-            </div>
-            <div class="icon">
-                <i class="fas fa-building"></i>
-            </div>
-            <a href="/hod/view_allocated_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div> --}}
-<!-- ./col -->
-
-
-
-
-{{-- <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3>44</h3>
-
-              <p>Issued Resource</p>
-            </div>
-            <div class="icon">
-                <i class="fas fa-layer-group"></i>
-            </div>
-            <a href="/hod/view_issued_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div> --}}
-<!-- ./col -->
-
-
-
-{{-- <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3>65</h3>
-
-              <p>Returned Resource</p>
-            </div>
-            <div class="icon">
-                <i class="nav-icon fas fa-info"></i>
-            </div>
-            <a href="/hod/view_returned_resource" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div> --}}
-<!-- ./col -->
 
 
 </div>

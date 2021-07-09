@@ -4,9 +4,13 @@
         $id = Auth::user()->user_id;
        $user = DB::table('staff')->where('username', $id)->first();
        $name = $user->fullname;
+       $usertype = $user->usertype;
+
+       $userType = DB::table('usertypes')->where('usertype_code', $usertype)->first();
+       $loggedUsertype = $userType->usertype_name;
     @endphp 
-    {{ $user->fullname }}
+    {{ $name }}
 </h1>
 <p>
-    {{ Auth::user()->user_type }}
+    {{ $loggedUsertype }}
 </p>

@@ -43,6 +43,7 @@
         <tr>
           <th> #</th>
           <th>Comment</th>
+          <th>Comment from</th>
         </tr>
       </thead>
       <tbody>
@@ -54,6 +55,7 @@
         <tr>
           <td>{{ $no }}</td>
           <td>{{ $comment->comment_text }}</td>
+          <td>{{ $comment->fullname }}</td>
         </tr>
         @php
         $no++;
@@ -61,7 +63,7 @@
         @endforeach
         @else
         <tr>
-          <td colspan="2">No comment found</td>
+          <td colspan="3">No comment found</td>
         </tr>
         @endif
       </tbody>

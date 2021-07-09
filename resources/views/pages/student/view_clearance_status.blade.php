@@ -64,156 +64,153 @@
           {{ $feeStatus }}
           @endif
         </span>
-      </p>
-      <p>
+      </p>  
 
-      </p>
 
-      <table id="example1" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th> #</th>
-            <th>Department / Section</th>
-            <th>Property Not Returned</th>
-            <th>Value(Tshs)</th>
-            <th>Property Lost</th>
-            <th>Value(Tshs)</th>
-            <th>DEPT Status</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          @php
-          $no = 1;
-          @endphp
-          @if (count($departments))
-          @foreach ($departments as $department)
-          <tr>
-            <td>{{ $no }}</td>
-            {{-- dept name --}}
-            <td>{{ $department->dept_name }}</td>
+      <thead>
+        <tr>
+          <th> #</th>
+          <th>Department / Section</th>
+          <th>Property Not Returned</th>
+          <th>Value(Tshs)</th>
+          <th>Property Lost</th>
+          <th>Value(Tshs)</th>
+          <th>DEPT Status</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        @php
+        $no = 1;
+        @endphp
+        @if (count($departments))
+        @foreach ($departments as $department)
+        <tr>
+          <td>{{ $no }}</td>
+          {{-- dept name --}}
+          <td>{{ $department->dept_name }}</td>
 
-            {{-- property not returned --}}
-            <td>
-              @if ($clearAllStatus == 1)
-              {{ 'CLEARED' }}
-              @else
-              @if ($department->dept_code == $student_department)
-              @if ($issuedResourceName == null)
-              {{ 'CLEARED' }}
-              @else
-              {{ $issuedResourceName }}
-              @endif
-              @else
-              {{ 'CLEARED' }}
-              @endif
-              @endif
-            </td>
+          {{-- property not returned --}}
+          <td>
+            @if ($clearAllStatus == 1)
+            {{ 'CLEARED' }}
+            @else
+            @if ($department->dept_code == $resourceDept)
+            @if ($issuedResourceName == null)
+            {{ 'CLEARED' }}
+            @else
+            {{ $issuedResourceName }}
+            @endif
+            @else
+            {{ 'CLEARED' }}
+            @endif
+            @endif
+          </td>
 
-            {{-- property not returned value(tshs) --}}
-            <td>
-              @if ($clearAllStatus == 1)
-              {{ 'CLEARED' }}
-              @else
-              @if ($department->dept_code == $student_department)
-              @if ($issuedResourceValue == null)
-              {{ 'CLEARED' }}
-              @else
-              {{ $issuedResourceValue }}
-              @endif
-              @else
-              {{ 'CLEARED' }}
-              @endif
-              @endif
-            </td>
+          {{-- property not returned value(tshs) --}}
+          <td>
+            @if ($clearAllStatus == 1)
+            {{ 'CLEARED' }}
+            @else
+            @if ($department->dept_code == $resourceDept)
+            @if ($issuedResourceValue == null)
+            {{ 'CLEARED' }}
+            @else
+            {{ $issuedResourceValue }}
+            @endif
+            @else
+            {{ 'CLEARED' }}
+            @endif
+            @endif
+          </td>
 
-            {{-- property lost --}}
-            <td>
-              @if ($clearAllStatus == 1)
-              {{ 'CLEARED' }}
-              @else
-              @if ($department->dept_code == $student_department)
-              @if ($lostResourceName == null)
-              {{ 'CLEARED' }}
-              @else
-              {{ $lostResourceName }}
-              @endif
-              @else
-              {{ 'CLEARED' }}
-              @endif
-              @endif
-            </td>
+          {{-- property lost --}}
+          <td>
+            @if ($clearAllStatus == 1)
+            {{ 'CLEARED' }}
+            @else
+            @if ($department->dept_code == $LostResourceDept)
+            @if ($lostResourceName == null)
+            {{ 'CLEARED' }}
+            @else
+            {{ $lostResourceName }}
+            @endif
+            @else
+            {{ 'CLEARED' }}
+            @endif
+            @endif
+          </td>
 
-            {{-- property lost value(tshs) --}}
-            <td>
-              @if ($clearAllStatus == 1)
-              {{ 'CLEARED' }}
-              @else
-              @if ($department->dept_code == $student_department)
-              @if ($lostResourceValue == null)
-              {{ 'CLEARED' }}
-              @else
-              {{ $lostResourceValue }}
-              @endif
-              @else
-              {{ 'CLEARED' }}
-              @endif
-              @endif
-            </td>
+          {{-- property lost value(tshs) --}}
+          <td>
+            @if ($clearAllStatus == 1)
+            {{ 'CLEARED' }}
+            @else
+            @if ($department->dept_code == $LostResourceDept)
+            @if ($lostResourceValue == null)
+            {{ 'CLEARED' }}
+            @else
+            {{ $lostResourceValue }}
+            @endif
+            @else
+            {{ 'CLEARED' }}
+            @endif
+            @endif
+          </td>
 
-            {{-- dept status cleared or not --}}
-            <td>
-              @if ($clearAllStatus == 1)
-              {{ 'CLEARED' }}
-              @else
-              @if ($department->dept_code == $student_department)
-              {{ 'NOT CLEARED' }}
-              @else
-              {{ 'CLEARED' }}
-              @endif
-              @endif
-            </td>
+          {{-- dept status cleared or not --}}
+          <td>
+            @if ($clearAllStatus == 1)
+            {{ 'CLEARED' }}
+            @else
+            @if ($department->dept_code == $resourceDept || $department->dept_code == $LostResourceDept)
+            {{ 'NOT CLEARED' }}
+            @else
+            {{ 'CLEARED' }}
+            @endif
+            @endif
+          </td>
 
-            {{-- date cleared --}}
-            <td>
-              {{date('d-M-Y')}}
-            </td>
-          </tr>
-          @php
-          $no++;
-          @endphp
-          @endforeach
-          @else
-          <tr>
-            <td colspan="8">No clearance to view</td>
-          </tr>
-          @endif
-        </tbody>
-        <tfoot style="text-align:center">
-          <tr>
-            <td colspan="8">
-              <p>Your clearance status is: <span
-                  style="text-decoration:underline; font-weight:bold">{{ $clearanceStatus }}</span></p>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="4">
-              <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-primary">Download</a>
-            </td>
-            <td colspan="4">
-              <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
-                class="btn btn-danger">Delete</a>
-              <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
-                @method('delete')
-                @csrf
-              </form>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-      <p style="padding: 20px">
+          {{-- date cleared --}}
+          <td>
+            {{date('d-M-Y')}}
+          </td>
+        </tr>
+        @php
+        $no++;
+        @endphp
+        @endforeach
+        @else
+        <tr>
+          <td colspan="8">No clearance to view</td>
+        </tr>
+        @endif
+      </tbody>
+      <tfoot style="text-align:center">
+        <tr>
+          <td colspan="8">
+            <p>Your clearance status is: <span
+                style="text-decoration:underline; font-weight:bold">{{ $clearanceStatus }}</span></p>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-primary">Download</a>
+          </td>
+          <td colspan="4">
+            <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+              class="btn btn-danger">Delete</a>
+            <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
+              @method('delete')
+              @csrf
+            </form>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <p style="padding: 20px">
 
-      </p>
+    </p>
     </table>
   </div>
   <!-- /.card-body -->

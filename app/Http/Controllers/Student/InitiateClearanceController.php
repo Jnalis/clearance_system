@@ -9,6 +9,7 @@ use App\Models\Departments;
 use App\Models\IssuedResource;
 use App\Models\LostResource;
 use App\Models\Resource;
+use App\Models\Staff;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,6 +76,8 @@ class InitiateClearanceController extends Controller
                 $issuedResourceValue = null;
                 $lostResourceName = null;
                 $lostResourceValue = null;
+                $LostResourceDept = null;
+                $resourceDept = null;
                 
             } else {
                 $clearAllStatus = 0;
@@ -101,7 +104,8 @@ class InitiateClearanceController extends Controller
                     $resourceInfoIssued = Resource::select(
                         [
                             'resource_type',
-                            'resource_amount'
+                            'resource_amount',
+                            'allocated_to',
                         ]
                     )->where('id', $idFromIssued)->first();
 
@@ -111,14 +115,29 @@ class InitiateClearanceController extends Controller
                     $resourceInfoLost = Resource::select(
                         [
                             'resource_type',
-                            'resource_amount'
+                            'resource_amount',
+                            'allocated_to',
                         ]
                     )->where('id', $idFromLost)->first();
+
+                    $staffInIssuedResource = $resourceInfoIssued->allocated_to;
+                    $staffInLostResource = $resourceInfoLost->allocated_to;
+
+                    /**
+                     * gives me where resource comes from
+                     */
+                    $staffInIssuedDept = Staff::where('username', $staffInIssuedResource)->first();
+                    /**
+                     * gives me where resource comes from
+                     */
+                    $staffInLostDept = Staff::where('username', $staffInLostResource)->first();
 
                     $issuedResourceName = $resourceInfoIssued->resource_type;
                     $issuedResourceValue = $resourceInfoIssued->resource_amount;
                     $lostResourceName = $resourceInfoLost->resource_type;
                     $lostResourceValue = $resourceInfoLost->resource_amount;
+                    $resourceDept = $staffInIssuedDept->dept_code;
+                    $LostResourceDept = $staffInLostDept->dept_code;
                 } elseif ($issued) {
                     $idFromIssued = $issued->resource_issued;
                     /**
@@ -127,12 +146,22 @@ class InitiateClearanceController extends Controller
                     $resourceInfoIssued = Resource::select(
                         [
                             'resource_type',
-                            'resource_amount'
+                            'resource_amount',
+                            'allocated_to',
                         ]
                     )->where('id', $idFromIssued)->first();
 
+                    $staffAllocatedResource = $resourceInfoIssued->allocated_to;
+
+                    /**
+                     * gives me where resource comes from
+                     */
+                    $staffDept = Staff::where('username', $staffAllocatedResource)->first();
+
                     $issuedResourceName = $resourceInfoIssued->resource_type;
                     $issuedResourceValue = $resourceInfoIssued->resource_amount;
+                    $resourceDept = $staffDept->dept_code;
+                    $LostResourceDept = null;
                     $lostResourceName = null;
                     $lostResourceValue = null;
                 } elseif ($lost) {
@@ -144,19 +173,31 @@ class InitiateClearanceController extends Controller
                     $resourceInfoLost = Resource::select(
                         [
                             'resource_type',
-                            'resource_amount'
+                            'resource_amount',
+                            'allocated_to',
                         ]
                     )->where('id', $idFromLost)->first();
 
+                    $staffAllocatedResource = $resourceInfoLost->allocated_to;
+
+                    /**
+                     * gives me where resource comes from
+                     */
+                    $staffDept = Staff::where('username', $staffAllocatedResource)->first();
+
                     $issuedResourceName = null;
                     $issuedResourceValue = null;
+                    $resourceDept = null;
                     $lostResourceName = $resourceInfoLost->resource_type;
                     $lostResourceValue = $resourceInfoLost->resource_amount;
+                    $LostResourceDept = $staffDept->dept_code;
                 } else {
                     $issuedResourceName = null;
                     $issuedResourceValue = null;
                     $lostResourceName = null;
                     $lostResourceValue = null;
+                    $LostResourceDept = null;
+                    $resourceDept = null;
                 }
             }
 
@@ -179,6 +220,8 @@ class InitiateClearanceController extends Controller
                 'issuedResourceValue' => $issuedResourceValue,
                 'lostResourceName' => $lostResourceName,
                 'lostResourceValue' => $lostResourceValue,
+                'resourceDept' => $resourceDept,
+                'LostResourceDept' => $LostResourceDept,
             ]);
         } else {
             return redirect(route('student.initiateClearance'))->with('info', 'Please initiate a clearance to view your status');
@@ -366,5 +409,4 @@ class InitiateClearanceController extends Controller
         Clearance::destroy($id);
         return redirect(route('student.initiateClearance'))->with('danger', 'You have deleted your clearance successfully');
     }
-
 }

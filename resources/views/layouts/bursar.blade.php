@@ -102,6 +102,7 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('bursar.student.index') }}" class="nav-link 
                                 @if($segment=='student' || $segment=='cautionMoney') 
@@ -114,6 +115,7 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="{{ route('bursar.resource.index') }}" class="nav-link 
                                 @if($segment=='resource') 
@@ -126,6 +128,21 @@
                                 </p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('bursar.clearance.index') }}" class="nav-link 
+                                @if($segment=='clearance') 
+                                    active
+                                @endif
+                            ">
+                                <i class="nav-icon fas fa-file"></i>
+                                <p>
+                                    Clearance Status
+                                </p>
+                            </a>
+                        </li>
+
+
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

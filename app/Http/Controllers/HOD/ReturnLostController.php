@@ -48,7 +48,7 @@ class ReturnLostController extends Controller
          */
         Resource::where('id', '=', $id)
             ->update([
-                'allocated_to' => NULL,
+                // 'allocated_to' => NULL,
                  'available' => 'NO'
                 ]);
                 
