@@ -42,6 +42,7 @@ class InitiateClearanceController extends Controller
         if ($clearanceTypeInfo) {
 
             $clearanceID = $clearanceTypeInfo->id;
+            $clearanceDate = $clearanceTypeInfo->created_at;
 
             /**
              * this is used to give me fee status
@@ -222,6 +223,7 @@ class InitiateClearanceController extends Controller
                 'lostResourceValue' => $lostResourceValue,
                 'resourceDept' => $resourceDept,
                 'LostResourceDept' => $LostResourceDept,
+                'clearanceDate' => $clearanceDate,
             ]);
         } else {
             return redirect(route('student.initiateClearance'))->with('info', 'Please initiate a clearance to view your status');

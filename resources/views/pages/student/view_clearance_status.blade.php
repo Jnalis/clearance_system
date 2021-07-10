@@ -173,7 +173,7 @@
 
           {{-- date cleared --}}
           <td>
-            {{date('d-M-Y')}}
+            {{ date('d/M/Y', strtotime($clearanceDate)) }}
           </td>
         </tr>
         @php
