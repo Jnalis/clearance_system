@@ -107,11 +107,17 @@ Route::group(['middleware' => 'back'], function () {
     
     Route::namespace('Student')->prefix('student')->as('student.')->middleware('student', 'auth')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+
         Route::get('/viewComment', [ViewCommentController::class, 'index'])->name('viewComment');
+
         Route::get('/initiateClearance', [InitiateClearanceController::class, 'create'])->name('initiateClearance');
+
         Route::post('/storeClearance', [InitiateClearanceController::class, 'store'])->name('storeClearance');
+
         Route::get('/viewClearance', [InitiateClearanceController::class, 'index'])->name('viewClearance');
+
         Route::get('/downloadPdfFile/{downloadPdfFile}/downloadPdfFile', [InitiateClearanceController::class, 'downloadPdf'])->name('download');
+        
         Route::delete('/deleteClearance/{deleteClearance}/deleteClearance', [InitiateClearanceController::class, 'deleteClearance'])->name('deleteClearance');
 
     });
