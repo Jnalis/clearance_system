@@ -39,21 +39,32 @@ class CautionMoneyController extends Controller
         $moneyStatus = $request->caution_money_status;
 
 
-        if ($moneyStatus == 'ISSUED' || $moneyStatus == 'NOT ISSUED') {
+        $query = Student::where('id', $studentID)->update([
+            'caution_money_status' => $moneyStatus,
+        ]);
 
-            $query = Student::where('id', $studentID)->update([
-                'caution_money_status' => $moneyStatus,
-            ]);
-
-            if ($query) {
-                return redirect(route('bursar.clearance.index'))->with('success', 'Caution money issued successfully');
-            } else {
-                return back()->with('warning', 'Fails to issue caution money, Check your internet connection');
-            }
-            
+        if ($query) {
+            return redirect(route('bursar.clearance.index'))->with('success', 'Caution money issued successfully');
         } else {
-            return back()->with('warning', 'You must write the caution money status as "ISSUED" or "NOT ISSUED" and not other way');
+            return back()->with('warning', 'Fails to issue caution money, Check your internet connection');
         }
+
+
+        // if ($moneyStatus == 'ISSUED' || $moneyStatus == 'NOT ISSUED') {
+
+        //     $query = Student::where('id', $studentID)->update([
+        //         'caution_money_status' => $moneyStatus,
+        //     ]);
+
+        //     if ($query) {
+        //         return redirect(route('bursar.clearance.index'))->with('success', 'Caution money issued successfully');
+        //     } else {
+        //         return back()->with('warning', 'Fails to issue caution money, Check your internet connection');
+        //     }
+            
+        // } else {
+        //     return back()->with('warning', 'You must write the caution money status as "ISSUED" or "NOT ISSUED" and not other way');
+        // }
 
     
         

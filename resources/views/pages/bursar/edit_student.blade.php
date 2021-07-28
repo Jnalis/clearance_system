@@ -67,10 +67,17 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="fee_status">Fee Status</label>
-                                <br>
+                                <select name="fee_status" id="fee_status" class="form-control select2" style="width: 100%;"
+                                    data-placeholder="Select fee status">
+                                    <option></option>
+
+                                    <option value="PAID" @if (old('fee_status',$students->fee_status)) {{ 'selected' }} @endif>PAID</option>
+                                    <option value="UNPAID" @if (old('fee_status',$students->fee_status)) {{ 'selected' }} @endif>UNPAID</option>
+                                </select>
+                                {{-- <br>
                                 <small>NB: Fee status is either PAID or  UNPAID</small>
                                 <input type="text" name="fee_status" id="fee_status" class="form-control"
-                                    placeholder="Enter fee status" value="{{ old('fee_status',$students->fee_status) }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
+                                    placeholder="Enter fee status" value="{{ old('fee_status',$students->fee_status) }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);"> --}}
                                 <span class="text-danger">@error('fee_status') {{ $message }} @enderror</span>
                             </div>
                         </div>

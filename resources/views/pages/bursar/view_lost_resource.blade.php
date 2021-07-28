@@ -47,7 +47,7 @@
           <th>Lost Resource Name</th>
           <th>Lost Resource Value(Tshs)</th>
           <th>Status</th>
-          <th>Change Status</th>
+          <th>Update Resource Status</th>
         </tr>
       </thead>
       <tbody>
@@ -64,7 +64,7 @@
           <td>{{ $lostResource->resource_amount }}</td>
           <td>{{ $lostResource->refunded_status }}</td>
           <td>
-            <a href="{{ route('bursar.resource.edit',$lostResource->id) }}" class="btn btn-warning">Change</a>
+            <a href="{{ route('bursar.resource.edit',$lostResource->id) }}" class="btn btn-success">Update</a>
         </td>
         </tr>
         @php

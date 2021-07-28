@@ -108,17 +108,25 @@ class ResourceController extends Controller
         $resourceID = $request->segment(3);
         $status = $request->resource_status;
 
-        if ($status == 'REFUNDED' || $status == 'NOT REFUNDED') {
-            $query = LostResource::where('id', $resourceID)->delete();
+        $query = LostResource::where('id', $resourceID)->delete();
 
-            if ($query) {
-                return redirect(route('bursar.resource.index'))->with('success', 'Student Resource Status updates successfully');
-            } else {
-                return back()->with('warning', 'Fails to update student status, Check your internet connection');
-            }
+        if ($query) {
+            return redirect(route('bursar.resource.index'))->with('success', 'Student Resource Status updates successfully');
         } else {
-            return back()->with('warning', 'You must write the status of lost resource as "REFUNDED" or "NOT REFUNDED" and not other way');
+            return back()->with('warning', 'Fails to update student status, Check your internet connection');
         }
+
+        // if ($status == 'REFUNDED' || $status == 'NOT REFUNDED') {
+        //     $query = LostResource::where('id', $resourceID)->delete();
+
+        //     if ($query) {
+        //         return redirect(route('bursar.resource.index'))->with('success', 'Student Resource Status updates successfully');
+        //     } else {
+        //         return back()->with('warning', 'Fails to update student status, Check your internet connection');
+        //     }
+        // } else {
+        //     return back()->with('warning', 'You must write the status of lost resource as "REFUNDED" or "NOT REFUNDED" and not other way');
+        // }
     }
 
     /**

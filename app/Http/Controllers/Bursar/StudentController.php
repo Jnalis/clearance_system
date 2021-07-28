@@ -87,20 +87,30 @@ class StudentController extends Controller
         $studentID = $request->segment(3);
         $fee_status = $request->fee_status;
 
-        if ($fee_status == 'PAID' || $fee_status == 'UNPAID') {
-            $query = Student::where('id', $studentID)->update([
-                'fee_status' => $fee_status,
-            ]);
+        $query = Student::where('id', $studentID)->update([
+            'fee_status' => $fee_status,
+        ]);
 
-            if ($query) {
-                return redirect(route('bursar.student.index'))->with('success', 'Student fee updates successfully');
-            } else {
-                return back()->with('warning', 'Fails to update student fee, Check your internet connection');
-            }
-            
+        if ($query) {
+            return redirect(route('bursar.student.index'))->with('success', 'Student fee updates successfully');
         } else {
-            return back()->with('warning', 'You must write the fee status as "PAID" or "UNPAID" and not other way');
+            return back()->with('warning', 'Fails to update student fee, Check your internet connection');
         }
+
+        // if ($fee_status == 'PAID' || $fee_status == 'UNPAID') {
+        //     $query = Student::where('id', $studentID)->update([
+        //         'fee_status' => $fee_status,
+        //     ]);
+
+        //     if ($query) {
+        //         return redirect(route('bursar.student.index'))->with('success', 'Student fee updates successfully');
+        //     } else {
+        //         return back()->with('warning', 'Fails to update student fee, Check your internet connection');
+        //     }
+            
+        // } else {
+        //     return back()->with('warning', 'You must write the fee status as "PAID" or "UNPAID" and not other way');
+        // }
         
         
 

@@ -39,7 +39,7 @@
       @endif
     </div>
 
-    <table id="example1" class="table table-bordered table-striped">
+    <table  class="table table-bordered table-striped">
       <p>
         Name of Student: <span style="text-decoration:underline; font-weight:bold">{{ $student_name }}</span>
         Identity Card No: <span style="text-decoration:underline; font-weight:bold">{{ $student_identity }}</span>
@@ -93,16 +93,17 @@
           {{-- property not returned --}}
           <td>
             @if ($clearAllStatus == 1)
-            {{ 'CLEARED' }}
+            {{-- <p style="color: black; font-weight: bold; font-size: 3em;">{{ '-' }}</p> --}}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             @if ($department->dept_code == $resourceDept)
             @if ($issuedResourceName == null)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             {{ $issuedResourceName }}
             @endif
             @else
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @endif
             @endif
           </td>
@@ -110,16 +111,16 @@
           {{-- property not returned value(tshs) --}}
           <td>
             @if ($clearAllStatus == 1)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             @if ($department->dept_code == $resourceDept)
             @if ($issuedResourceValue == null)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             {{ $issuedResourceValue }}
             @endif
             @else
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @endif
             @endif
           </td>
@@ -127,16 +128,16 @@
           {{-- property lost --}}
           <td>
             @if ($clearAllStatus == 1)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             @if ($department->dept_code == $LostResourceDept)
             @if ($lostResourceName == null)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             {{ $lostResourceName }}
             @endif
             @else
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @endif
             @endif
           </td>
@@ -144,16 +145,16 @@
           {{-- property lost value(tshs) --}}
           <td>
             @if ($clearAllStatus == 1)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             @if ($department->dept_code == $LostResourceDept)
             @if ($lostResourceValue == null)
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @else
             {{ $lostResourceValue }}
             @endif
             @else
-            {{ 'CLEARED' }}
+            <p class="text-center m-0">{{ '-' }}</p>
             @endif
             @endif
           </td>
@@ -195,7 +196,7 @@
         </tr>
         <tr>
           <td colspan="4">
-            <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-primary">Download</a>
+            <a href="{{ route('student.download', $clearanceID) }}" onclick="" class="btn btn-primary">Download</a>
           </td>
           <td colspan="4">
             <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
@@ -211,7 +212,6 @@
     <p style="padding: 20px">
 
     </p>
-    </table>
   </div>
   <!-- /.card-body -->
 </div>

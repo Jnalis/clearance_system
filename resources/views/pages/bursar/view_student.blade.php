@@ -47,7 +47,7 @@
                     <th>Entry Year</th>
                     <th>Registered</th>
                     <th>Fee Status</th>
-                    <th>Change Fee Status</th>
+                    <th>Update Fee Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,7 +68,7 @@
                     <td>{{ $student->fee_status }}</td>
                     
                     <td>
-                        <a href="{{ route('bursar.student.edit',$student->id) }}" class="btn btn-warning">Change</a>
+                        <a href="{{ route('bursar.student.edit',$student->id) }}" class="btn btn-success">Update</a>
                     </td>
 
                     

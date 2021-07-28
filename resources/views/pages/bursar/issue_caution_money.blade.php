@@ -66,10 +66,17 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="col-form-label" for="caution_money_status">Caution Money Status</label>
-                                <br>
+                                <select name="caution_money_status" id="caution_money_status" class="form-control select2" style="width: 100%;"
+                                    data-placeholder="Select caution money status">
+                                    <option></option>
+
+                                    <option value="ISSUED" @if (old('caution_money_status',$students->caution_money_status)) {{ 'selected' }} @endif>ISSUED</option>
+                                    <option value="NOT ISSUED" @if (old('caution_money_status',$students->caution_money_status)) {{ 'selected' }} @endif>NOT ISSUED</option>
+                                </select>
+                                {{-- <br>
                                 <small>NB: Caution money status is either ISSUED or  NOT ISSUED</small>
                                 <input type="text" name="caution_money_status" id="caution_money_status" class="form-control"
-                                    placeholder="Enter caution money status" value="{{ old('caution_money_status',$students->caution_money_status) }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);">
+                                    placeholder="Enter caution money status" value="{{ old('caution_money_status',$students->caution_money_status) }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);"> --}}
                                 <span class="text-danger">@error('caution_money_status') {{ $message }} @enderror</span>
                             </div>
                         </div>
