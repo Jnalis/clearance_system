@@ -1,11 +1,15 @@
 @extends('layouts.student')
 @section('title', 'Clearance Status')
 
-
 @section('tableCss')
 <!-- DataTables -->
-<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}" />
-<link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}" />
+{{-- <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}" /> --}}
+
+<!-- DataTables -->
+<link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 @endsection
 
 
@@ -39,7 +43,7 @@
       @endif
     </div>
 
-    <table  class="table table-bordered table-striped">
+    <table id="example1" class="table table-bordered table-striped" id="print">
       <p>
         Name of Student: <span style="text-decoration:underline; font-weight:bold">{{ $student_name }}</span>
         Identity Card No: <span style="text-decoration:underline; font-weight:bold">{{ $student_identity }}</span>
@@ -195,13 +199,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="4">
-            {{-- <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-primary btn_print">Download</a> --}}
-            {{-- <input type="button" id="rep" value="Print" class="btn btn-info btn_print"> --}}
-            <button class="btn btn-primary" onclick="printPDF()">Save</button>
-
-          </td>
-          <td colspan="4">
+          <td colspan="8">
             <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
               class="btn btn-danger">Delete</a>
             <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
@@ -224,35 +222,38 @@
 
 @section('tableScript')
 
-<!-- DataTables -->
+{{-- <!-- DataTables -->
+<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script> --}}
+
 <script src="{{ asset('plugins/datatables/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 <script>
+  // $(function () {
+  //   $("#example1").DataTable({
+  //     responsive: true,
+  //     autoWidth: false,
+  //   });
+  // });
   $(function () {
     $("#example1").DataTable({
-      responsive: true,
-      autoWidth: false,
-    });
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": ["pdf"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
   });
-</script>
-@endsection
-@section('downloadScript')
-<script src="{{ asset('jquery-3.3.1.min.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-
-<script>
-  function printPDF() {
-    // import { jsPDF } from "jspdf"
-
-    // Default export is a4 paper, portrait, using millimeters for units
-    var doc = new jsPDF()
-
-    doc.text("Hello world!", 10, 10)
-    doc.save("a4.pdf")
-  }
-  
 </script>
 @endsection
