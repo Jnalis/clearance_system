@@ -196,7 +196,10 @@
         </tr>
         <tr>
           <td colspan="4">
-            <a href="{{ route('student.download', $clearanceID) }}" onclick="" class="btn btn-primary">Download</a>
+            {{-- <a href="{{ route('student.download', $clearanceID) }}" class="btn btn-primary btn_print">Download</a> --}}
+            {{-- <input type="button" id="rep" value="Print" class="btn btn-info btn_print"> --}}
+            <button class="btn btn-primary" onclick="printPDF()">Save</button>
+
           </td>
           <td colspan="4">
             <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
@@ -212,6 +215,7 @@
     <p style="padding: 20px">
 
     </p>
+    </table>
   </div>
   <!-- /.card-body -->
 </div>
@@ -234,5 +238,21 @@
     });
   });
 </script>
+@endsection
+@section('downloadScript')
+<script src="{{ asset('jquery-3.3.1.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
 
+<script>
+  function printPDF() {
+    // import { jsPDF } from "jspdf"
+
+    // Default export is a4 paper, portrait, using millimeters for units
+    var doc = new jsPDF()
+
+    doc.text("Hello world!", 10, 10)
+    doc.save("a4.pdf")
+  }
+  
+</script>
 @endsection

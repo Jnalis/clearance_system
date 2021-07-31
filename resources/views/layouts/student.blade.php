@@ -234,6 +234,7 @@
 
 
     @yield('tableScript')
+    @yield('downloadScript')
     @yield('selectJs')
 
 </body>
