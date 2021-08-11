@@ -94,17 +94,12 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="col-form-label" for="date_to_return">Returned Date</label>
-
-                                <div class="input-group date" id="date_to_return" data-target-input="nearest">
-                                    <input type="text" name="date_to_return" class="form-control datetimepicker-input"
-                                            data-target="#date_to_return" value="{{ old('date_to_return') }}">
-                                    <div class="input-group-append" data-target="#date_to_return"
-                                            data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                    </div>
-                                </div>
+                                <label for="date_to_return">Returned Date</label>
+                                
+                                <input type="date" name="date_to_return" id="date_to_return" class="form-control"
+                                    value="{{ old('date_to_return') }}">
                                 <span class="text-danger">@error('date_to_return') {{ $message }} @enderror</span>
+
                             </div>
                         </div>
                     </div>
@@ -144,10 +139,20 @@
     })
 
     //Date range picker 
-    $('#date_to_return').datetimepicker({
-        format: 'L',
-        minDate:new Date(), //this prevent user to pick previous date
-    })
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+
+    
+    $('#date_to_return').attr('min', maxDate);
   })
 </script>
 @endsection

@@ -134,6 +134,22 @@
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
+
+    //Date range picker 
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+
+    
+    $('#date_to_return').attr('min', maxDate);
   })
 </script>
 @endsection

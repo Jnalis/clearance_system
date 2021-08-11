@@ -40,7 +40,7 @@
           </div>
           @endif
         </div>
-        
+
         <table id="example1" class="table table-bordered table-striped">
           <thead>
             <tr>
@@ -68,8 +68,7 @@
 
               <td>
                 <a href="{{ route('admin.staff.edit', $staff->id) }}" class="btn btn-warning">Edit</a>
-                <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
-                  class="btn btn-danger">Delete</a>
+                <a href="javascript:void(0)" onclick=" return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
                 <form action="{{ route('admin.staff.destroy', $staff->id) }}" method="post">
                   @method('delete')
                   @csrf

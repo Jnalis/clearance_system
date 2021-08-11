@@ -79,7 +79,6 @@ class InitiateClearanceController extends Controller
                 $lostResourceValue = null;
                 $LostResourceDept = null;
                 $resourceDept = null;
-                
             } else {
                 $clearAllStatus = 0;
 
@@ -231,108 +230,6 @@ class InitiateClearanceController extends Controller
     }
 
 
-
-
-    public function downloadPdf($id)
-    {
-        $student_id = Auth::user()->user_id;
-
-
-
-        /**
-         * this is used to give me some of info from student
-         */
-        $studentFromTableInfo = Student::where('student_id', $student_id)->first();
-        $student_name = $studentFromTableInfo->fullname;
-        $student_program = $studentFromTableInfo->program;
-        $student_department = $studentFromTableInfo->department;
-        $student_identity = $studentFromTableInfo->student_id;
-
-        /** 
-         * this give me clearance info
-         */
-        $clearanceTypeInfo = Clearance::where('student_id', $student_id)->first();
-
-        if ($clearanceTypeInfo) {
-
-            $clearanceID = $clearanceTypeInfo->id;
-
-            $clearanceDate = $clearanceTypeInfo->created_at;
-
-            /**
-             * this is used to give me fee status
-             */
-            if ($clearanceTypeInfo) {
-                $clearanceTypeStatus = 1;
-                $clearanceType = $clearanceTypeInfo->clearance_type;
-                $feeStatus = $clearanceTypeInfo->tuition_fee_status;
-            } else {
-                $clearanceTypeStatus = 0;
-                $clearanceType = 'NO';
-                $feeStatus = 'Initiate clearance to see it';
-            }
-
-            /**
-             * this give me department
-             */
-            $departments = Departments::select(['dept_name', 'dept_code'])->get();
-
-            /**
-             * this give me clearance status
-             */
-            $clearanceStatus = $clearanceTypeInfo->clearance_status;
-
-            /**
-             * this give a value to clear the form
-             */
-            if ($clearanceStatus == 'CLEARED') {
-                $clearAllStatus = 1;
-            } else {
-                $clearAllStatus = 0;
-            }
-
-
-            view()->share('pages.student.view_clearance_status', [
-                // 'clearances' => $clearance,
-                'student_name' => $student_name,
-                'student_program' => $student_program,
-                'student_department' => $student_department,
-                'student_identity' => $student_identity,
-                'clearanceTypeStatus' => $clearanceTypeStatus,
-                'clearanceType' => $clearanceType,
-                'clearanceID' => $clearanceID,
-                'feeStatus' => $feeStatus,
-                'departments' => $departments,
-                'clearanceStatus' => $clearanceStatus,
-                'clearAllStatus' => $clearAllStatus,
-                'clearanceDate' => $clearanceDate,
-            ]);
-
-
-            $pdf = PDF::loadView('pages.student.view_clearance_status', [
-                // 'clearances' => $clearance,
-                'student_name' => $student_name,
-                'student_program' => $student_program,
-                'student_department' => $student_department,
-                'student_identity' => $student_identity,
-                'clearanceTypeStatus' => $clearanceTypeStatus,
-                'clearanceType' => $clearanceType,
-                'clearanceID' => $clearanceID,
-                'feeStatus' => $feeStatus,
-                'departments' => $departments,
-                'clearanceStatus' => $clearanceStatus,
-                'clearAllStatus' => $clearAllStatus,
-                'clearanceDate' => $clearanceDate,
-            ]);
-            return $pdf->download('clearanceDoc.pdf');
-
-        } else {
-            return redirect(route('student.initiateClearance'))->with('info', 'Please initiate a clearance to view your status');
-        }
-    }
-
-
-
     public function create()
     {
         //show the clearance form
@@ -419,11 +316,6 @@ class InitiateClearanceController extends Controller
             return back()->with('danger', 'Please delete your previous clearance and initiate again');
         }
     }
-
-
-
-
-
 
 
     public function deleteClearance($id)

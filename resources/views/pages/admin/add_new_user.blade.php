@@ -41,135 +41,135 @@
                 <form role="form" action="{{ route('admin.staff.store') }}" method="POST">
                     @csrf
                     <div class="result">
-                    @if (Session::get('fail'))
-                    <div class="alert alert-danger">
-                        {{ Session::get('fail') }}
+                        @if (Session::get('fail'))
+                        <div class="alert alert-danger">
+                            {{ Session::get('fail') }}
+                        </div>
+                        @endif
                     </div>
-                    @endif
+                    {{-- names --}}
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-form-label" for="firstname">Firstname</label>
+                                <input type="text" name="firstname" id="firstname" class="form-control"
+                                    placeholder="Enter firstname" value="{{ old('firstname') }}">
+                                <span class="text-danger">@error('firstname') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-form-label" for="secondname">Secondname</label>
+                                <input type="text" name="secondname" id="secondname" class="form-control"
+                                    placeholder="Enter secondname" value="{{ old('secondname') }}">
+                                <span class="text-danger">@error('secondname') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="col-form-label" for="lastname">Lastname</label>
+                                <input type="text" name="lastname" id="lastname" class="form-control"
+                                    placeholder="Enter lastname" value="{{ old('lastname') }}">
+                                <span class="text-danger">@error('lastname') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- username --}}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-form-label" for="username">Username (RegNo)</label>
+                                <input type="text" name="username" id="username" class="form-control"
+                                    placeholder="Enter username" value="{{ old('username') }}">
+                                <span class="text-danger">@error('username') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    {{-- usertype and department --}}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label" for="usertype">User Type</label>
+                                <select name="usertype" id="usertype" class="form-control select2bs4"
+                                    data-placeholder="Select usertype" style="width: 100%;">
+                                    <option></option>
+
+                                    @foreach ($user_type as $item)
+
+                                    <option value="{{ $item->usertype_code }}" @if (old('usertype')=="$item->usertype_code" ) {{ 'selected' }} @endif>
+                                        {{ $item->usertype_name }}</option>
+
+                                    @endforeach
+                                </select>
+                                <span class="text-danger">@error('usertype') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label" for="department">Department</label>
+                                <select name="department" id="department" class="form-control select2bs4"
+                                    data-placeholder="Select department" style="width: 100%;">
+
+                                    <option></option>
+                                    @foreach ($depts as $dept)
+
+                                    <option value="{{ $dept->dept_code }}" @if (old('department')=="$dept->dept_code" )
+                                        {{ 'selected' }} @endif>
+                                        {{ $dept->dept_name }}</option>
+
+                                    @endforeach
+
+                                </select>
+                                <span class="text-danger">@error('department') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{-- password --}}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label" for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control"
+                                    placeholder="Enter password">
+                                <span class="text-danger">@error('password') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="col-form-label" for="password">Repeat Password</label>
+                                <input type="password" name="password2" id="password" class="form-control"
+                                    placeholder="Repeat password">
+                                <span class="text-danger">@error('password2') {{ $message }} @enderror</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+                    </div>
+
+
+                </form>
             </div>
-            {{-- names --}}
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="col-form-label" for="firstname">Firstname</label>
-                        <input type="text" name="firstname" id="firstname" class="form-control"
-                            placeholder="Enter firstname" value="{{ old('firstname') }}">
-                        <span class="text-danger">@error('firstname') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="col-form-label" for="secondname">Secondname</label>
-                        <input type="text" name="secondname" id="secondname" class="form-control"
-                            placeholder="Enter secondname" value="{{ old('secondname') }}">
-                        <span class="text-danger">@error('secondname') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label class="col-form-label" for="lastname">Lastname</label>
-                        <input type="text" name="lastname" id="lastname" class="form-control"
-                            placeholder="Enter lastname" value="{{ old('lastname') }}">
-                        <span class="text-danger">@error('lastname') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- username --}}
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label class="col-form-label" for="username">Username (RegNo)</label>
-                        <input type="text" name="username" id="username" class="form-control"
-                            placeholder="Enter username" value="{{ old('username') }}">
-                        <span class="text-danger">@error('username') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-            </div>
-
-
-
-            {{-- usertype and department --}}
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-form-label" for="usertype">User Type</label>
-                        <select name="usertype" id="usertype" class="form-control select2bs4"
-                        data-placeholder="Select usertype" style="width: 100%;">
-                            <option></option>
-
-                            @foreach ($user_type as $item)
-
-                            <option value="{{ $item->usertype_code }}" @if (old('usertype')=="$item->usertype_code" )
-                                {{ 'selected' }} @endif>{{ $item->usertype_name }}</option>
-
-                            @endforeach
-                        </select>
-                        <span class="text-danger">@error('usertype') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-form-label" for="department">Department</label>
-                        <select name="department" id="department" class="form-control select2bs4"
-                        data-placeholder="Select department" style="width: 100%;">
-
-                            <option></option>
-                            @foreach ($depts as $dept)
-
-                            <option value="{{ $dept->dept_code }}" @if (old('department')=="$dept->dept_code" )
-                                {{ 'selected' }} @endif>
-                                {{ $dept->dept_name }}</option>
-
-                            @endforeach
-
-                        </select>
-                        <span class="text-danger">@error('department') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-            </div>
-
-
-            {{-- password --}}
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-form-label" for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control"
-                            placeholder="Enter password">
-                        <span class="text-danger">@error('password') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label class="col-form-label" for="password">Repeat Password</label>
-                        <input type="password" name="password2" id="password" class="form-control"
-                            placeholder="Repeat password">
-                        <span class="text-danger">@error('password2') {{ $message }} @enderror</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
-            </div>
-
-
-            </form>
+            <!-- /.card-body -->
         </div>
-        <!-- /.card-body -->
+        <!-- /.card -->
     </div>
-    <!-- /.card -->
-</div>
-{{-- /.col (center) --}}
+    {{-- /.col (center) --}}
 
-{{-- right column --}}
-<div class="col-md-1"></div>
-{{-- /.col (right) --}}
+    {{-- right column --}}
+    <div class="col-md-1"></div>
+    {{-- /.col (right) --}}
 </div>
 @endsection
 
