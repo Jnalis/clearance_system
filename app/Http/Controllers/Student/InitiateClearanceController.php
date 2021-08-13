@@ -201,7 +201,7 @@ class InitiateClearanceController extends Controller
                 }
             }
 
-
+// return 'ok';
 
             return view('pages.student.view_clearance_status', [
                 // 'clearances' => $clearance,

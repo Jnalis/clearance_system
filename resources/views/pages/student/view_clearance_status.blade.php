@@ -1,6 +1,10 @@
 @extends('layouts.student')
 @section('title', 'Clearance Status')
 
+@section('print')
+<link rel="stylesheet" media="print" href="{{ asset('style/print.css') }}" />
+@endsection
+
 @section('tableCss')
 
 <!-- DataTables -->
@@ -40,7 +44,8 @@
       @endif
     </div>
 
-    <table id="example1" class="table table-bordered table-striped" id="print">
+
+    <table class="table table-bordered table-striped" id="print">
       <p>
         Name of Student: <span style="text-decoration:underline; font-weight:bold">{{ $student_name }}</span>
         Identity Card No: <span style="text-decoration:underline; font-weight:bold">{{ $student_identity }}</span>
@@ -65,7 +70,7 @@
           {{ $feeStatus }}
           @endif
         </span>
-      </p>  
+      </p>
 
 
       <thead>
@@ -188,32 +193,30 @@
         </tr>
         @endif
       </tbody>
-      <tfoot style="text-align:center">
-        <tr>
-          <td colspan="8">
-            <p>Your clearance status is: <span
-                style="text-decoration:underline; font-weight:bold">{{ $clearanceStatus }}</span></p>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4">
-            <button onclick="window.print()" class="btn btn-info">Save as Pdf Document</button>
-          </td>
-          <td colspan="4">
-            <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
-              class="btn btn-danger">Delete</a>
-            <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
-              @method('delete')
-              @csrf
-            </form>
-          </td>
-        </tr>
-      </tfoot>
     </table>
-    <p style="padding: 20px">
-
+    {{-- <p>
+      Please cashier make recoveries of total of Tshs __________ which is relating to cost of unreturned items as shown in table above and substantiate it with documentary evidence.
+    </p> --}}
+    <p style="text-align:center">Your clearance status is: <span
+        style="text-decoration:underline; font-weight:bold">{{ $clearanceStatus }}</span>
     </p>
-    </table>
+
+
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <a href=""  onclick="window.print()" class="btn btn-info linkToHide">Save as Pdf Document</a>
+      </div>
+      <div class="col-md-3">
+        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger linkToHide">Delete</a>
+        <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
+          @method('delete')
+          @csrf
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
   </div>
   <!-- /.card-body -->
 </div>
@@ -237,7 +240,6 @@
 <script src="{{ asset('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 
 <script>
-
   $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
