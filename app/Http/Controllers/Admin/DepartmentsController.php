@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Departments;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\TryCatch;
 
 class DepartmentsController extends Controller
 {
@@ -131,8 +132,16 @@ class DepartmentsController extends Controller
      */
     public function destroy($id)
     {
-        // dd($id);
-        Departments::destroy($id);
-        return redirect(route('admin.department.index'))->with('success', 'Department deleted successfully');
+        
+        try {
+            // dd($id);
+            Departments::destroy($id);
+            return redirect(route('admin.department.index'))->with('success', 'Department deleted successfully');
+        } catch (\Illuminate\Database\QueryException $ex) {
+            if($ex->getCode() === '23000') {
+                return redirect(route('admin.department.index'))->with('fail', 'You can not delete this department because it is already in use.');
+            } 
+            
+        }
     }
 }

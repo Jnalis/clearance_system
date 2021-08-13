@@ -31,6 +31,14 @@
         </p>
 
         <div class="result">
+          @if (session('fail'))
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('fail') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @endif
           @if (session('success'))
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('success') }}
@@ -68,7 +76,8 @@
 
               <td>
                 <a href="{{ route('admin.staff.edit', $staff->id) }}" class="btn btn-warning">Edit</a>
-                <a href="javascript:void(0)" onclick=" return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+                class="btn btn-danger">Delete</a>
                 <form action="{{ route('admin.staff.destroy', $staff->id) }}" method="post">
                   @method('delete')
                   @csrf

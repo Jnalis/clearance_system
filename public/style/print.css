@@ -1,13 +1,20 @@
 @media print {
+    body {
+        margin: 0;
+        color: #000;
+        background-color: #fff;
+    }
 
-  body {
-    margin: 0;
-    color: #000;
-    background-color: #fff;
-  }
+    footer,
+    .linkToHide {
+        display: none;
+    }
 
-  footer, .linkToHide{
-      display: none;
-  }
-
+    .card-header {
+        text-transform: uppercase;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
 }

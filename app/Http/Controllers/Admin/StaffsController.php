@@ -172,14 +172,20 @@ class StaffsController extends Controller
     public function destroy($id)
     {
         //
-        // return $id;
-        $staff = Staff::find($id);
-        $username = $staff->username;
+        try {
+            // return $id;
+            $staff = Staff::find($id);
+            $username = $staff->username;
 
-        $userID = User::select('id')->firstWhere('user_id', $username)->id;
-        
-        Staff::destroy($id);
-        User::destroy($userID);
-        return redirect(route('admin.staff.index'))->with('success', 'user deleted successfully');
+            $userID = User::select('id')->firstWhere('user_id', $username)->id;
+
+            Staff::destroy($id);
+            User::destroy($userID);
+            return redirect(route('admin.staff.index'))->with('success', 'user deleted successfully');
+        } catch (\Illuminate\Database\QueryException $ex) {
+            if ($ex->getCode() === '23000') {
+                return redirect(route('admin.staff.index'))->with('fail', 'You can not delete this user because it is already in use.');
+            }
+        }
     }
 }
