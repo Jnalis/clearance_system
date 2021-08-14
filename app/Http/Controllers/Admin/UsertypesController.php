@@ -50,7 +50,7 @@ class UsertypesController extends Controller
         ]);
 
         //if form validated successfully then add new usertype
-        
+
         $usertype->usertype_name = $request->usertype_name;
         $usertype->usertype_code = $request->usertype_code;
         $usertype->added_by = Auth::user()->user_id;
@@ -58,7 +58,7 @@ class UsertypesController extends Controller
         $query = $usertype->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.usertype.index'))->with('success','Usertype Added successfully');
+            return redirect(route('admin.usertype.index'))->with('success', 'Usertype Added successfully');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -107,7 +107,7 @@ class UsertypesController extends Controller
         ]);
 
         //if form validated successfully then add new usertype
-        
+
         $usertype->usertype_name = $request->usertype_name;
         $usertype->usertype_code = $request->usertype_code;
         $usertype->added_by = Auth::user()->user_id;
@@ -115,7 +115,7 @@ class UsertypesController extends Controller
         $query = $usertype->save(); //save your data to the model
 
         if ($query) {
-            return redirect(route('admin.usertype.index'))->with('success','Usertype Edited');
+            return redirect(route('admin.usertype.index'))->with('success', 'Usertype Edited');
         } else {
             return back()->with('fail', 'Something went wrong');
         }
@@ -130,7 +130,16 @@ class UsertypesController extends Controller
     public function destroy($id)
     {
         //
-        Usertypes::destroy($id);
-        return redirect(route('admin.usertype.index'))->with('success','Usertype Deleted');
+
+
+        try {
+            // return $id;
+            Usertypes::destroy($id);
+            return redirect(route('admin.usertype.index'))->with('success', 'Usertype Deleted');
+        } catch (\Illuminate\Database\QueryException $ex) {
+            if ($ex->getCode() === '23000') {
+                return redirect(route('admin.usertype.index'))->with('fail', 'You can not delete this because it is in use.');
+            }
+        }
     }
 }

@@ -228,6 +228,7 @@
 
 
       if ($idadiLost > 0) {
+      $lostStatus = 1;
       foreach ($LostResourceInfo as $info) {
       $resourceLostID = $info->lost_resource;
 
@@ -238,6 +239,7 @@
       $nameLost = implode(', ', $resourceNameLost);
       $valueLost = implode(', ', $resourceValueLost);
       } else {
+      $lostStatus = 0;
       $nameLost = null;
       $valueLost = null;
       }
@@ -252,20 +254,31 @@
         @if ($issuedStatus == 1)
         {{ $name }}
         @else
-        {{ $name }}
+        {{ 'NIL' }}
         @endif
       </span> which cost this amount Tshs <span class="info">
         @if ($issuedStatus == 1)
         {{ $value }}
         @else
-        {{ $value }}
+        {{ 'NIL' }}
         @endif
       </span> respectively
-      {{-- <br>
-      You have total of <span class="info">{{ $idadiLost }}</span> of lost resource.
       <br>
-      Lost resource are <span class="info">{{ $nameLost }}</span> which cost this amount Tshs <span
-        class="info">{{ $valueLost }}</span> respectively --}}
+      You have total of <span class="info">{{ $idadiLost }}</span> lost resource.
+      <br>
+      Lost resource are <span class="info">
+        @if ($lostStatus == 1)
+        {{ $nameLost }}
+        @else
+        {{ 'NIL' }}
+        @endif
+      </span> which cost this amount Tshs <span class="info">
+        @if ($lostStatus == 1)
+        {{ $valueLost }}
+        @else
+        {{ 'NIL' }}
+        @endif
+      </span> respectively
 
 
     </p>
