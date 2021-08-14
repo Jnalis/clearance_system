@@ -47,23 +47,23 @@
 
     <table class="table table-bordered table-striped" id="print">
       <p>
-        Name of Student: <span style="text-decoration:underline; font-weight:bold">{{ $student_name }}</span>
-        Identity Card No: <span style="text-decoration:underline; font-weight:bold">{{ $student_identity }}</span>
+        Name of Student: <span class="student_name">{{ $student_name }}</span>
+        Identity Card No: <span class="student_identity">{{ $student_identity }}</span>
       </p>
       <p>
-        Student Program: <span style="text-decoration:underline; font-weight:bold">{{ $student_program }}</span>
-        Student Department: <span style="text-decoration:underline; font-weight:bold">{{ $student_department }}</span>
+        Student Program: <span class="student_program">{{ $student_program }}</span>
+        Student Department: <span class="student_department">{{ $student_department }}</span>
       </p>
       <p>
         Purpose of clearing:
-        <span style="text-decoration:underline; font-weight:bold">
+        <span class="clearance_type">
           @if ($clearanceTypeStatus == 1)
           {{ $clearanceType }}
           @else
           {{ $clearanceType }}
           @endif
         </span>
-        Fee Status: <span style="text-decoration:underline; font-weight:bold">
+        Fee Status: <span class="fee_status">
           @if ($clearanceTypeStatus == 1)
           {{ $feeStatus }}
           @else
@@ -197,19 +197,88 @@
     {{-- <p>
       Please cashier make recoveries of total of Tshs __________ which is relating to cost of unreturned items as shown in table above and substantiate it with documentary evidence.
     </p> --}}
-    <p style="text-align:center">Your clearance status is: <span
-        style="text-decoration:underline; font-weight:bold">{{ $clearanceStatus }}</span>
+    <p class="clearance_status">Your clearance status is: <span class="status">{{ $clearanceStatus }}</span>
     </p>
+    <p>
+      @php
+      $id = Auth::user()->user_id;
+      $IssuedResourceInfo = DB::table('issued_resources')->where('resource_issued_to', $id)->get();
+      $idadi = count($IssuedResourceInfo);
 
+      $LostResourceInfo = DB::table('lost_resources')->where('lost_by', $id)->get();
+      $idadiLost = count($LostResourceInfo);
+
+
+      if ($idadi > 0) {
+      $issuedStatus = 1;
+      foreach ($IssuedResourceInfo as $info) {
+      $resourceIssuedID = $info->resource_issued;
+
+      $resourceInfo = DB::table('resources')->where('id', $resourceIssuedID)->first();
+      $resourceName[] = $resourceInfo->resource_type;
+      $resourceValue[] = $resourceInfo->resource_amount;
+      }
+      $name = implode(', ', $resourceName);
+      $value = implode(', ', $resourceValue);
+      } else {
+      $issuedStatus = 0;
+      $name = null;
+      $value = null;
+      }
+
+
+      if ($idadiLost > 0) {
+      foreach ($LostResourceInfo as $info) {
+      $resourceLostID = $info->lost_resource;
+
+      $resourceInfo = DB::table('resources')->where('id', $resourceLostID)->first();
+      $resourceNameLost[] = $resourceInfo->resource_type;
+      $resourceValueLost[] = $resourceInfo->resource_amount;
+      }
+      $nameLost = implode(', ', $resourceNameLost);
+      $valueLost = implode(', ', $resourceValueLost);
+      } else {
+      $nameLost = null;
+      $valueLost = null;
+      }
+
+
+      @endphp
+
+
+      You have total of <span class="info">{{ $idadi }}</span> of unreturned resource.
+      <br>
+      Unreturned resource are <span class="info">
+        @if ($issuedStatus == 1)
+        {{ $name }}
+        @else
+        {{ $name }}
+        @endif
+      </span> which cost this amount Tshs <span class="info">
+        @if ($issuedStatus == 1)
+        {{ $value }}
+        @else
+        {{ $value }}
+        @endif
+      </span> respectively
+      {{-- <br>
+      You have total of <span class="info">{{ $idadiLost }}</span> of lost resource.
+      <br>
+      Lost resource are <span class="info">{{ $nameLost }}</span> which cost this amount Tshs <span
+        class="info">{{ $valueLost }}</span> respectively --}}
+
+
+    </p>
 
 
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-3">
-        <a href=""  onclick="window.print()" class="btn btn-info linkToHide">Save as Pdf Document</a>
+        <a href="" onclick="window.print()" class="btn btn-info linkToHide">Save as Pdf Document</a>
       </div>
       <div class="col-md-3">
-        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger linkToHide">Delete</a>
+        <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()"
+          class="btn btn-danger linkToHide">Delete</a>
         <form action="{{ route('student.deleteClearance', $clearanceID) }}" method="POST">
           @method('delete')
           @csrf

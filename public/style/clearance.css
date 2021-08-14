@@ -1,0 +1,19 @@
+.student_name,
+.student_identity,
+.student_program,
+.student_department,
+.clearance_type,
+.fee_status {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.clearance_status {
+    text-align: center;
+}
+.status {
+    text-decoration: underline;
+    font-weight: bold;
+}
+.info {
+    font-weight: bold;
+}
