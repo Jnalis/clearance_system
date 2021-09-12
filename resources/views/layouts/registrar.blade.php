@@ -32,6 +32,8 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('style/clearance.css') }}">
+
     @yield('tableCss')
     @yield('selectCss')
 
@@ -141,7 +143,7 @@
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-file"></i>
+                                <i class="nav-icon fas fa-info"></i>
                                 <p>
                                     Clearance Status
                                 </p>

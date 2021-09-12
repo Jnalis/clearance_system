@@ -1,4 +1,4 @@
-@extends('layouts.student')
+@extends('layouts.registrar')
 @section('title', 'Clearance Status')
 
 @section('print')
@@ -17,8 +17,8 @@
 @section('smallNavigation')
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('student.home') }}">Home</a></li>
-    <li class="breadcrumb-item active">Clearance Status</li>
+    <li class="breadcrumb-item"><a href="{{ route('registrar.home') }}">Home</a></li>
+    <li class="breadcrumb-item active">Student Clearance Form</li>
   </ol>
 </div><!-- /.col -->
 
@@ -27,49 +27,23 @@
 @section('content')
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Your clearance status</h3>
+    <h3 class="card-title">Student clearance form</h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
 
-
-    <div class="result">
-      @if (session('success'))
-      <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      @endif
-    </div>
-
-
     <table class="table table-bordered table-striped" id="print">
       <p>
-        Name of Student: <span class="student_name">{{ $student_name }}</span>
-        Identity Card No: <span class="student_identity">{{ $student_identity }}</span>
+        Name of Student: <span class="student_name">{{ $studentStatus->fullname }}</span>
+        Identity Card No: <span class="student_identity">{{ $studentStatus->student_id }}</span>
       </p>
       <p>
-        Student Program: <span class="student_program">{{ $student_program }}</span>
-        Student Department: <span class="student_department">{{ $student_department }}</span>
+        Student Program: <span class="student_program">{{ $studentStatus->program }}</span>
+        Student Department: <span class="student_department">{{ $studentStatus->department }}</span>
       </p>
       <p>
-        Purpose of clearing:
-        <span class="clearance_type">
-          @if ($clearanceTypeStatus == 1)
-          {{ $clearanceType }}
-          @else
-          {{ $clearanceType }}
-          @endif
-        </span>
-        Fee Status: <span class="fee_status">
-          @if ($clearanceTypeStatus == 1)
-          {{ $feeStatus }}
-          @else
-          {{ $feeStatus }}
-          @endif
-        </span>
+        Purpose of clearing: <span class="clearance_type">{{ $studentStatus->clearance_type }}</span>
+        Fee Status: <span class="fee_status">{{ $studentStatus->tuition_fee_status }}</span>
       </p>
 
 
@@ -97,83 +71,72 @@
           <td>{{ $department->dept_name }}</td>
 
           {{-- property not returned --}}
+         
           <td>
-            @if ($clearAllStatus == 1)
-            <p class="text-center m-0">{{ '-' }}</p>
-            @else
-            @if ($department->dept_code == $resourceDept)
-            @if ($issuedResourceName == null)
-            <p class="text-center m-0">{{ '-' }}</p>
-            @else
-            {{ $issuedResourceName }}
-            <p><a href="#go_to_bottom">More Info?</a></p>
-            @endif
-            @else
+            @if ($issuedStatus == 1)
+            @if ($department->dept_code == $issuedResourceDept)
+            <p class="text-center m-0">{{ $issuedResourceName }}</p>
+            <a href="#go_to_bottom">More Info?</a>
+            @else  
             <p class="text-center m-0">{{ '-' }}</p>
             @endif
+            @else
+            <p class="text-center m-0">{{ '-' }}</p>
             @endif
           </td>
 
           {{-- property not returned value(tshs) --}}
+          
           <td>
-            @if ($clearAllStatus == 1)
-            <p class="text-center m-0">{{ '-' }}</p>
+            @if ($issuedStatus == 1)
+            @if ($department->dept_code == $issuedResourceDept)
+            <p class="text-center m-0">{{ $issuedResourceValue }}</p>
+            <a href="#go_to_bottom">More Info?</a>
             @else
-            @if ($department->dept_code == $resourceDept)
-            @if ($issuedResourceValue == null)
-            <p class="text-center m-0">{{ '-' }}</p>
-            @else
-            {{ $issuedResourceValue }}
-            <p><a href="#go_to_bottom">More Info?</a></p>
+            <p class="text-center m-0">{{ '-' }}</p>  
             @endif
             @else
             <p class="text-center m-0">{{ '-' }}</p>
-            @endif
             @endif
           </td>
 
           {{-- property lost --}}
+          
           <td>
-            @if ($clearAllStatus == 1)
-            <p class="text-center m-0">{{ '-' }}</p>
+            @if ($lostStatus == 0)
+            @if ($department->dept_code == $lostResourceDept)
+            <p class="text-center m-0">{{ $lostResourceName }}</p>
+            <a href="#go_to_bottom">More Info?</a>
             @else
-            @if ($department->dept_code == $LostResourceDept)
-            @if ($lostResourceName == null)
             <p class="text-center m-0">{{ '-' }}</p>
-            @else
-            {{ $lostResourceName }}
-            <p><a href="#go_to_bottom">More Info?</a></p>
             @endif
             @else
             <p class="text-center m-0">{{ '-' }}</p>
             @endif
-            @endif
+            
           </td>
 
           {{-- property lost value(tshs) --}}
+         
           <td>
-            @if ($clearAllStatus == 1)
-            <p class="text-center m-0">{{ '-' }}</p>
-            @else
-            @if ($department->dept_code == $LostResourceDept)
-            @if ($lostResourceValue == null)
-            <p class="text-center m-0">{{ '-' }}</p>
-            @else
-            {{ $lostResourceValue }}
-            <p><a href="#go_to_bottom">More Info?</a></p>
-            @endif
+            @if ($lostStatus == 0)
+            @if ($department->dept_code == $lostResourceDept)
+            <p class="text-center m-0">{{ $lostResourceValue }}</p>
+            <a href="#go_to_bottom">More Info?</a>
             @else
             <p class="text-center m-0">{{ '-' }}</p>
             @endif
+            @else
+            <p class="text-center m-0">{{ '-' }}</p>
             @endif
           </td>
 
           {{-- dept status cleared or not --}}
           <td>
-            @if ($clearAllStatus == 1)
+            @if ($clearanceStatus == null)
             {{ 'CLEARED' }}
             @else
-            @if ($department->dept_code == $resourceDept || $department->dept_code == $LostResourceDept)
+            @if ($department->dept_code == $issuedResourceDept || $department->dept_code == $lostResourceDept)
             {{ 'NOT CLEARED' }}
             @else
             {{ 'CLEARED' }}
@@ -183,7 +146,7 @@
 
           {{-- date cleared --}}
           <td>
-            {{ date('d/M/Y', strtotime($clearanceDate)) }}
+            {{ date('d/M/Y', strtotime($studentStatus->created_at)) }}
           </td>
         </tr>
         @php
@@ -197,14 +160,14 @@
         @endif
       </tbody>
     </table>
-
-    <p class="clearance_status">Your clearance status is: <span class="status">{{ $clearanceStatus }}</span>
+    
+    <p class="clearance_status">Student clearance status is: <span class="status">{{ $studentStatus->clearance_status }}</span>
     </p>
 
 
     <p id="go_to_bottom">
       @php
-      $id = Auth::user()->user_id;
+      $id = $studentStatus->student_id;
       $IssuedResourceInfo = DB::table('issued_resources')->where('resource_issued_to', $id)->get();
       $idadi = count($IssuedResourceInfo);
 
@@ -288,7 +251,7 @@
     </p>
 
 
-    <div class="row">
+    {{-- <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-3">
         <a href="" onclick="window.print()" class="btn btn-info linkToHide">Save as Pdf Document</a>
@@ -302,7 +265,7 @@
         </form>
       </div>
       <div class="col-md-3"></div>
-    </div>
+    </div> --}}
   </div>
   <!-- /.card-body -->
 </div>

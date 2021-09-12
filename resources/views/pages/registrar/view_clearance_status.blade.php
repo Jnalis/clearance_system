@@ -57,7 +57,11 @@
                     <td>{{ $no }}</td>
                     <td>{{ $status->fullname }}</td>
                     <td>{{ $status->student_id }}</td>
-                    <td>{{ $status->clearance_status }}</td>
+                    <td>
+                        <a href="{{ route('registrar.clearance.show', $status->id) }}" class="btn btn-info">
+                            {{ $status->clearance_status }}
+                        </a>
+                    </td>
                     <td>
                         <a href="{{ route('registrar.clearance.edit',$status->id) }}" class="btn btn-success">issue</a>
                     </td>

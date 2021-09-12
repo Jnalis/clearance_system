@@ -50,6 +50,7 @@
                         @endif
                     </div>
                     {{-- names --}}
+                    {{-- {{  $students->id }} --}}
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
@@ -70,20 +71,17 @@
                                     data-placeholder="Select caution money status">
                                     <option></option>
 
-                                    <option value="ISSUED" @if (old('caution_money_status',$students->caution_money_status)) {{ 'selected' }} @endif>ISSUED</option>
-                                    <option value="NOT ISSUED" @if (old('caution_money_status',$students->caution_money_status)) {{ 'selected' }} @endif>NOT ISSUED</option>
+                                    <option value="ISSUED" @if (old('caution_money_status',$students->caution_money_status)) {{ 'selected' }} @endif>ISSUE</option>
+                                    {{-- <option value="NOT ISSUED" @if (old('caution_money_status',$students->caution_money_status)) {{ 'selected' }} @endif>NOT ISSUED</option> --}}
                                 </select>
-                                {{-- <br>
-                                <small>NB: Caution money status is either ISSUED or  NOT ISSUED</small>
-                                <input type="text" name="caution_money_status" id="caution_money_status" class="form-control"
-                                    placeholder="Enter caution money status" value="{{ old('caution_money_status',$students->caution_money_status) }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);"> --}}
+                              
                                 <span class="text-danger">@error('caution_money_status') {{ $message }} @enderror</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Change</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Issue Caution Money</button>
                     </div>
 
 

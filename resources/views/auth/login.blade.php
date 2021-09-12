@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
 
-            <p class="login_title">NIT Student Clearance System</p>
+            <p class="login_title">
+                NIT Student Clearance System
+            </p>
 
             <div class="card">
 
@@ -132,4 +134,3 @@
   });
 </script>
 @endsection
-

@@ -16,33 +16,7 @@
 
   <div class="col-lg-3 col-6">
     <!-- small box -->
-    <div class="small-box bg-info">
-      <div class="inner">
-        @php
-        $num = count($clearance);
-
-        if ($num > 0) {
-        echo "<h3>$num</h3>";
-        echo "<p>Clearance</p>";
-        }
-        else {
-        echo "<h3>No Clearance</h3>";
-        }
-        @endphp
-      </div>
-      <div class="icon">
-        <i class="fas fa-file"></i>
-      </div>
-      <a href="{{ route('registrar.clearancetype.index') }}" class="small-box-footer">More info <i
-          class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
-  <!-- ./col -->
-
-
-  <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-success">
+    <div class="small-box bg-secondary">
       <div class="inner">
         @php
         $num = count($students);
@@ -63,7 +37,60 @@
           class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
-  <!-- ./col -->
+
+
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-info">
+      <div class="inner">
+        @php
+        $num = count($clearance);
+
+        if ($num > 0) {
+        echo "<h3>$num</h3>";
+        echo "<p>Clearance type</p>";
+        }
+        else {
+        echo "<h3>No Clearance type</h3>";
+        }
+        @endphp
+      </div>
+      <div class="icon">
+        <i class="fas fa-file"></i>
+      </div>
+      <a href="{{ route('registrar.clearancetype.index') }}" class="small-box-footer">More info <i
+          class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
+      <div class="inner">
+        @php
+        $num = count($status);
+
+        if ($num > 0) {
+        echo "<h3>$num</h3>";
+        echo "<p>Clearance Status</p>";
+        }
+        else {
+        echo "<h3>No Clearance Status</h3>";
+        }
+        @endphp
+      </div>
+      <div class="icon">
+        <i class="fas fa-info"></i>
+      </div>
+      <a href="{{ route('registrar.clearance.index') }}" class="small-box-footer">More info <i
+          class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+
+
+ 
+ 
 </div>
 
 </div>

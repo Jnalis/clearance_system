@@ -68,7 +68,7 @@
                             <div class="form-group">
                                 <label class="col-form-label" for="resource">Resource</label>
                                 <input type="text" name="resource" id="resource" class="form-control"
-                                    placeholder="Enter resource" value="{{ old('resource',$resourceInfo->resource_type.', '.$resourceInfo->resource_amount) }}" disabled>
+                                    placeholder="Enter resource" value="{{ old('resource',$resourceInfo->resource_type.', Tshs '.$resourceInfo->resource_amount) }}" disabled>
                                 <span class="text-danger">@error('resource') {{ $message }} @enderror</span>
                             </div>
                         </div>
@@ -83,13 +83,10 @@
                                     data-placeholder="Select fee status">
                                     <option></option>
 
-                                    <option value="REFUNDED" @if (old('resource_status',$resources->refunded_status)) {{ 'selected' }} @endif>REFUNDED</option>
-                                    <option value="NOT REFUNDED" @if (old('resource_status',$resources->refunded_status)) {{ 'selected' }} @endif>NOT REFUNDED</option>
+                                    <option value="REFUNDED" @if (old('resource_status',$resources->refunded_status)) {{ 'selected' }} @endif>REFUND</option>
+                                    {{-- <option value="NOT REFUNDED" @if (old('resource_status',$resources->refunded_status)) {{ 'selected' }} @endif>NOT REFUNDED</option> --}}
                                 </select>
-                                {{-- <br>
-                                <small>NB: Resource status is either REFUNDED or  NOT REFUNDED</small>
-                                <input type="text" name="resource_status" id="resource_status" class="form-control"
-                                    placeholder="Enter Resource Status" value="{{ old('resource_status',$resources->refunded_status) }}" oninput="let p=this.selectionStart;this.value=this.value.toUpperCase();this.setSelectionRange(p, p);"> --}}
+                                
                                 <span class="text-danger">@error('resource_status') {{ $message }} @enderror</span>
                             </div>
                         </div>

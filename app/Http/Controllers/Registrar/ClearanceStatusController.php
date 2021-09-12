@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Registrar;
 use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use App\Models\Clearance;
+use App\Models\Departments;
+use App\Models\IssuedResource;
+use App\Models\LostResource;
+use App\Models\Resource;
+use App\Models\Staff;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,8 +26,9 @@ class ClearanceStatusController extends Controller
         //
         $clearanceStatus = Student::join('clearances', 'clearances.student_id', '=', 'students.student_id')->get();
 
-        return view('pages.registrar.view_clearance_status', ['clearanceStatus' => $clearanceStatus]);
-
+        return view('pages.registrar.view_clearance_status', [
+            'clearanceStatus' => $clearanceStatus,
+        ]);
     }
 
     /**
@@ -55,6 +61,82 @@ class ClearanceStatusController extends Controller
     public function show($id)
     {
         //
+        // return $id;
+        $department = Departments::all();
+
+
+        $studentStatus = Student::join('clearances', 'clearances.student_id', '=', 'students.student_id')->where('clearances.id', $id)->first();
+
+        $student_id = $studentStatus->student_id;
+
+        //! student information from issued table
+        $issuedInfo = IssuedResource::where('resource_issued_to', $student_id)->first();
+
+        if ($issuedInfo) {
+            $issuedStatus = 1;
+            $clearanceStatus = 'NOT CLEARED';
+            //! give me id of the resource issued to student
+            $resourceIssuedId = IssuedResource::select('resource_issued')->firstWhere('resource_issued_to', $student_id)->resource_issued;
+
+            //! give me resource info
+            $resourceInfo = Resource::where('id', $resourceIssuedId)->first();
+            $allocatedTo = $resourceInfo->allocated_to;
+            $resourceDept = Staff::select('dept_code')->firstWhere('username', $allocatedTo)->dept_code;
+
+
+            $issuedResourceName = $resourceInfo->resource_type;
+            $issuedResourceValue = $resourceInfo->resource_amount;
+            $issuedResourceDept = $resourceDept;
+        } else {
+            $issuedResourceName = null;
+            $issuedResourceValue = null;
+            $issuedStatus = null;
+            $issuedResourceDept = null;
+            $clearanceStatus = null;
+        }
+
+
+        //! student information from lost table
+        $lostInfo = LostResource::where('lost_by', $student_id)->first();
+
+        if ($lostInfo) {
+            $lostStatus = 0;
+            $clearanceStatus = 'NOT CLEARED';
+            //! give me id of the resource lost by student
+            $resourceLostId = LostResource::select('lost_resource')->firstWhere('lost_by', $student_id)->lost_resource;
+
+            //! give me resource info
+            $resourceInfo = Resource::where('id', $resourceLostId)->first();
+            $allocatedTo = $resourceInfo->allocated_to;
+            $resourceDept = Staff::select('dept_code')->firstWhere('username', $allocatedTo)->dept_code;
+
+            $lostResourceName = $resourceInfo->resource_type;
+            $lostResourceValue = $resourceInfo->resource_amount;
+            $lostResourceDept = $resourceDept;
+        } else {
+            $lostResourceName = null;
+            $lostResourceValue = null;
+            $lostStatus = null;
+            $lostResourceDept = null;
+            $clearanceStatus = null;
+        }
+
+
+
+
+        return view('pages.registrar.view_clearance_form', [
+            'studentStatus' => $studentStatus,
+            'departments' => $department,
+            'issuedResourceName' => $issuedResourceName,
+            'issuedResourceValue' => $issuedResourceValue,
+            'lostResourceName' => $lostResourceName,
+            'lostResourceValue' => $lostResourceValue,
+            'issuedStatus' => $issuedStatus,
+            'lostStatus' => $lostStatus,
+            'issuedResourceDept' => $issuedResourceDept,
+            'lostResourceDept' => $lostResourceDept,
+            'clearanceStatus' => $clearanceStatus,
+        ]);
     }
 
     /**
@@ -108,8 +190,6 @@ class ClearanceStatusController extends Controller
         } else {
             return back()->with('warning', 'Check your internet connection');
         }
-        
-        
     }
 
     /**

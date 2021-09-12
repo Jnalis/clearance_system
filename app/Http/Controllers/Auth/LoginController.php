@@ -37,43 +37,47 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt([
-            'user_id' => $request->user_id,
-            'password' => $request->password,
-        ])) {
+        try {
+            //code...
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+        $loginInfo = Auth::attempt(
+            [
+                'user_id' => $request->user_id,
+                'password' => $request->password,
+            ]
+        );
+
+        if ($loginInfo) {
             if (Auth::user()->user_type == 'Admin') {
 
                 return redirect(route('admin.home'));
-                
             } else if (Auth::user()->user_type == 'HOD') {
 
                 return redirect(route('hod.home'));
-
             } else if (Auth::user()->user_type == 'RA') {
 
                 return redirect(route('ra.home'));
-
             } else if (Auth::user()->user_type == 'Dean') {
 
                 return redirect(route('dean.home'));
-
             } else if (Auth::user()->user_type == 'Registrar') {
 
                 return redirect(route('registrar.home'));
-                
             } else if (Auth::user()->user_type == 'Bursar') {
 
                 return redirect(route('bursar.home'));
-                
             } else if (Auth::user()->user_type == 'Student') {
-                
+
                 return redirect(route('student.home'));
             }
         } else {
-            return back()->with('fail','Check your credentials');
+            return back()->with('fail', 'Check your credentials');
         }
     }
-    
+
     /**
      * Create a new controller instance.
      *

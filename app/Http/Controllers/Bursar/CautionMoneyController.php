@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Bursar;
 
 use App\Http\Controllers\Controller;
+use App\Models\Clearance;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -13,12 +14,14 @@ class CautionMoneyController extends Controller
     {
         // return $id;
 
-        $students = Student::select([
+        // die();
+
+        $students = Clearance::select([
             'students.id',
             'students.fullname',
             'students.student_id',
             'students.caution_money_status'
-        ])->join('clearances', 'clearances.student_id', '=', 'students.student_id')->first();
+        ])->join('students', 'students.student_id', '=', 'clearances.student_id')->where('clearances.id', $id)->first();
 
 
         return view('pages.bursar.issue_caution_money', [
