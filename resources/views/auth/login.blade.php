@@ -28,7 +28,7 @@
 
 
                         <div class="col-md-6">
-                            <p class="login text-center">Welcome Back!</p>
+                            <p class="login text-center">Welcome!</p>
 
                             <div class="result">
                                 @if (session('fail'))

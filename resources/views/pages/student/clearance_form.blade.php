@@ -23,9 +23,9 @@
 
     {{-- center column --}}
     <div class="col-md-6">
-        <div class="card card-warning">
+        <div class="card card-info">
             <div class="card-header">
-                <h3 class="card-title text-uppercase">Please choose the type of clearance you want carefully</h3>
+                <h3 class="card-title text-uppercase text-center">Please choose clearance type.</h3>
             </div>
             <!-- /.card-header -->
 
