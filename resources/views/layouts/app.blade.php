@@ -21,6 +21,10 @@
 
 
     <link href="{{ asset('style/styles.css') }}" rel="stylesheet">
+
+    {{-- favicon --}}
+    <link rel="icon" href="{{ asset('dist/img/nit.png') }}" sizes="114x114">
+
 </head>
 <body>
     <div id="app">

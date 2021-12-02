@@ -32,6 +32,9 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 
+    {{-- favicon --}}
+    <link rel="icon" href="{{ asset('dist/img/nit.png') }}" sizes="114x114">
+
 
     @yield('tableCss')
     @yield('selectCss')
@@ -50,12 +53,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('admin.home') }}" class="nav-link">Home</a>
                 </li>
-
-                {{-- <li class="nav-item d-none d-sm-inline-block">
-                    <p class="nav-link">
-                        Welcome: {{ Auth::user()->user_id }}
-                    </p>
-                </li> --}}
+                
             </ul>
 
             <!-- Right navbar links -->

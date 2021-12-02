@@ -34,6 +34,10 @@
 
     <link rel="stylesheet" href="{{ asset('style/clearance.css') }}">
 
+
+    {{-- favicon --}}
+    <link rel="icon" href="{{ asset('dist/img/nit.png') }}" sizes="114x114">
+
     @yield('tableCss')
     @yield('selectCss')
 
