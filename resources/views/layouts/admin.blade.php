@@ -142,14 +142,14 @@
                             </a>
                         </li>
                         {{-- <li class="nav-item">
-                            <a href="{{ route('admin.systemlog.index') }}" class="nav-link
+                            <a href="{{ route('admin.user_settings.index') }}" class="nav-link
                                 @if($segment == 'systemlog') 
                                     active
                                 @endif
                             ">
-                                <i class="nav-icon fas fa-info"></i>
+                                <i class="nav-icon fas fa-user-cog"></i>
                                 <p>
-                                    System Logs
+                                    User Setting
                                 </p>
                             </a>
                         </li> --}}

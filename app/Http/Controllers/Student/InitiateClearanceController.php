@@ -34,7 +34,7 @@ class InitiateClearanceController extends Controller
         $student_department = $studentFromTableInfo->department;
         $student_identity = $studentFromTableInfo->student_id;
 
-        /** 
+        /**
          * this give me clearance info
          */
         $clearanceTypeInfo = Clearance::where('student_id', $student_id)->first();

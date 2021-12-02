@@ -41,6 +41,7 @@ Route::group(['middleware' => 'back'], function () {
         Route::resource('/department', 'DepartmentsController');
         Route::resource('/usertype', 'UsertypesController');
         Route::resource('/systemlog', 'SystemlogsController');
+        Route::resource('/user_settings', 'UserSettingsController');
     });
 
 
